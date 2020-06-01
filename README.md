@@ -1,2 +1,16 @@
 # CO3808-Thesis
-Final Year Project - Uclan Cyprus
+Games Development Final year project.
+
+## Title
+Snap out Farmer
+
+## Project Context
+For my Final year project, I have decided to make a game that uses unique ways to teach the player that things you love aren’t always what you hope for. In this project I will find a way to implement the game using all the things I have learned from years of experience in the Unity3D engine and C# language. I have landed on the idea of using a manager-based game that can be split into modules making it easy to remove or add features without changing much or any of the code, rather than just disabling a specific manager. This approach does have a lot of benefits as it becomes harder and more complex the more managers and controllers you add on to it, the reason is because one of the managers may interfere with the actions that another one also controls or modifies. This game will be set in a medieval time period with a low polygon themed inspired by the well-known game World of Warcraft, having quest and interactions with the environment in order to proceed the story of the game.
+
+## Versions
+### 20w16a:
+Created player, Movement manager, Camera manager, Intro to raycast manager (Interaction system)
+#### bugs:
+B1) Fixed - viewer Vector3 is zero      <br/>
+B2) Fixed - rotation reseting unwanted  <br/>
+B3) Fixed - zooming inverted            <br/>
