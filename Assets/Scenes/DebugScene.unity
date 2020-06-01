@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 104539351}
   - component: {fileID: 104539350}
   - component: {fileID: 104539354}
+  - component: {fileID: 104539355}
   m_Layer: 8
   m_Name: Magenta Cube
   m_TagString: Untagged
@@ -231,6 +232,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &104539355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104539349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdec398ee175634f839b2d21f04879a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2
 --- !u!1 &362014692
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +337,7 @@ GameObject:
   - component: {fileID: 498131546}
   - component: {fileID: 498131545}
   - component: {fileID: 498131549}
+  - component: {fileID: 498131550}
   m_Layer: 8
   m_Name: White Cube
   m_TagString: Untagged
@@ -398,7 +413,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498131544}
   m_LocalRotation: {x: -0, y: 0.1458257, z: -0, w: 0.9893104}
-  m_LocalPosition: {x: -5.19, y: 2.6, z: -3.75}
+  m_LocalPosition: {x: -5.19, y: 0.69, z: 1.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -420,6 +435,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &498131550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498131544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdec398ee175634f839b2d21f04879a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2
 --- !u!1 &685531868
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +461,7 @@ GameObject:
   - component: {fileID: 685531870}
   - component: {fileID: 685531869}
   - component: {fileID: 685531873}
+  - component: {fileID: 685531874}
   m_Layer: 8
   m_Name: Yellow Cube
   m_TagString: Untagged
@@ -508,7 +537,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685531868}
   m_LocalRotation: {x: -0, y: -0.16045912, z: -0, w: 0.9870425}
-  m_LocalPosition: {x: -5.26, y: 1.58, z: -3.8079996}
+  m_LocalPosition: {x: -1.73, y: 0.49, z: -6.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -530,6 +559,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &685531874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685531868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdec398ee175634f839b2d21f04879a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,7 +795,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -895,6 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb300cc6b36df1e4baefe9df5023cbc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  focus: {fileID: 0}
   FocusMask:
     serializedVersion: 2
     m_Bits: 256
@@ -925,6 +968,7 @@ GameObject:
   - component: {fileID: 1678630014}
   - component: {fileID: 1678630013}
   - component: {fileID: 1678630017}
+  - component: {fileID: 1678630018}
   m_Layer: 8
   m_Name: Green Cube
   m_TagString: Untagged
@@ -1000,7 +1044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678630012}
   m_LocalRotation: {x: -0, y: 0.07086685, z: -0, w: 0.9974858}
-  m_LocalPosition: {x: -5.09, y: 0.521, z: -3.11}
+  m_LocalPosition: {x: -1.44, y: 0.521, z: 6.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1022,3 +1066,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1678630018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678630012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdec398ee175634f839b2d21f04879a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2
