@@ -24,37 +24,23 @@ public class FocusController : MonoBehaviour
         {
             // creating a ray from the screen to a point in game
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
 
-            // if the ray hits a specific "layer" in game
-            if (Physics.Raycast(ray, out hit, rayCastRange, FocusMask))
+            // if the ray hits an object with a focus layer
+            if (Physics.Raycast(ray, out RaycastHit hit, rayCastRange, FocusMask))  // inline variable declaration for RaycastHit
             {
                 InteractPoint interaction = hit.collider.GetComponent<InteractPoint>();
 
                 if (interaction != null)
                 {
-                    // focus player to specific item
-                    Debug.Log("DEBUG: focused " + hit.collider.name);
-                    
+                    Debug.Log("DEBUG: focusing " + interaction.name);
                     Focus(interaction);
                 }
-                else
-                {
-                    // defocus player from any other focused items
-                    Debug.Log("DEBUG: defocused " + hit.collider.name);
-            
-                    DeFocus();
-                }
             }
-
-            //// if the ray hits a specific "layer" in game
-            //if (Physics.Raycast(ray, out hit, rayCastRange, FocusMask))
-            //{
-            //    InteractPoint interaction = hit.collider.GetComponent<InteractPoint>();
-            //    if (interaction != null)
-            //    {
-            //    }
-            //}
+            else if (Physics.Raycast(ray, rayCastRange) && focus != null)
+            {
+                Debug.Log("DEBUG: defocusing " + focus.name);
+                DeFocus();
+            }
         }
     }
 
