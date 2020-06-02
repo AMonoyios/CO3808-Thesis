@@ -17,4 +17,6 @@ B3) Fixed - zooming inverted            <br/>
 ### 20w23a:
 Added on focus controller, Intro to interaction point
 #### bugs:
-B4) Working - Focus items do not defocus, they override <br/>
+B4) Fixed - Focus items do not defocus, they override <br/>
+### 20w23b:
+Worked on fixing bug in defocusing an interact point
