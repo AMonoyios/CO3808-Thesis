@@ -14,3 +14,7 @@ Created player, Movement manager, Camera manager, Intro to raycast manager (Inte
 B1) Fixed - viewer Vector3 is zero      <br/>
 B2) Fixed - rotation reseting unwanted  <br/>
 B3) Fixed - zooming inverted            <br/>
+### 20w23a:
+Added on focus controller, Intro to interaction point
+#### bugs:
+B4) Working - Focus items do not defocus, they override <br/>
