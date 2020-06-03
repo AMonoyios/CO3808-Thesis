@@ -2,7 +2,7 @@
 
 public class InteractPoint : MonoBehaviour
 {
-    [Range(1.0f,4.0f)]
+    [Range(1.25f,4.0f)]
     public float radius = 2.0f;
 
     public Transform interactionPoint;
