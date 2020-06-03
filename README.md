@@ -14,14 +14,20 @@ Created player, Movement manager, Camera manager, Intro to raycast manager (Inte
 B1) Fixed - viewer Vector3 is zero      <br/>
 B2) Fixed - rotation reseting unwanted  <br/>
 B3) Fixed - zooming inverted            <br/>
+
 ### 20w23a:
 Added on focus controller, Intro to interaction point
 #### bugs:
 B4) Fixed - Focus items do not defocus, they override <br/>
+
 ### 20w23b:
 Worked on fixing bug in defocusing an interact point <br/>
+
 ### 20w23c:
 Finished focus controller, Finished interaction system
 #### bugs:
-B5) Pending - When interacting with an object and leaving the interaction area the interaction doesn't "pause" <br/>
-B6) Working - Small Interaction items don't work
+B5) Pending - When interacting with an object and leaving the interaction area the interaction doesn't "pause"  <br/>
+B6) Fixed - Small Interaction items don't work                                                                  <br/>
+
+### 20w23d:
+Created model for coin and textures/materials for it, re-orginized files in unity <br/>
