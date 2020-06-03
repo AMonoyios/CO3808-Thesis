@@ -19,4 +19,9 @@ Added on focus controller, Intro to interaction point
 #### bugs:
 B4) Fixed - Focus items do not defocus, they override <br/>
 ### 20w23b:
-Worked on fixing bug in defocusing an interact point
+Worked on fixing bug in defocusing an interact point <br/>
+### 20w23c:
+Finished focus controller, Finished interaction system
+#### bugs:
+B5) Pending - When interacting with an object and leaving the interaction area the interaction doesn't "pause" <br/>
+B6) Working - Small Interaction items don't work
