@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 104539354}
   - component: {fileID: 104539355}
   m_Layer: 8
-  m_Name: Magenta Cube
+  m_Name: Enemy (Magenta Cube)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.31, y: 0.521, z: -2.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1655661113}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -245,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
+  interactionPoint: {fileID: 1655661113}
 --- !u!1 &362014692
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +341,7 @@ GameObject:
   - component: {fileID: 498131549}
   - component: {fileID: 498131550}
   m_Layer: 8
-  m_Name: White Cube
+  m_Name: Equipment (White Cube)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -447,7 +449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdec398ee175634f839b2d21f04879a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
+  radius: 1
+  interactionPoint: {fileID: 498131548}
 --- !u!1 &685531868
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +466,7 @@ GameObject:
   - component: {fileID: 685531873}
   - component: {fileID: 685531874}
   m_Layer: 8
-  m_Name: Yellow Cube
+  m_Name: 1 Coin (Yellow Cube)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -571,7 +574,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdec398ee175634f839b2d21f04879a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
+  radius: 1
+  interactionPoint: {fileID: 685531872}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +770,36 @@ MonoBehaviour:
   ZoomSpeed: 4
   minZoom: 4
   maxZoom: 13
+--- !u!1 &1002212585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1002212586}
+  m_Layer: 8
+  m_Name: Interaction Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1002212586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002212585}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04, y: 0, z: 0.84}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1678630016}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1035042903
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb300cc6b36df1e4baefe9df5023cbc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayCastRange: 30
   focus: {fileID: 0}
   FocusMask:
     serializedVersion: 2
@@ -955,6 +990,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 3
   RotationSpeed: 7
+--- !u!1 &1655661112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1655661113}
+  m_Layer: 8
+  m_Name: Interaction Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1655661113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655661112}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.26, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 104539353}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1678630012
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +1035,7 @@ GameObject:
   - component: {fileID: 1678630017}
   - component: {fileID: 1678630018}
   m_Layer: 8
-  m_Name: Green Cube
+  m_Name: Loot Chest (Green Cube)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1043,13 +1108,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678630012}
-  m_LocalRotation: {x: -0, y: 0.07086685, z: -0, w: 0.9974858}
-  m_LocalPosition: {x: -1.44, y: 0.521, z: 6.44}
+  m_LocalRotation: {x: 0.0000000082421545, y: -0.9887306, z: -0.00000011601239, w: -0.14970568}
+  m_LocalPosition: {x: -2.16, y: 0.521, z: 6.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1002212586}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 8.128, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -197.21999, z: 0}
 --- !u!54 &1678630017
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1078,4 +1144,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdec398ee175634f839b2d21f04879a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
+  radius: 1.2
+  interactionPoint: {fileID: 1002212586}

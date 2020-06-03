@@ -5,7 +5,9 @@ using UnityEngine;
 public class FocusController : MonoBehaviour
 {
     private Camera cam;
-    private float rayCastRange = 30.0f;
+
+    [Range(10.0f,40.0f)]
+    public float rayCastRange = 30.0f;
 
     public InteractPoint focus;
     public LayerMask FocusMask;
@@ -30,27 +32,42 @@ public class FocusController : MonoBehaviour
             {
                 InteractPoint interaction = hit.collider.GetComponent<InteractPoint>();
 
+                // if the ray actually hit anything
                 if (interaction != null)
                 {
-                    Debug.Log("DEBUG: focusing " + interaction.name);
-                    Focus(interaction);
+                    // if we don't have a focused item already
+                    if (focus == null)
+                    {
+                        Focus(interaction);
+                    }
+                    // if the item that we are trying to focus is not already focused
+                    else if (focus.name != interaction.name)
+                    {
+                        DeFocus();
+                        Focus(interaction);
+                    }
                 }
             }
             else if (Physics.Raycast(ray, rayCastRange) && focus != null)
             {
-                Debug.Log("DEBUG: defocusing " + focus.name);
                 DeFocus();
             }
         }
     }
 
+    // focusing a specific interactable item
     void Focus (InteractPoint newFocus)
     {
+        Debug.Log("DEBUG: focusing " + newFocus.name);
         focus = newFocus;
+        newFocus.OnFocused(this.transform);
     }
 
+    // Defocusing interactable item
     void DeFocus()
     {
+        Debug.Log("DEBUG: defocusing " + focus.name);
+        focus.OnDeFocused();
         focus = null;
     }
 }
