@@ -31,3 +31,6 @@ B6) Fixed - Small Interaction items don't work                                  
 
 ### 20w23d:
 Created model for coin and textures/materials for it, re-orginized files in unity <br/>
+
+### 20w23e:
+Started model for loot chest <br/>
