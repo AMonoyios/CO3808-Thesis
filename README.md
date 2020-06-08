@@ -9,14 +9,18 @@ For my Final year project, I have decided to make a game that uses unique ways t
 
 ## Versions
 ### 20w16a:
-Created player, Movement manager, Camera manager, Intro to raycast manager (Interaction system)
+Created player                                <br/> 
+Movement manager                              <br/>
+Camera manager                                <br/>
+Intro to raycast manager (Interaction system) <br/>
 #### bugs:
 B1) Fixed - viewer Vector3 is zero      <br/>
 B2) Fixed - rotation reseting unwanted  <br/>
 B3) Fixed - zooming inverted            <br/>
 
 ### 20w23a:
-Added on focus controller, Intro to interaction point
+Added on focus controller   <br/>
+Intro to interaction point  <br/>
 #### bugs:
 B4) Fixed - Focus items do not defocus, they override <br/>
 
@@ -24,13 +28,15 @@ B4) Fixed - Focus items do not defocus, they override <br/>
 Worked on fixing bug in defocusing an interact point <br/>
 
 ### 20w23c:
-Finished focus controller, Finished interaction system
+Finished focus controller   <br/>
+Finished interaction system <br/>
 #### bugs:
 B5) Pending - When interacting with an object and leaving the interaction area the interaction doesn't "pause"  <br/>
 B6) Fixed - Small Interaction items don't work                                                                  <br/>
 
 ### 20w23d:
-Created model for coin and textures/materials for it, re-orginized files in unity <br/>
+Created model for coin and textures/materials for it  <br/>
+re-orginized files in unity                           <br/>
 
 ### 20w23e:
 Started model for loot chest <br/>
