@@ -41,4 +41,5 @@ Created a script for Custom Scriptable Objects  <br/>
 Implemented a player stats system               <br/>
 Implemented a Currency Loot script              <br/>
 Player has a working Balance                    <br/>
-
+#### bugs:
+B7) Fixed - After picking up items the interaction in PlayerFocus is pointing to missing <br/>
