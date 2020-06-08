@@ -34,3 +34,11 @@ Created model for coin and textures/materials for it, re-orginized files in unit
 
 ### 20w23e:
 Started model for loot chest <br/>
+
+### 20w24a:
+Re-Modeled coins <br/>
+Created a script for Custom Scriptable Objects  <br/>
+Implemented a player stats system               <br/>
+Implemented a Currency Loot script              <br/>
+Player has a working Balance                    <br/>
+
