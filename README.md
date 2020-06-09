@@ -49,3 +49,10 @@ Implemented a Currency Loot script              <br/>
 Player has a working Balance                    <br/>
 #### bugs:
 B7) Fixed - After picking up items the interaction in PlayerFocus is pointing to missing <br/>
+
+### 20w24b:
+Implemented the basics for an inventory manager                      <br/>
+Added singletons and delegates to update inventory manager and items <br/>
+Player has a semi working LootItem->Inventory connection             <br/>
+#### bugs:
+B8) Working - When inventory slots are all full the invoke points to a null item reference <br/>
