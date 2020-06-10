@@ -56,3 +56,10 @@ Added singletons and delegates to update inventory manager and items <br/>
 Player has a semi working LootItem->Inventory connection             <br/>
 #### bugs:
 B8) Working - When inventory slots are all full the invoke points to a null item reference <br/>
+
+### 20w24c:
+Started convertion from LWRP to URP rendering pipeline                            <br/>
+Created a shader for the hidden interactables                                     <br/>
+Started creating a glow effect when the player hovers mouse over an interactable  <br/>
+#### bugs:
+B9) Pending - some interactables do not glow when in a specific area/angle  <br/>
