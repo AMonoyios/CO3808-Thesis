@@ -7,15 +7,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Outline Material
-  m_Shader: {fileID: -6465566751694194690, guid: 0be34de2516f8dd4ea9a55fb83648297,
-    type: 3}
+  m_Name: mat2
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 1
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -49,18 +49,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_1063F516: 0
-    - Vector1_1C8EC011: 0.01
-    - Vector1_20C5C51E: 0
-    - Vector1_35CA0AFF: 0.5
-    - Vector1_45934516: 0.65
-    - Vector1_4FE5794F: 1
-    - Vector1_6F6D6284: 0.217
-    - Vector1_71740DFF: 3
-    - Vector1_81DD68F5: 0.7
-    - Vector1_91132A0E: 4
-    - Vector1_9393F083: 5
-    - Vector1_C55CEAC: 0.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -83,14 +71,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_35E28ECD: {r: 1, g: 1, b: 1, a: 0}
-    - Color_74D06B4C: {r: 1, g: 0.9080915, b: 0, a: 0}
-    - Color_881EE46A: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0, g: 1, b: 0.21097255, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
---- !u!114 &6818820009679966356
+--- !u!114 &5768627076784431522
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

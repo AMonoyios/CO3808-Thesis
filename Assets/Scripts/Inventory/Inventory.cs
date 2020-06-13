@@ -33,8 +33,12 @@ public class Inventory : MonoBehaviour
             {
                 items.Add(item);
 
+                
                 // update the inventory UI
-                CallItemUpdated.Invoke();
+                if (CallItemUpdated != null)    // B9 fix
+                {
+                    CallItemUpdated.Invoke();
+                }
             }
             else
             {
@@ -52,6 +56,9 @@ public class Inventory : MonoBehaviour
         items.Remove(item);
 
         // update the inventory UI
-        CallItemUpdated.Invoke();
+        if (CallItemUpdated != null)    // B9 fix
+        {
+            CallItemUpdated.Invoke();
+        }
     }
 }
