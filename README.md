@@ -55,11 +55,18 @@ Implemented the basics for an inventory manager                      <br/>
 Added singletons and delegates to update inventory manager and items <br/>
 Player has a semi working LootItem->Inventory connection             <br/>
 #### bugs:
-B8) Working - When inventory slots are all full the invoke points to a null item reference <br/>
+B8) Fixed - When inventory slots are all full the invoke points to a null item reference <br/>
 
 ### 20w24c:
 Started convertion from LWRP to URP rendering pipeline                            <br/>
 Created a shader for the hidden interactables                                     <br/>
 Started creating a glow effect when the player hovers mouse over an interactable  <br/>
 #### bugs:
-B9) Pending - some interactables do not glow when in a specific area/angle  <br/>
+B9) Fixed - some interactables do not glow when in a specific area/angle  <br/>
+
+### 20w24d:
+Changed method of indicating interactable material using PBR shaders  <br/>
+Added PostProcessing volume and layer                                 <br/>
+Fixed bugs and optimised code layout                                  <br/>
+#### bugs:
+B10) Working - Coin piles do not glow correctly, needs re-modeling    <br/>
