@@ -6,21 +6,15 @@ public class PlayerPointing : MonoBehaviour
 {
     private bool hasIndicatorSpawned = false;
 
-    private GameObject hoverOverObject;
-    
     private LayerMask DesiredLayerMask;
     private readonly float rayRange = 30.0f;
-
     RaycastHit hit;
-
     private Vector3 CurrentMousePosition;
 
     [Range(0.01f,0.12f)]
-    public float Offset = 0.05f; 
-    GameObject ClonedModel;
-
-    public Material GlowMaterial;
-    new Renderer renderer;
+    public float Offset = 0.05f;
+    public GameObject IndicatorPrefab;
+    private GameObject SelectionModel;
 
     void Start()
     {
@@ -49,8 +43,10 @@ public class PlayerPointing : MonoBehaviour
 
     void UpdateRay(Vector3 MouseDirection)
     {
+        // Cast ray each time this function is called
         if (Physics.Raycast(Camera.main.transform.position, MouseDirection, out hit, rayRange))
         {
+            // If Layer is correct then indicate
             if (hit.transform.gameObject.layer == DesiredLayerMask)
             {
                 DrawPointLine(Camera.main.transform.position, hit.point, Color.green);
@@ -58,7 +54,7 @@ public class PlayerPointing : MonoBehaviour
                 GameObject hitObject = hit.transform.root.gameObject;
                 IndicateObject(hitObject);
             }
-            else
+            else // else try deleting the indicator
             {
                 DrawPointLine(Camera.main.transform.position, hit.point, Color.red);
 
@@ -72,35 +68,26 @@ public class PlayerPointing : MonoBehaviour
         Debug.DrawLine(startPos, endPos, color);
     }
 
-    void IndicateObject(GameObject gameObject)
+    void IndicateObject(GameObject hitObject)
     {
-        hoverOverObject = gameObject;
-
-        // Indicate 
         if (!hasIndicatorSpawned)
         {
-            Quaternion hoverObjectRotation = new Quaternion(hoverOverObject.transform.rotation.x, hoverOverObject.transform.rotation.y, hoverOverObject.transform.rotation.z, hoverOverObject.transform.rotation.w);
-            ClonedModel = (GameObject)Instantiate(hoverOverObject, hoverOverObject.gameObject.transform.position, hoverObjectRotation);
-            ClonedModel.name = "Cloned " + hoverOverObject.name;
+            // Spawn Indicator prefab
+            SelectionModel = (GameObject)Instantiate(IndicatorPrefab, hitObject.gameObject.transform.position, Quaternion.identity);
+            SelectionModel.transform.rotation *= Quaternion.Euler(-90,0,0);
+            SelectionModel.name = hitObject.name + " Indicator";
 
-            renderer = ClonedModel.GetComponent<Renderer>();
-            renderer.material = GlowMaterial;
-
-            Collider ClonedModelCollider = ClonedModel.GetComponent<Collider>();
-            ClonedModelCollider.enabled = false;
-
-            Vector3 ClonedModelScale = new Vector3(hoverOverObject.transform.localScale.x + Offset, hoverOverObject.transform.localScale.y + Offset, hoverOverObject.transform.localScale.z + Offset);
-            ClonedModel.transform.localScale = ClonedModelScale;
-
+            // Toggle Indicator boolean
             hasIndicatorSpawned = true;
         }
     }
 
     void ClearIndicator()
     {
-        Destroy(ClonedModel);
+        // Delete object
+        Destroy(SelectionModel);
 
+        // Toggle Interaction boolean
         hasIndicatorSpawned = false;
-        hoverOverObject = null;
     }
 }
