@@ -31,7 +31,7 @@ Worked on fixing bug in defocusing an interact point <br/>
 Finished focus controller   <br/>
 Finished interaction system <br/>
 #### bugs:
-B5) Pending - When interacting with an object and leaving the interaction area the interaction doesn't "pause"  <br/>
+B5) Fixed - When interacting with an object and leaving the interaction area the interaction doesn't "pause"  <br/>
 B6) Fixed - Small Interaction items don't work                                                                  <br/>
 
 ### 20w23d:
@@ -69,4 +69,11 @@ Changed method of indicating interactable material using PBR shaders  <br/>
 Added PostProcessing volume and layer                                 <br/>
 Fixed bugs and optimised code layout                                  <br/>
 #### bugs:
-B10) Working - Coin piles do not glow correctly, needs re-modeling    <br/>
+B10) Fixed - Coin piles do not glow correctly, needs re-modeling    <br/>
+
+### 20w25a:
+Changed indicator with glowing cirle PBR shader <br/>
+Implemented a flexible loot chest system        <br/>
+Created animations for the chest interactions   <br/>
+Fixed B5 and B10                                <br/>
+Scripts need cleaning up                        <br/>
