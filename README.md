@@ -77,3 +77,11 @@ Implemented a flexible loot chest system        <br/>
 Created animations for the chest interactions   <br/>
 Fixed B5 and B10                                <br/>
 Scripts need cleaning up                        <br/>
+
+### 20w26a:
+Implemented an inventory system with interaction support                      <br/>
+Added temp items and combined interactable items with scriptable object items <br/>
+Created grass shader graph behavior                                           <br/>
+Re-arranged folders and files                                                 <br/>
+#### bugs:
+B11) Fixed - Grass collision does not react to the right axis <br/>
