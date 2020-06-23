@@ -33,7 +33,6 @@ public class Inventory : MonoBehaviour
             {
                 items.Add(item);
 
-                
                 // update the inventory UI
                 if (CallItemUpdated != null)    // B9 fix
                 {
@@ -46,7 +45,6 @@ public class Inventory : MonoBehaviour
                 return false;
             }
         }
-        Debug.Log("Test");
         return true;
     }
 

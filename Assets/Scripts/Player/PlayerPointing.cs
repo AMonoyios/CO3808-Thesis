@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class PlayerPointing : MonoBehaviour
@@ -26,19 +27,24 @@ public class PlayerPointing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Get Position of mouse in world space
-        Vector3 MousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, rayRange));
-
-        // Get the Vector between camera position and mouse position
-        Vector3 MouseDir = MousePos - Camera.main.transform.position;
-
-        // Casting a ray whenever the mouse moves
-        if (Input.mousePosition != CurrentMousePosition)
+        // Makes sure that the player can not interact anything behind the InventoryUI
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            UpdateRay(MouseDir);
+            // Get Position of mouse in world space
+            Vector3 MousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, rayRange));
+
+            // Get the Vector between camera position and mouse position
+            Vector3 MouseDir = MousePos - Camera.main.transform.position;
+
+            // Casting a ray whenever the mouse moves
+            if (Input.mousePosition != CurrentMousePosition)
+            {
+                UpdateRay(MouseDir);
+            }
+
+            CurrentMousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
         }
 
-        CurrentMousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
     }
 
     void UpdateRay(Vector3 MouseDirection)

@@ -7,4 +7,10 @@ public class ItemBlueprint : ScriptableObject
     public string ItemName = "New Item";
     public Sprite ItemIcon = null;
     public bool isDefault = false;
+
+    // The use for each item
+    public virtual void UseItem()
+    {
+        Debug.Log("DEBUG: Using " + ItemName);
+    }
 }
