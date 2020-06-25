@@ -1,6 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+[System.Serializable]
+public class InventoryItems
+{
+    public ItemBlueprint item;
+    public int itemQuantity;
+
+    public InventoryItems(ItemBlueprint _item, int _itemQuantity)
+    {
+        item = _item;
+        itemQuantity = _itemQuantity;
+    }
+}
 
 public class Inventory : MonoBehaviour
 {
@@ -13,8 +27,8 @@ public class Inventory : MonoBehaviour
 	#endregion
     
     // Creating the list for the total items in the inventory
-    public int InventorySlots = 10;
-    public List<ItemBlueprint> items = new List<ItemBlueprint>();
+    public int InventorySlots = 16;
+    public List<InventoryItems> InventoryItems = new List<InventoryItems>();
 
     // In order to update the inventory UI without using the function in the Update() we can 
     //  use a delegate
@@ -29,11 +43,23 @@ public class Inventory : MonoBehaviour
         //  "use" then we can remove this if statement
         if (item.isDefault == false)
         {
-            if (items.Count < InventorySlots)
+            if (InventoryItems.Count < InventorySlots)
             {
-                items.Add(item);
+                Debug.Log("DEBUG - INVENTORY: Inventory has " + (InventorySlots-InventoryItems.Count) + " slot(s) left");
 
-                // update the inventory UI
+                if (InventoryItems.Count > 0)
+                {
+                    if (!SuccessfullyStackedItem(item))
+                    {
+                        InventoryItems.Add(new InventoryItems(item, 1));
+                    }
+                }
+                else
+                {
+                    InventoryItems.Add(new InventoryItems(item, 1));
+                }
+
+                //update the inventory UI
                 if (CallItemUpdated != null)    // B9 fix
                 {
                     CallItemUpdated.Invoke();
@@ -41,7 +67,7 @@ public class Inventory : MonoBehaviour
             }
             else
             {
-                Debug.Log("DEBUG: Inventory does not have enough space for " + item.ItemName);
+                Debug.Log("DEBUG - INVENTORY: Inventory does not have enough space for " + item.ItemName);
                 return false;
             }
         }
@@ -51,12 +77,49 @@ public class Inventory : MonoBehaviour
     // Removing the item from the list
     public void RemoveFromInventory(ItemBlueprint item)
     {
-        items.Remove(item);
+        if (FindSpecificItem(item) >= 0)
+        {
+            int index = FindSpecificItem(item);
+
+            InventoryItems.RemoveAt(index);
+        }
 
         // update the inventory UI
         if (CallItemUpdated != null)    // B9 fix
         {
             CallItemUpdated.Invoke();
         }
+    }
+
+    public bool SuccessfullyStackedItem(ItemBlueprint item)
+    {
+        for (int i = 0; i < InventoryItems.Count; i++)
+        {
+            Debug.Log("DEBUG - INVENTORY: inventory checking at index -> " + i);
+
+            if (InventoryItems[i].item.ItemName == item.ItemName)
+            {
+                InventoryItems[i].itemQuantity += 1;
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private int FindSpecificItem(ItemBlueprint item)
+    {
+        for (int i = 0; i < InventoryItems.Count; i++)
+        { 
+            Debug.Log("DEBUG - INVENTORY: inventory checking at index -> " + i);
+
+            if (InventoryItems[i].item.ItemName == item.ItemName)
+            {
+                return i;
+            }
+        }
+
+        return 0;
     }
 }

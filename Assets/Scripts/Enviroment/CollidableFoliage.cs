@@ -27,7 +27,6 @@ public class CollidableFoliage : MonoBehaviour
                 materials[i].SetVector("_playerposition", playerPosition);
             }
 
-
             yield return true;
         }
     }

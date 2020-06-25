@@ -26,11 +26,11 @@ public class LootCurrency : InteractPoint
     void PickUpCurrency()
     {
         // Add to balance
-        Debug.Log("DEBUG: Added " + currency.name + " to your balance");
+        Debug.Log("DEBUG - CURRENCY: Added " + currency.name + " to your balance");
         characterStats.Balance += currency.CurrencyValue;
 
         // Delete from game world
-        Debug.Log("DEBUG: Deleting " + gameObject.name);
+        Debug.Log("DEBUG - CURRENCY: Deleting " + gameObject.name);
         Destroy(gameObject);
 
         // Stop Focusing the deleted currency

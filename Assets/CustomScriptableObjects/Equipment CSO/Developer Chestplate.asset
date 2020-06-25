@@ -15,3 +15,4 @@ MonoBehaviour:
   ItemName: Item Placeholder 2
   ItemIcon: {fileID: 21300000, guid: 06a91d5e4b2a13d40bb8c5bac1cd8b8a, type: 3}
   isDefault: 0
+  isStackable: 1

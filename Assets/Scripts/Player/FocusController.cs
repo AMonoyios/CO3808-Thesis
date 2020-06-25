@@ -58,7 +58,7 @@ public class FocusController : MonoBehaviour
     // focusing a specific interactable item
     void Focus (InteractPoint newFocus)
     {
-        Debug.Log("DEBUG: focusing " + newFocus.name);
+        Debug.Log("DEBUG - PLAYER: focusing " + newFocus.name);
         focus = newFocus;
         newFocus.OnFocused(this.transform);
     }
@@ -66,7 +66,7 @@ public class FocusController : MonoBehaviour
     // Defocusing interactable item
     public void DeFocus()
     {
-        Debug.Log("DEBUG: defocusing " + focus.name);
+        Debug.Log("DEBUG - PLAYER: defocusing " + focus.name);
         focus.OnDeFocused();
         focus = null;
     }

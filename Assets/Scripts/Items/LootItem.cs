@@ -24,7 +24,7 @@ public class LootItem : InteractPoint
     void PickUpItem()
     {
         // Add item to inventory
-        Debug.Log("DEBUG: Added " + itemBlueprint.name + " to inventory");
+        Debug.Log("DEBUG - ITEM: Added " + itemBlueprint.name + " to inventory");
         bool successfulPickup = Inventory.InventoryInstance.AddToInventory(itemBlueprint);
 
         // Delete item from game world

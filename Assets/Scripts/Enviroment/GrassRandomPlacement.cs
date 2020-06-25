@@ -12,7 +12,7 @@ public class GrassRandomPlacement : MonoBehaviour
     {
         if (grassPrefabs.Length <= 0)
         {
-            Debug.LogWarning("WARNING: grass " + transform.name + " has 0 quantity");
+            Debug.LogWarning("WARNING - ENVIROMENT: grass " + transform.name + " has 0 quantity");
         }
         else
         {

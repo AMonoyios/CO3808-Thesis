@@ -5,25 +5,30 @@ using UnityEngine.UIElements;
 
 public class ChestInteraction : InteractPoint
 {
-    [Header("Controllers")]
-    public FocusController focusController;
-    public Animator animator;
+    private FocusController focusController;
+    private Animator animator;
 
     [Header("Chest Loot")]
     public bool hasBeenLooted = false;
     public GameObject[] ChestLootCount;
 
     [Header("Loot Spawn properties")]
-    public float UpForce;
-    public float SideForce;
-    public Vector3 LootSpawnPoint;
-    public float xOffset, yOffset, zOffset = 0.0f;
+    public float xOffset = 0.0f;
+    public float yOffset = 0.0f;
+    public float zOffset = 0.0f;
 
+    [Header("Loot Velocity Properites")]
+    public float ForwardForce;
+    public float UpwardForce;
+    public float LeftToRightForce;
+
+    private Vector3 LootSpawnPoint;
     private string FocusChestName;
+    private GameObject Player;
 
     void Awake()
     {
-        GameObject Player = GameObject.Find("Player");
+        Player = GameObject.Find("Player");
         focusController = Player.GetComponent<FocusController>();
     }
 
@@ -55,14 +60,14 @@ public class ChestInteraction : InteractPoint
 
     void OpenChest()
     {
-        Debug.Log("DEBUG: Chest " + FocusChestName + " Opening");
+        Debug.Log("DEBUG - ITEM: Chest " + FocusChestName + " Opening");
 
         animator = focusController.focus.GetComponent<Animator>();
         animator.SetBool("Open_Chest", true);
 
         if (!hasBeenLooted)
         {
-            Debug.Log("DEBUG: Looting " + FocusChestName);
+            Debug.Log("DEBUG - ITEM: Looting " + FocusChestName);
 
             // Spawn all loot of the chest
             for (int i = 0; i < ChestLootCount.Length; i++)
@@ -76,31 +81,31 @@ public class ChestInteraction : InteractPoint
         else
         {
             // for now throw a message
-            Debug.Log("DEBUG: Chest " + FocusChestName + " already looted");
+            Debug.Log("DEBUG - ITEM: Chest " + FocusChestName + " already looted");
         }
     }
 
     void CloseChest()
     {
-        Debug.Log("DEBUG: Chest " + FocusChestName + " Closing");
+        Debug.Log("DEBUG - ITEM: Chest " + FocusChestName + " Closing");
 
         animator.SetBool("Open_Chest", false);
     }
 
     void SpawnChestLoot(int ChestLootIndex)
     {
-        Debug.Log("DEBUG: Spawning " + ChestLootCount[ChestLootIndex].name);
+        Debug.Log("DEBUG - ITEM: Spawning " + ChestLootCount[ChestLootIndex].name);
 
         // Calculate the spawn velocity of the loot
-        float xForce = Random.Range(-SideForce, 0);
-        float yForce = UpForce;
-        float zForce = Random.Range(-SideForce, SideForce);
-        Vector3 force = new Vector3(xForce, yForce, zForce);
+        float xForce = Random.Range(ForwardForce / 2, ForwardForce) * -1;
+        float yForce = Random.Range(UpwardForce / 2, UpwardForce);
+        float zForce = Random.Range(-LeftToRightForce, LeftToRightForce);
+        Vector3 itemSpawnForce = new Vector3(xForce, yForce, zForce);
 
         // Spawn Indexed loot
-        GameObject NewLoot = (GameObject)Instantiate(ChestLootCount[ChestLootIndex], LootSpawnPoint, Quaternion.Euler(-90,0,0));
+        GameObject NewLoot = (GameObject)Instantiate(ChestLootCount[ChestLootIndex], LootSpawnPoint, this.transform.rotation);//Quaternion.Euler(-90,0,0));
 
-        // Apply velocity to the newly spawned loot
-        NewLoot.GetComponent<Rigidbody>().velocity = force;
+        // Apply velocity to the newly spawned loot (changed to relative force B12 fix)
+        NewLoot.GetComponent<Rigidbody>().AddRelativeForce(itemSpawnForce);
     }
 }

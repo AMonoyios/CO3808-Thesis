@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05137a39c4d8df94d991b79fadc39058, type: 3}
-  m_Name: Developer Boots
+  m_Name: manaPotion
   m_EditorClassIdentifier: 
-  ItemName: Item Placeholder 1
-  ItemIcon: {fileID: 21300000, guid: c7ac7a8a18dacbe40b32a28ec1d54fad, type: 3}
+  ItemName: Mana Pot
+  ItemIcon: {fileID: 21300000, guid: 31aad3ecbb010dc439c3c0d15ca9c22c, type: 3}
   isDefault: 0
-  isStackable: 1
+  StackUntil: 2

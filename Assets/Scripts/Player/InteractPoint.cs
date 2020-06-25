@@ -16,7 +16,7 @@ public class InteractPoint : MonoBehaviour
     // enemies have health attack etc but a loot chest has loot in it
     public virtual void Interact()
     {
-        Debug.Log("DEBUG: Interacting with " + transform.name);
+        Debug.Log("DEBUG - PLAYER: Interacting with " + transform.name);
     }
 
     void Update()

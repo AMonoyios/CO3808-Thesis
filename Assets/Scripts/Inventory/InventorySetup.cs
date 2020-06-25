@@ -37,13 +37,13 @@ public class InventorySetup : MonoBehaviour
 
     void UpdateInventory_UI()
     {
-        Debug.Log("DEBUG: Updating inventory UI");
-
+        Debug.Log("DEBUG - INVENTORY: Updating inventory UI");
+    
         for (int i = 0; i < InventorySlots.Length; i++)
         {
-            if (i < inventory.items.Count)
+            if (i < inventory.InventoryItems.Count)
             {
-                InventorySlots[i].AddItemToSlot(inventory.items[i]);
+                InventorySlots[i].AddItemToSlot(inventory.InventoryItems[i].item);
             }
             else
             {
