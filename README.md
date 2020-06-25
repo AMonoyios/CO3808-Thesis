@@ -85,3 +85,11 @@ Created grass shader graph behavior                                           <b
 Re-arranged folders and files                                                 <br/>
 #### bugs:
 B11) Fixed - Grass collision does not react to the right axis <br/>
+
+### 20w26b:
+Added ability to stack specific items together in the inventory                                     <br/>
+Edited currency models to fine tune pivot point rotation                                            <br/>
+Worked on chest loot system, loot now spawns relative to the rotation of its parent chest rotation  <br/>
+#### bugs:
+B12) Fixed - fixed issue with relative rotation for chest         <br/>
+B13) Pending - Small interactable items clip out of playable area <br/>
