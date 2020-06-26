@@ -97,7 +97,7 @@ public class Inventory : MonoBehaviour
         {
             Debug.Log("DEBUG - INVENTORY: inventory checking at index -> " + i);
 
-            if (InventoryItems[i].item.ItemName == item.ItemName)
+            if (InventoryItems[i].item.ItemName == item.ItemName && InventoryItems[i].itemQuantity < item.StackUntil)
             {
                 InventoryItems[i].itemQuantity += 1;
 

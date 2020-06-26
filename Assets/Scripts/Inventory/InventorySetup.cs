@@ -9,7 +9,9 @@ public class InventorySetup : MonoBehaviour
     public GameObject InventoryUI;
     private bool InventoryToggleState;
 
-    InventorySlot_Item[] InventorySlots;
+    InteractWithInventory[] InventorySlots;
+    //InventorySlot_Item[] InventorySlots;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,7 @@ public class InventorySetup : MonoBehaviour
         inventory.CallItemUpdated += UpdateInventory_UI;
 
         // Get the Components of the Inventory Bag
-        InventorySlots = InventoryBag.GetComponentsInChildren<InventorySlot_Item>();
+        InventorySlots = InventoryBag.GetComponentsInChildren<InteractWithInventory>();
 
         // Close the inventory when the game starts
         InventoryToggleState = false;
