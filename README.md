@@ -93,3 +93,8 @@ Worked on chest loot system, loot now spawns relative to the rotation of its par
 #### bugs:
 B12) Fixed - fixed issue with relative rotation for chest         <br/>
 B13) Pending - Small interactable items clip out of playable area <br/>
+
+### 20w26c:
+Worked on inventory system, started implementation of drag and drop fuctionality  <br/>
+#### bugs:
+B14) Working - UI item holder does not hold items <br/>
