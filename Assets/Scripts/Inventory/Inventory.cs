@@ -81,7 +81,15 @@ public class Inventory : MonoBehaviour
         {
             int index = FindSpecificItem(item);
 
-            InventoryItems.RemoveAt(index);
+            // check if we have multible items stacked at the same slot
+            if (InventoryItems[index].itemQuantity > 1)
+            {
+                InventoryItems[index].itemQuantity--;
+            }
+            else
+            {
+                InventoryItems.RemoveAt(index);
+            }
         }
 
         // update the inventory UI
@@ -100,7 +108,7 @@ public class Inventory : MonoBehaviour
             if (InventoryItems[i].item.ItemName == item.ItemName && InventoryItems[i].itemQuantity < item.StackUntil)
             {
                 InventoryItems[i].itemQuantity += 1;
-
+                
                 return true;
             }
         }
@@ -121,5 +129,21 @@ public class Inventory : MonoBehaviour
         }
 
         return 0;
+    }
+
+    // ONLY FOR TESTING
+    public string PrintItemName(ItemBlueprint item)
+    {
+        if (FindSpecificItem(item) >= 0)
+        {
+            int index = FindSpecificItem(item);
+
+            return InventoryItems[index].item.ItemName;
+        }
+        else
+        {
+            Debug.LogWarning("WARNING - INVENTORY: Item name not found!");
+            return "ITEM NOT FOUND";
+        }
     }
 }
