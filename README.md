@@ -97,4 +97,10 @@ B13) Pending - Small interactable items clip out of playable area <br/>
 ### 20w26c:
 Worked on inventory system, started implementation of drag and drop fuctionality  <br/>
 #### bugs:
-B14) Working - UI item holder does not hold items <br/>
+B14) Dropped - UI item holder does not hold items <br/>
+
+### 20w27a:
+Dropped idea for drag and drop (no point of creating one) <br/>
+Implemented a right click to inventory to drop item       <br/>
+#### bugs:
+B15) Working - Counter does not display correct item count <br/>
