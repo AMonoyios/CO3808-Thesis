@@ -46,6 +46,16 @@ public class InventorySetup : MonoBehaviour
             if (i < inventory.InventoryItems.Count)
             {
                 InventorySlots[i].AddItemToSlot(inventory.InventoryItems[i].item);
+
+                // Fixed B15 - Counter displaying incorrect item quantity in inventory
+                if (inventory.InventoryItems[i].itemQuantity > 1)
+                {
+                    InventorySlots[i].ItemCounter.SetText(inventory.InventoryItems[i].itemQuantity.ToString());
+                }
+                else
+                {
+                    InventorySlots[i].ItemCounter.SetText("");
+                }
             }
             else
             {

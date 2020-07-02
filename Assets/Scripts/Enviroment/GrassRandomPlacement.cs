@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GrassRandomPlacement : MonoBehaviour
 {
+    //public GameObject grassPrefab;
+    //public int PrefabsToSpawn;
+
     public Transform[] grassPrefabs;
     public float grassRange;
 
@@ -22,5 +25,18 @@ public class GrassRandomPlacement : MonoBehaviour
                 grassPrefabs[i].position = new Vector3(grassPrefabs[i].position.x + randVector2.x, grassPrefabs[i].position.y, grassPrefabs[i].position.z + randVector2.y);
             }
         }
+
+        //if (PrefabsToSpawn <= 0)
+        //{
+        //    Debug.LogWarning("WARNING - ENVIROMENT: grass " + transform.name + " has 0 quantity");
+        //}
+        //else
+        //{
+        //    for (int i = 0; i < grassPrefabs.Length; i++)
+        //    {
+        //        Vector2 randVector2 = new Vector2(Random.Range(-grassRange, grassRange), Random.Range(-grassRange, grassRange));
+        //        grassPrefabs[i].position = new Vector3(grassPrefabs[i].position.x + randVector2.x, grassPrefabs[i].position.y, grassPrefabs[i].position.z + randVector2.y);
+        //    }
+        //}
     }
 }
