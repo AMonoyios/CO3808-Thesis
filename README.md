@@ -103,4 +103,5 @@ B14) Dropped - UI item holder does not hold items <br/>
 Dropped idea for drag and drop (no point of creating one) <br/>
 Implemented a right click to inventory to drop item       <br/>
 #### bugs:
-B15) Working - Counter does not display correct item count <br/>
+B15) Working - Counter does not display correct item count              <br/>
+B16) Pending - Chest can not apply spawn force to specific game objects <br/>
