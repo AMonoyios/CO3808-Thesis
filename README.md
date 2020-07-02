@@ -105,3 +105,7 @@ Implemented a right click to inventory to drop item       <br/>
 #### bugs:
 B15) Working - Counter does not display correct item count              <br/>
 B16) Pending - Chest can not apply spawn force to specific game objects <br/>
+
+### 20w27b: - Supervisor meeting No1
+Optimizing grass spawn script <br/>
+orginized files               <br/>
