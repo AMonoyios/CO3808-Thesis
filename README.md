@@ -103,9 +103,17 @@ B14) Dropped - UI item holder does not hold items <br/>
 Dropped idea for drag and drop (no point of creating one) <br/>
 Implemented a right click to inventory to drop item       <br/>
 #### bugs:
-B15) Working - Counter does not display correct item count              <br/>
+B15) Fixed - Counter does not display correct item count              <br/>
 B16) Pending - Chest can not apply spawn force to specific game objects <br/>
 
 ### 20w27b: - Supervisor meeting No1
 Optimizing grass spawn script <br/>
 orginized files               <br/>
+
+### 20w28a:
+Added support for area specific post processing             <br/>
+Implemented a developer console in game view (Outputs only) <br/>
+Optimizing group bush spawning                              <br/>
+#### bugs:
+B17) Pending - grass spawns only with specific amount of pre generated prefabs  <br/>
+B18) Pending - Using items action wont show in developer console                <br/>
