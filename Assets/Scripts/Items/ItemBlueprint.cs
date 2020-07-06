@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Custom Scriptable Objects/Game Objects/Item")]
 public class ItemBlueprint : ScriptableObject
@@ -9,7 +11,7 @@ public class ItemBlueprint : ScriptableObject
     public bool isDefault = false;
     public int StackUntil = 1;
     public GameObject itemPrefab = null;
-    
+
     // The use for each item
     public virtual void UseItem()
     {

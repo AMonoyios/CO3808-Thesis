@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public class InventoryItems
@@ -23,9 +25,16 @@ public class Inventory : MonoBehaviour
 	//  item is being added or removed from the inventory. We could have used Find(...) but
 	//  every frame it would try to find the specific item in all the game files
 	public static Inventory InventoryInstance;
-    void Awake() { InventoryInstance = this; }
-	#endregion
-    
+    void Awake() 
+    { 
+        InventoryInstance = this;
+
+        DeveloperConsoleBox = FindObjectOfType<TextMeshProUGUI>();
+    }
+    #endregion
+
+    public TextMeshProUGUI DeveloperConsoleBox;
+
     // Creating the list for the total items in the inventory
     public int InventorySlots = 16;
     public List<InventoryItems> InventoryItems = new List<InventoryItems>();
@@ -45,6 +54,7 @@ public class Inventory : MonoBehaviour
         {
             if (InventoryItems.Count < InventorySlots)
             {
+                DeveloperConsoleBox.text += "DEBUG - INVENTORY: Inventory has " + (InventorySlots - InventoryItems.Count) + " slot(s) left \n";
                 Debug.Log("DEBUG - INVENTORY: Inventory has " + (InventorySlots-InventoryItems.Count) + " slot(s) left");
 
                 if (InventoryItems.Count > 0)
@@ -67,6 +77,7 @@ public class Inventory : MonoBehaviour
             }
             else
             {
+                DeveloperConsoleBox.text += "DEBUG - INVENTORY: Inventory does not have enough space for " + item.ItemName + "\n";
                 Debug.Log("DEBUG - INVENTORY: Inventory does not have enough space for " + item.ItemName);
                 return false;
             }
@@ -103,7 +114,8 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < InventoryItems.Count; i++)
         {
-            Debug.Log("DEBUG - INVENTORY: inventory checking at index -> " + i);
+            DeveloperConsoleBox.text += "DEBUG - INVENTORY: inventory checking at index -> " + i + "\n";
+            Debug.Log("DEBUG - INVENTORY: item stacking checking at index -> " + i);
 
             if (InventoryItems[i].item.ItemName == item.ItemName && InventoryItems[i].itemQuantity < item.StackUntil)
             {
@@ -119,8 +131,9 @@ public class Inventory : MonoBehaviour
     private int FindSpecificItem(ItemBlueprint item)
     {
         for (int i = 0; i < InventoryItems.Count; i++)
-        { 
-            Debug.Log("DEBUG - INVENTORY: inventory checking at index -> " + i);
+        {
+            DeveloperConsoleBox.text += "DEBUG - INVENTORY: item in inventory checking at index -> " + i + "\n";
+            Debug.Log("DEBUG - INVENTORY: item in inventory checking at index -> " + i);
 
             if (InventoryItems[i].item.ItemName == item.ItemName)
             {
@@ -142,6 +155,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
+            DeveloperConsoleBox.text += "WARNING - INVENTORY: Item name not found! \n";
             Debug.LogWarning("WARNING - INVENTORY: Item name not found!");
             return "ITEM NOT FOUND";
         }

@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1.308
   interactionPoint: {fileID: 3454660619134904009}
+  DeveloperConsoleBox: {fileID: 0}
   currency: {fileID: 11400000, guid: a7cd9fd95b902f441a34462938fe4c9c, type: 2}
   focusController: {fileID: 0}
   characterStats: {fileID: 0}

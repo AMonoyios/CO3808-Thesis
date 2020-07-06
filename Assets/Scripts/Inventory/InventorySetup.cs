@@ -1,17 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class InventorySetup : MonoBehaviour
 {
+    public TextMeshProUGUI DeveloperConsoleBox;
+
     // Cache the inventory instancing
     Inventory inventory;
 
     public Transform InventoryBag;
     public GameObject InventoryUI;
-    private bool InventoryToggleState;
 
     InteractWithInventory[] InventorySlots;
-    //InventorySlot_Item[] InventorySlots;
 
+    private void Awake()
+    {
+        DeveloperConsoleBox = FindObjectOfType<TextMeshProUGUI>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -22,23 +28,11 @@ public class InventorySetup : MonoBehaviour
 
         // Get the Components of the Inventory Bag
         InventorySlots = InventoryBag.GetComponentsInChildren<InteractWithInventory>();
-
-        // Close the inventory when the game starts
-        InventoryToggleState = false;
-        InventoryUI.SetActive(InventoryToggleState);
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            InventoryToggleState = !InventoryToggleState;
-            InventoryUI.SetActive(InventoryToggleState);
-        }   
     }
 
     void UpdateInventory_UI()
     {
+        DeveloperConsoleBox.text += "DEBUG - INVENTORY: Updating inventory UI \n";
         Debug.Log("DEBUG - INVENTORY: Updating inventory UI");
     
         for (int i = 0; i < InventorySlots.Length; i++)

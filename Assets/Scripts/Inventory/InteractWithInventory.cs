@@ -7,6 +7,8 @@ using TMPro;
 
 public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
 {
+    public TextMeshProUGUI DeveloperConsoleBox;
+
     public Image SlotIcon;
     public Button DeleteButton;
     public TextMeshProUGUI ItemCounter;
@@ -14,6 +16,11 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
     public GameObject Player;
 
     ItemBlueprint item;
+
+    private void Awake()
+    {
+        DeveloperConsoleBox = FindObjectOfType<TextMeshProUGUI>();
+    }
 
     private void Start()
     {
@@ -27,6 +34,7 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
             if (eventData.button == PointerEventData.InputButton.Left)
             {
                 // Left clicked on item (Using item)
+                DeveloperConsoleBox.text += "DEBUG - INVENTORY: Mouse button left was pressed on " + Inventory.InventoryInstance.PrintItemName(item) + "\n";
                 Debug.Log("DEBUG - INVENTORY: Mouse button left was pressed on " + Inventory.InventoryInstance.PrintItemName(item));
 
                 item.UseItem();
@@ -34,6 +42,7 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
             else if (eventData.button == PointerEventData.InputButton.Right)
             {
                 // Right clicked on item (Drop item)
+                DeveloperConsoleBox.text += "DEBUG - INVENTORY: Mouse button right was pressed on " + Inventory.InventoryInstance.PrintItemName(item) + "\n";
                 Debug.Log("DEBUG - INVENTORY: Mouse button right was pressed on " + Inventory.InventoryInstance.PrintItemName(item));
 
                 DropItem(item);
@@ -61,6 +70,7 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
 
     public void DropItem(ItemBlueprint SlotItem)
     {
+        DeveloperConsoleBox.text += "DEBUG - ITEM: Dropping " + SlotItem.ItemName + "\n";
         Debug.Log("DEBUG - ITEM: Dropping " + SlotItem.ItemName);
 
         GameObject itemName = (GameObject)Instantiate(SlotItem.itemPrefab, Player.transform.position, Player.transform.rotation);

@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class LootItem : InteractPoint
 {
+    //TextMeshProUGUI DeveloperConsoleBox;
+    
     public ItemBlueprint itemBlueprint;
     public FocusController focusController;
 
@@ -12,6 +16,8 @@ public class LootItem : InteractPoint
     {
         GameObject Player = GameObject.Find("Player");
         focusController = Player.GetComponent<FocusController>();
+
+        DeveloperConsoleBox = FindObjectOfType<TextMeshProUGUI>();
     }
 
     public override void Interact()
@@ -24,6 +30,7 @@ public class LootItem : InteractPoint
     void PickUpItem()
     {
         // Add item to inventory
+        DeveloperConsoleBox.text += "DEBUG - ITEM: Added " + itemBlueprint.name + " to inventory \n";
         Debug.Log("DEBUG - ITEM: Added " + itemBlueprint.name + " to inventory");
         bool successfulPickup = Inventory.InventoryInstance.AddToInventory(itemBlueprint);
 

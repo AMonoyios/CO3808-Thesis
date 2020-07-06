@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class FocusController : MonoBehaviour
 {
+    public TextMeshProUGUI DeveloperConsoleBox;
     private Camera cam;
 
     [Range(10.0f,40.0f)]
@@ -16,6 +19,11 @@ public class FocusController : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+    }
+
+    private void Awake()
+    {
+        DeveloperConsoleBox = FindObjectOfType<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -58,6 +66,7 @@ public class FocusController : MonoBehaviour
     // focusing a specific interactable item
     void Focus (InteractPoint newFocus)
     {
+        DeveloperConsoleBox.text += "DEBUG - PLAYER: focusing " + newFocus.name + "\n";
         Debug.Log("DEBUG - PLAYER: focusing " + newFocus.name);
         focus = newFocus;
         newFocus.OnFocused(this.transform);
@@ -66,6 +75,7 @@ public class FocusController : MonoBehaviour
     // Defocusing interactable item
     public void DeFocus()
     {
+        DeveloperConsoleBox.text += "DEBUG - PLAYER: defocusing " + focus.name + "\n";
         Debug.Log("DEBUG - PLAYER: defocusing " + focus.name);
         focus.OnDeFocused();
         focus = null;
