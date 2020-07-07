@@ -14,7 +14,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_393FB59E:
-        m_Texture: {fileID: 2800000, guid: ecc4afdfaea31eb4fb1edf750fff81f9, type: 3}
+        m_Texture: {fileID: 2800000, guid: ec3853f6a6a382549874c854f6026e6f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_3C66840B:
@@ -90,7 +90,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _playerposition: {r: -2.26, g: 0, b: 3.490541e-21, a: 0}
+    - _playerposition: {r: -13.070754, g: 0, b: 5.4782567, a: 0}
 --- !u!114 &4859754590599300877
 MonoBehaviour:
   m_ObjectHideFlags: 11

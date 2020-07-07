@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5999802713547910220}
   - component: {fileID: 5999802713547910221}
   - component: {fileID: 5999802713547910216}
+  - component: {fileID: 5710557838139215326}
   m_Layer: 8
   m_Name: Equipment (White Cube 2)
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5999802713547910210}
-  m_LocalRotation: {x: -0, y: 0.1458257, z: -0, w: 0.9893104}
+  m_LocalRotation: {x: 0, y: 0.145824, z: 0, w: 0.98931056}
   m_LocalPosition: {x: -11.66, y: 0.803, z: -5.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -107,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93b077e65ac74845a7faf5c30e9d7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeveloperConsoleBox: {fileID: 0}
   radius: 1.302
   interactionPoint: {fileID: 5999802713547910217}
   itemBlueprint: {fileID: 11400000, guid: 1b5bf0e4dc05c2b4c9549f621d5b410c, type: 2}
@@ -123,3 +125,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1139f562899a9a54f9e6d25d990a302e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeveloperConsoleBox: {fileID: 0}
+--- !u!54 &5710557838139215326
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999802713547910210}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

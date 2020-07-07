@@ -1,14 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEngine.UI;
-using TMPro;
 
 public class ChestInteraction : InteractPoint
 {
-    //public TextMeshProUGUI DeveloperConsoleBox;
-
     private FocusController focusController;
     private Animator animator;
 
@@ -34,8 +29,6 @@ public class ChestInteraction : InteractPoint
     {
         Player = GameObject.Find("Player");
         focusController = Player.GetComponent<FocusController>();
-
-        DeveloperConsoleBox = FindObjectOfType<TextMeshProUGUI>();
     }
 
     public override void Interact()
@@ -66,7 +59,6 @@ public class ChestInteraction : InteractPoint
 
     void OpenChest()
     {
-        DeveloperConsoleBox.text += "DEBUG - ITEM: Chest " + FocusChestName + " Opening \n";
         Debug.Log("DEBUG - ITEM: Chest " + FocusChestName + " Opening");
 
         animator = focusController.focus.GetComponent<Animator>();
@@ -74,7 +66,6 @@ public class ChestInteraction : InteractPoint
 
         if (!hasBeenLooted)
         {
-            DeveloperConsoleBox.text += "DEBUG - ITEM: Looting " + FocusChestName + "\n";
             Debug.Log("DEBUG - ITEM: Looting " + FocusChestName);
 
             // Spawn all loot of the chest
@@ -89,14 +80,12 @@ public class ChestInteraction : InteractPoint
         else
         {
             // for now throw a message
-            DeveloperConsoleBox.text += "DEBUG - ITEM: Chest " + FocusChestName + " already looted \n";
             Debug.Log("DEBUG - ITEM: Chest " + FocusChestName + " already looted");
         }
     }
 
     void CloseChest()
     {
-        DeveloperConsoleBox.text += "DEBUG - ITEM: Chest " + FocusChestName + " Closing \n";
         Debug.Log("DEBUG - ITEM: Chest " + FocusChestName + " Closing");
 
         animator.SetBool("Open_Chest", false);
@@ -104,7 +93,6 @@ public class ChestInteraction : InteractPoint
 
     void SpawnChestLoot(int ChestLootIndex)
     {
-        DeveloperConsoleBox.text += "DEBUG - ITEM: Spawning " + ChestLootCount[ChestLootIndex].name + "\n";
         Debug.Log("DEBUG - ITEM: Spawning " + ChestLootCount[ChestLootIndex].name);
 
         // Calculate the spawn velocity of the loot

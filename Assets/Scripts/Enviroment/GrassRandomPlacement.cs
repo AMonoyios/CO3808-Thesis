@@ -1,57 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+﻿using UnityEngine;
 
 public class GrassRandomPlacement : MonoBehaviour
 {
-    private TextMeshProUGUI DeveloperConsoleBox;
-
+    [Header("Grass group spawner properties")]
     public GameObject grassPrefab;
-    public int PrefabsToSpawn;
-
-    public Transform[] grassPrefabs;
+    public GameObject grassVolumeBox;
+    [Range(0,50),Tooltip("It will spawn the grassPrefab + the extraGrass")]
+    public int extraGrass;
+    [Range(0.1f, 5.0f)]
     public float grassRange;
-
-    private void Awake()
-    {
-        DeveloperConsoleBox = FindObjectOfType<TextMeshProUGUI>();
-    }
+    [Range(0.1f, 1.0f)]
+    public float VolumeBoxColliderOffset;
 
     // Start is called before the first frame update
     void Start()
     {
-        //if (grassPrefabs.Length <= 0)
-        //{
-        //    DeveloperConsoleBox.text += "WARNING - ENVIROMENT: grass " + transform.name + " has 0 quantity \n";
-        //    Debug.LogWarning("WARNING - ENVIROMENT: grass " + transform.name + " has 0 quantity");
-        //}
-        //else
-        //{
-        //    for (int i = 0; i < grassPrefabs.Length; i++)
-        //    {                
-        //        Vector2 randVector2 = new Vector2(Random.Range(-grassRange, grassRange), Random.Range(-grassRange, grassRange));
-        //        grassPrefabs[i].position = new Vector3(grassPrefabs[i].position.x + randVector2.x, grassPrefabs[i].position.y, grassPrefabs[i].position.z + randVector2.y);
-        //    }
-        //}
-
-        if (PrefabsToSpawn <= 0)
+        for (int i = 0; i < extraGrass; i++)
         {
-            Debug.LogWarning("WARNING - ENVIROMENT: grass " + transform.name + " has 0 quantity");
-        }
-        else
-        {
-            for (int i = 0; i < PrefabsToSpawn; i++)
-            {
-                // spawn a prefab
+            // spawn a prefab
+            GameObject objName = (GameObject)Instantiate(grassPrefab, this.transform.position, transform.rotation);
 
-                // calculate new random position
-                Vector2 randVector2 = new Vector2(Random.Range(-grassRange, grassRange), Random.Range(-grassRange, grassRange));
-                
-                // apply position to new prefab
-                grassPrefabs[i].position = new Vector3(grassPrefab.transform.position.x + randVector2.x, grassPrefab.transform.position.y, grassPrefab.transform.position.z + randVector2.y);
-            }
+            // set as child of the grass group empty object (for orginization)
+            objName.transform.parent = transform;
+
+            // calculate new random position
+            Vector2 randVector2 = new Vector2(Random.Range(-grassRange, grassRange), Random.Range(-grassRange, grassRange));
+
+            // apply position to new prefab
+            objName.transform.position = new Vector3(grassPrefab.transform.position.x + randVector2.x, grassPrefab.transform.position.y, grassPrefab.transform.position.z + randVector2.y);
         }
+
+        float VolumeBoxScale = Mathf.Clamp((grassRange * 2.0f) - VolumeBoxColliderOffset, 0.25f, Mathf.Infinity);
+        grassVolumeBox.transform.localScale = new Vector3(VolumeBoxScale, 1, VolumeBoxScale);
     }
 }

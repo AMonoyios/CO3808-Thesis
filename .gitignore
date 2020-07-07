@@ -32,6 +32,7 @@ ExportedObj/
 *.pidb
 *.booproj
 *.lock
+*.csproj
 sysinfo.txt
 
 # Unity3D generated meta files

@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class InteractPoint : MonoBehaviour
 {
-    public TextMeshProUGUI DeveloperConsoleBox;
-
     [Range(1.25f, 4.0f)]
     public float radius = 2.0f;
 
@@ -16,16 +12,10 @@ public class InteractPoint : MonoBehaviour
 
     Transform player;
 
-    private void Awake()
-    {
-        DeveloperConsoleBox = FindObjectOfType<TextMeshProUGUI>();
-    }
-
     // We want to interact with all interactables but not all interactables have the same interaction
     // enemies have health attack etc but a loot chest has loot in it
     public virtual void Interact()
     {
-        DeveloperConsoleBox.text += "DEBUG - PLAYER: Interacting with " + transform.name + "\n";
         Debug.Log("DEBUG - PLAYER: Interacting with " + transform.name);
     }
 
@@ -57,7 +47,6 @@ public class InteractPoint : MonoBehaviour
     {
         isFocus = false;
         player = null;
-        //hasInteracted = false;
     }
 
     // Visualizes a sphere around an interactable object, for developing ease

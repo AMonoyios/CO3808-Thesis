@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class LootCurrency : InteractPoint
 {
-    //private TextMeshProUGUI DeveloperConsoleBox;
-    
     public CurrencyBlueprint currency;
     public FocusController focusController;
     public AllCharacterStats characterStats;
@@ -18,8 +14,6 @@ public class LootCurrency : InteractPoint
         GameObject Player = GameObject.Find("Player");
         focusController = Player.GetComponent<FocusController>();
         characterStats = Player.GetComponent<AllCharacterStats>();
-
-        DeveloperConsoleBox = FindObjectOfType<TextMeshProUGUI>();
     }
 
     public override void Interact()
@@ -32,12 +26,10 @@ public class LootCurrency : InteractPoint
     void PickUpCurrency()
     {
         // Add to balance
-        DeveloperConsoleBox.text += "DEBUG - CURRENCY: Added " + currency.name + " to your balance \n";
         Debug.Log("DEBUG - CURRENCY: Added " + currency.name + " to your balance");
         characterStats.Balance += currency.CurrencyValue;
 
         // Delete from game world
-        DeveloperConsoleBox.text += "DEBUG - CURRENCY: Deleting " + gameObject.name + "\n";
         Debug.Log("DEBUG - CURRENCY: Deleting " + gameObject.name);
         Destroy(gameObject);
 
