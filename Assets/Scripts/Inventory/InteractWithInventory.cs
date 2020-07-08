@@ -1,25 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
 public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
 {
-    public TextMeshProUGUI DeveloperConsoleBox;
+    private TextMeshProUGUI ConsoleBoxGUI;
 
+    [Header("Each inventory slot components")]
     public Image SlotIcon;
     public Button DeleteButton;
     public TextMeshProUGUI ItemCounter;
 
-    public GameObject Player;
+    private GameObject Player;
 
     ItemBlueprint item;
 
     private void Awake()
     {
-        DeveloperConsoleBox = FindObjectOfType<TextMeshProUGUI>();
+        FindConsoleBoxGUI();
     }
 
     private void Start()
@@ -34,7 +33,7 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
             if (eventData.button == PointerEventData.InputButton.Left)
             {
                 // Left clicked on item (Using item)
-                DeveloperConsoleBox.text += "DEBUG - INVENTORY: Mouse button left was pressed on " + Inventory.InventoryInstance.PrintItemName(item) + "\n";
+                ConsoleBoxGUI.text += "DEBUG - INVENTORY: Mouse button left was pressed on " + Inventory.InventoryInstance.PrintItemName(item) + "\n";
                 Debug.Log("DEBUG - INVENTORY: Mouse button left was pressed on " + Inventory.InventoryInstance.PrintItemName(item));
 
                 item.UseItem();
@@ -42,7 +41,7 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
             else if (eventData.button == PointerEventData.InputButton.Right)
             {
                 // Right clicked on item (Drop item)
-                DeveloperConsoleBox.text += "DEBUG - INVENTORY: Mouse button right was pressed on " + Inventory.InventoryInstance.PrintItemName(item) + "\n";
+                ConsoleBoxGUI.text += "DEBUG - INVENTORY: Mouse button right was pressed on " + Inventory.InventoryInstance.PrintItemName(item) + "\n";
                 Debug.Log("DEBUG - INVENTORY: Mouse button right was pressed on " + Inventory.InventoryInstance.PrintItemName(item));
 
                 DropItem(item);
@@ -70,7 +69,7 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
 
     public void DropItem(ItemBlueprint SlotItem)
     {
-        DeveloperConsoleBox.text += "DEBUG - ITEM: Dropping " + SlotItem.ItemName + "\n";
+        ConsoleBoxGUI.text += "DEBUG - ITEM: Dropping " + SlotItem.ItemName + "\n";
         Debug.Log("DEBUG - ITEM: Dropping " + SlotItem.ItemName);
 
         GameObject itemName = (GameObject)Instantiate(SlotItem.itemPrefab, Player.transform.position, Player.transform.rotation);
@@ -80,5 +79,14 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
     public void DeleteItemOnSlot()
     {
         Inventory.InventoryInstance.RemoveFromInventory(item);
+    }
+
+    void FindConsoleBoxGUI()
+    {
+        // B19 fix, because the script inherits from another one instead of monobehaviour i can 
+        //  not trigger awake when the object is being instansiated. TODO: try finding a more 
+        //  efficient way to get the text meshproGUI instead of find();
+        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
     }
 }

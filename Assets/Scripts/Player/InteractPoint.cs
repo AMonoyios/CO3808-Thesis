@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class InteractPoint : MonoBehaviour
 {
+    private TextMeshProUGUI ConsoleBoxGUI;
+
+    [Header("Interact Point Properties")]
+    public Transform interactionPoint;
     [Range(1.25f, 4.0f)]
     public float radius = 2.0f;
-
-    public Transform interactionPoint;
-
+    
     bool isFocus = false;
     bool hasInteracted = false;
 
@@ -16,6 +19,9 @@ public class InteractPoint : MonoBehaviour
     // enemies have health attack etc but a loot chest has loot in it
     public virtual void Interact()
     {
+        FindConsoleBoxGUI();
+
+        ConsoleBoxGUI.text += "DEBUG - PLAYER: Interacting with " + transform.name + "\n";
         Debug.Log("DEBUG - PLAYER: Interacting with " + transform.name);
     }
 
@@ -60,5 +66,14 @@ public class InteractPoint : MonoBehaviour
         {
             interactionPoint = transform;
         }
+    }
+
+    void FindConsoleBoxGUI()
+    {
+        // B19 fix, because the script inherits from another one instead of monobehaviour i can 
+        //  not trigger awake when the object is being instansiated. TODO: try finding a more 
+        //  efficient way to get the text meshproGUI instead of find();
+        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
     }
 }

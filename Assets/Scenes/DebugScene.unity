@@ -154,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1139f562899a9a54f9e6d25d990a302e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeveloperConsoleBox: {fileID: 0}
 --- !u!114 &135035522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,10 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93b077e65ac74845a7faf5c30e9d7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.302
   interactionPoint: {fileID: 135035526}
+  radius: 1.302
   itemBlueprint: {fileID: 11400000, guid: 44588738ae551c048875e40f32e276a4, type: 2}
-  focusController: {fileID: 0}
 --- !u!65 &135035523
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -811,7 +809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1139f562899a9a54f9e6d25d990a302e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeveloperConsoleBox: {fileID: 0}
 --- !u!114 &319206600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,10 +821,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93b077e65ac74845a7faf5c30e9d7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.302
   interactionPoint: {fileID: 319206604}
+  radius: 1.302
   itemBlueprint: {fileID: 11400000, guid: ef07c2b758d0f1f40b88b6441dbb23bd, type: 2}
-  focusController: {fileID: 0}
 --- !u!65 &319206601
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2998,7 +2994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1139f562899a9a54f9e6d25d990a302e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeveloperConsoleBox: {fileID: 0}
 --- !u!114 &1305322693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3011,10 +3006,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93b077e65ac74845a7faf5c30e9d7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.302
   interactionPoint: {fileID: 1305322697}
+  radius: 1.302
   itemBlueprint: {fileID: 11400000, guid: 44588738ae551c048875e40f32e276a4, type: 2}
-  focusController: {fileID: 0}
 --- !u!65 &1305322694
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3346,7 +3340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1c9a0a59d55684d9ab7c8bc4d3a70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeveloperConsoleBox: {fileID: 0}
   InventoryBag: {fileID: 1105915864}
   InventoryUI: {fileID: 1046205847}
 --- !u!1001 &1332574988
@@ -3805,7 +3798,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb300cc6b36df1e4baefe9df5023cbc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeveloperConsoleBox: {fileID: 0}
   rayCastRange: 30
   focus: {fileID: 0}
   FocusMask:
@@ -3850,7 +3842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72918ff3ff2a37a4f856976baf664d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeveloperConsoleBox: {fileID: 0}
   InventorySlots: 16
   InventoryItems: []
 --- !u!114 &1516229817
@@ -3895,7 +3886,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeveloperConsoleBox: {fileID: 389533841}
+  ConsoleKeybind: 
   InventoryUI: {fileID: 1046205847}
+  InventoryKeybind: 
 --- !u!1 &1525142340
 GameObject:
   m_ObjectHideFlags: 0
@@ -4928,6 +4921,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4515252608082297120, guid: c0599447181412f4582cbc52cb9c9f74,
+        type: 3}
+      propertyPath: CustomConsoleBox
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515252608082297120, guid: c0599447181412f4582cbc52cb9c9f74,
+        type: 3}
+      propertyPath: ConsoleBoxGUI
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4515252608082297121, guid: c0599447181412f4582cbc52cb9c9f74,
         type: 3}
       propertyPath: m_Name

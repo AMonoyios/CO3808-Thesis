@@ -4,7 +4,7 @@ using TMPro;
 
 public class InventorySetup : MonoBehaviour
 {
-    public TextMeshProUGUI DeveloperConsoleBox;
+    private TextMeshProUGUI ConsoleBoxGUI;
 
     // Cache the inventory instancing
     Inventory inventory;
@@ -16,7 +16,7 @@ public class InventorySetup : MonoBehaviour
 
     private void Awake()
     {
-        DeveloperConsoleBox = FindObjectOfType<TextMeshProUGUI>();
+        FindConsoleBoxGUI();
     }
 
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class InventorySetup : MonoBehaviour
 
     void UpdateInventory_UI()
     {
-        DeveloperConsoleBox.text += "DEBUG - INVENTORY: Updating inventory UI \n";
+        ConsoleBoxGUI.text += "DEBUG - INVENTORY: Updating inventory UI \n";
         Debug.Log("DEBUG - INVENTORY: Updating inventory UI");
     
         for (int i = 0; i < InventorySlots.Length; i++)
@@ -56,5 +56,14 @@ public class InventorySetup : MonoBehaviour
                 InventorySlots[i].ResetSlot();
             }
         }
+    }
+
+    void FindConsoleBoxGUI()
+    {
+        // B19 fix, because the script inherits from another one instead of monobehaviour i can 
+        //  not trigger awake when the object is being instansiated. TODO: try finding a more 
+        //  efficient way to get the text meshproGUI instead of find();
+        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
     }
 }

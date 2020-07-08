@@ -110,10 +110,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1.25
   interactionPoint: {fileID: 4515252608082297124}
-  DeveloperConsoleBox: {fileID: 0}
   currency: {fileID: 11400000, guid: 486f79fb992fbf546b3e5f8599defc38, type: 2}
   focusController: {fileID: 0}
   characterStats: {fileID: 0}
+  CustomConsoleBox: {fileID: 0}
+  ConsoleBoxGUI: {fileID: 0}
 --- !u!54 &4515252608082297131
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,3 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1139f562899a9a54f9e6d25d990a302e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeveloperConsoleBox: {fileID: 0}

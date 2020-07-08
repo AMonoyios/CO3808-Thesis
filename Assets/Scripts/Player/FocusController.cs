@@ -6,7 +6,7 @@ using TMPro;
 
 public class FocusController : MonoBehaviour
 {
-    public TextMeshProUGUI DeveloperConsoleBox;
+    private TextMeshProUGUI ConsoleBoxGUI;
     private Camera cam;
 
     [Range(10.0f,40.0f)]
@@ -23,7 +23,7 @@ public class FocusController : MonoBehaviour
 
     private void Awake()
     {
-        DeveloperConsoleBox = FindObjectOfType<TextMeshProUGUI>();
+        FindConsoleBoxGUI();
     }
 
     // Update is called once per frame
@@ -66,7 +66,7 @@ public class FocusController : MonoBehaviour
     // focusing a specific interactable item
     void Focus (InteractPoint newFocus)
     {
-        DeveloperConsoleBox.text += "DEBUG - PLAYER: focusing " + newFocus.name + "\n";
+        ConsoleBoxGUI.text += "DEBUG - PLAYER: focusing " + newFocus.name + "\n";
         Debug.Log("DEBUG - PLAYER: focusing " + newFocus.name);
         focus = newFocus;
         newFocus.OnFocused(this.transform);
@@ -75,9 +75,18 @@ public class FocusController : MonoBehaviour
     // Defocusing interactable item
     public void DeFocus()
     {
-        DeveloperConsoleBox.text += "DEBUG - PLAYER: defocusing " + focus.name + "\n";
+        ConsoleBoxGUI.text += "DEBUG - PLAYER: defocusing " + focus.name + "\n";
         Debug.Log("DEBUG - PLAYER: defocusing " + focus.name);
         focus.OnDeFocused();
         focus = null;
+    }
+
+    void FindConsoleBoxGUI()
+    {
+        // B19 fix, because the script inherits from another one instead of monobehaviour i can 
+        //  not trigger awake when the object is being instansiated. TODO: try finding a more 
+        //  efficient way to get the text meshproGUI instead of find();
+        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
     }
 }

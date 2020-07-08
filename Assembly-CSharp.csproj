@@ -77,9 +77,9 @@
     <Compile Include="Assets\Scripts\Player\CameraController.cs" />
     <Compile Include="Assets\Scripts\Player\FocusController.cs" />
     <Compile Include="Assets\Scripts\Player\InteractPoint.cs" />
-    <Compile Include="Assets\Scripts\Player\KeyboardControls.cs" />
     <Compile Include="Assets\Scripts\Player\MovementController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerPointing.cs" />
+    <Compile Include="Assets\Scripts\Player\UIControls.cs" />
     <Compile Include="Assets\Scripts\Stats\AllCharacterStats.cs" />
     <Compile Include="Assets\Scripts\Stats\Stats.cs" />
     <Compile Include="Assets\Scripts\temp&amp;test\movingWall.cs" />
