@@ -123,4 +123,9 @@ Fixed github project cloning micro issues     <br/>
 Worked on optimizing the group grass spawner  <br/>
 Bug fixing (B16,B17,B18)                      <br/>
 #### bugs:
-B19) Custom console does not show interactable logs  <br/>
+B19) Fixed - Custom console does not show interactable logs  <br/>
+
+### 20w28c:
+Worked on orginizing scripts                              <br/>
+Started working on custom keybinding methods using script <br/>
+Bug fixing (B19)                                          <br/>
