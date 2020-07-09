@@ -129,3 +129,7 @@ B19) Fixed - Custom console does not show interactable logs  <br/>
 Worked on orginizing scripts                              <br/>
 Started working on custom keybinding methods using script <br/>
 Bug fixing (B19)                                          <br/>
+
+### 20w28d:
+Worked on UIControl optimization    <br/>
+Null and double signed key detection  <br/>
