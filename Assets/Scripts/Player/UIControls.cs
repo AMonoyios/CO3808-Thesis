@@ -1,13 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
-
-// idea #2
-enum ValidKeybinds
-{
-    q,w,e,r,t,y,u,i,o,p,
-    a,s,d,f,g,h,j,k,l,
-    z,x,c,v,b,n,m
-}
+using System.Collections.Generic;
 
 public class UIControls: MonoBehaviour
 {
@@ -15,13 +8,16 @@ public class UIControls: MonoBehaviour
 
     [Header("Custom Console UI settings")]
     public GameObject DeveloperConsoleBox;
-    public string ConsoleKeybind;
+    public KeyCode ConsoleKeybind;
     private bool DeveloperConsoleToggleState;
 
     [Header("Inventory UI settings")]
     public GameObject InventoryUI;
-    public string InventoryKeybind;
+    public KeyCode InventoryKeybind;
     private bool InventoryToggleState;
+
+    [HideInInspector]
+    public List<KeyCode> AllKeybinds = new List<KeyCode>();
 
     // Start is called before the first frame update
     void Start()
@@ -39,30 +35,19 @@ public class UIControls: MonoBehaviour
 	{
         FindConsoleBoxGUI();
 
-        CheckKeybinds(ConsoleKeybind, InventoryKeybind);
+        CheckKeybinds(AllKeybinds);
     }
 
 	// Update is called once per frame
 	void Update()
     {
-        // idea #1
-		try
-		{
-            if (Input.GetKeyDown(InventoryKeybind))
-            {
-                InventoryToggleState = !InventoryToggleState;
-                InventoryUI.SetActive(InventoryToggleState);
-            }
-		}
-		catch
-		{
-            ConsoleBoxGUI.text += "WARNING - Player: Keybind for Inventory toggle is invalid -> " + InventoryKeybind + " was converted to 'i' \n";
-            Debug.LogWarning("WARNING - Player: Keybind for Inventory toggle is invalid -> " + InventoryKeybind + " was converted to 'i' ");
+        if (Input.GetKeyDown(InventoryKeybind))
+        {
+            InventoryToggleState = !InventoryToggleState;
+            InventoryUI.SetActive(InventoryToggleState);
+        }
 
-            InventoryKeybind = "i";
-		}
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(ConsoleKeybind))
         {
             DeveloperConsoleToggleState = !DeveloperConsoleToggleState;
             DeveloperConsoleBox.SetActive(DeveloperConsoleToggleState);
@@ -78,18 +63,30 @@ public class UIControls: MonoBehaviour
         ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
     }
 
-    void CheckKeybinds(string ConsoleKeybind, string InventoryKeybind)
+    void CheckKeybinds(List<KeyCode> AllKeybinds)
 	{
-        try
-        {
-            
-        }
-        catch
-        {
-            ConsoleBoxGUI.text += "WARNING - Player: Keybind for Inventory toggle is invalid -> " + InventoryKeybind + " was converted to 'i' \n";
-            Debug.LogWarning("WARNING - Player: Keybind for Inventory toggle is invalid -> " + InventoryKeybind + " was converted to 'i' ");
+        AllKeybinds.Add(ConsoleKeybind);
+        AllKeybinds.Add(InventoryKeybind);
 
-            InventoryKeybind = "i";
-        }
+		for (int i = 0; i < AllKeybinds.Count; i++)
+		{
+			if (AllKeybinds[i] == KeyCode.None)
+			{
+                ConsoleBoxGUI.text += "WARNING - Player: " + AllKeybinds[i] + " is unsigned \n";
+                Debug.LogWarning("WARNING - Player: " + AllKeybinds[i] + " is unsigned");
+			}
+		}
+
+		for (int i = 0; i < AllKeybinds.Count; i++)
+		{
+			for (int j = 0; j < AllKeybinds.Count; j++)
+			{
+				if (AllKeybinds[i] == AllKeybinds[j] && i != j)
+				{
+                    ConsoleBoxGUI.text += "WARNING - Player: " + AllKeybinds[i] + " is signed to two actions \n";
+                    Debug.LogWarning("WARNING - Player: " + AllKeybinds[i] + " is signed to two actions");
+				}
+			}
+		}
     }
 }

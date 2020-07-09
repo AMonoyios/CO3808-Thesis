@@ -3886,9 +3886,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeveloperConsoleBox: {fileID: 389533841}
-  ConsoleKeybind: 
+  ConsoleKeybind: 96
   InventoryUI: {fileID: 1046205847}
-  InventoryKeybind: 
+  InventoryKeybind: 105
+  AllKeybinds: 
 --- !u!1 &1525142340
 GameObject:
   m_ObjectHideFlags: 0
