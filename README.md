@@ -133,3 +133,9 @@ Bug fixing (B19)                                          <br/>
 ### 20w28d:
 Worked on UIControl optimization    <br/>
 Null and double signed key detection  <br/>
+
+### 20w29a:
+Worked on Custom console UI <br/>
+Bug fixing (B20)            <br/>
+#### bugs:
+B20) Fixed - When Custom console was deactivated messeges threw null reference errors <br/>
