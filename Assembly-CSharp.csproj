@@ -63,7 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Currency\CurrencyBlueprint.cs" />
+    <Compile Include="Assets\Scripts\Blueprints\CurrencyBlueprint.cs" />
+    <Compile Include="Assets\Scripts\Blueprints\EquipmentBlueprint.cs" />
+    <Compile Include="Assets\Scripts\Blueprints\ItemBlueprint.cs" />
     <Compile Include="Assets\Scripts\Currency\LootCurrency.cs" />
     <Compile Include="Assets\Scripts\Enviroment\CollidableFoliage.cs" />
     <Compile Include="Assets\Scripts\Enviroment\GrassRandomPlacement.cs" />
@@ -71,7 +73,6 @@
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySetup.cs" />
     <Compile Include="Assets\Scripts\Items\ChestInteraction.cs" />
-    <Compile Include="Assets\Scripts\Items\ItemBlueprint.cs" />
     <Compile Include="Assets\Scripts\Items\LootItem.cs" />
     <Compile Include="Assets\Scripts\Items\MiscItemProperties.cs" />
     <Compile Include="Assets\Scripts\Player\CameraController.cs" />

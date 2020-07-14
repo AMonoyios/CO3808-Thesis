@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Custom Scriptable Objects/Game Objects/Item")]
 public class ItemBlueprint : ScriptableObject
 {
+    [Header("Item specific properties")]
     // Properties for all Item types
     public string ItemName = "New Item";
     public Sprite ItemIcon = null;
