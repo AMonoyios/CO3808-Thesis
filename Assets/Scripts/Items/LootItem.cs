@@ -9,7 +9,7 @@ public class LootItem : InteractPoint
     
     private FocusController focusController;
 
-    private TextMeshProUGUI ConsoleBoxGUI;
+    private new TextMeshProUGUI ConsoleBoxGUI;
 
     // In order to avoid having to drag and drop each Gameobject to every single item we create, 
     //  we can use GetComponent and search all the game files for the specific gameobject, this
@@ -24,34 +24,42 @@ public class LootItem : InteractPoint
     {
         base.Interact();
 
-        FindConsoleBoxGUI();
-
         PickUpItem();
     }
 
     void PickUpItem()
     {
         // Add item to inventory
-        ConsoleBoxGUI.text += "DEBUG - ITEM: Added " + itemBlueprint.name + " to inventory \n";
+        if (FindConsoleBoxGUI())
+            ConsoleBoxGUI.text += "DEBUG - ITEM: Added " + itemBlueprint.name + " to inventory \n";
         Debug.Log("DEBUG - ITEM: Added " + itemBlueprint.name + " to inventory");
         bool successfulPickup = Inventory.InventoryInstance.AddToInventory(itemBlueprint);
 
         // Delete item from game world
         if (successfulPickup == true)
-        {
             Destroy(gameObject);
-        }
 
         // Stop Focusing the deleted item
         focusController.DeFocus();
     }
 
-    void FindConsoleBoxGUI()
-	{
+    bool FindConsoleBoxGUI()
+    {
         // B19 fix, because the script inherits from another one instead of monobehaviour i can 
         //  not trigger awake when the object is being instansiated. TODO: try finding a more 
         //  efficient way to get the text meshproGUI instead of find();
-        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+
+        // B20 when the custom console box is inactive it does not find the gameobject
+        try
+        {
+            GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+            ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+        }
+        catch (System.Exception)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

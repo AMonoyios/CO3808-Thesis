@@ -33,8 +33,6 @@ public class UIControls: MonoBehaviour
 
 	void Awake()
 	{
-        FindConsoleBoxGUI();
-
         CheckKeybinds(AllKeybinds);
     }
 
@@ -54,15 +52,6 @@ public class UIControls: MonoBehaviour
         }
     }
 
-    void FindConsoleBoxGUI()
-    {
-        // B19 fix, because the script inherits from another one instead of monobehaviour i can 
-        //  not trigger awake when the object is being instansiated. TODO: try finding a more 
-        //  efficient way to get the text meshproGUI instead of find();
-        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
-    }
-
     void CheckKeybinds(List<KeyCode> AllKeybinds)
 	{
         AllKeybinds.Add(ConsoleKeybind);
@@ -72,7 +61,6 @@ public class UIControls: MonoBehaviour
 		{
 			if (AllKeybinds[i] == KeyCode.None)
 			{
-                ConsoleBoxGUI.text += "WARNING - Player: " + AllKeybinds[i] + " is unsigned \n";
                 Debug.LogWarning("WARNING - Player: " + AllKeybinds[i] + " is unsigned");
 			}
 		}
@@ -83,7 +71,6 @@ public class UIControls: MonoBehaviour
 			{
 				if (AllKeybinds[i] == AllKeybinds[j] && i != j)
 				{
-                    ConsoleBoxGUI.text += "WARNING - Player: " + AllKeybinds[i] + " is signed to two actions \n";
                     Debug.LogWarning("WARNING - Player: " + AllKeybinds[i] + " is signed to two actions");
 				}
 			}

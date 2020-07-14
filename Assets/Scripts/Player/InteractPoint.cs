@@ -19,9 +19,9 @@ public class InteractPoint : MonoBehaviour
     // enemies have health attack etc but a loot chest has loot in it
     public virtual void Interact()
     {
-        FindConsoleBoxGUI();
+		if (FindConsoleBoxGUI())
+            ConsoleBoxGUI.text += "DEBUG - PLAYER: Interacting with " + transform.name + "\n";
 
-        ConsoleBoxGUI.text += "DEBUG - PLAYER: Interacting with " + transform.name + "\n";
         Debug.Log("DEBUG - PLAYER: Interacting with " + transform.name);
     }
 
@@ -68,12 +68,23 @@ public class InteractPoint : MonoBehaviour
         }
     }
 
-    void FindConsoleBoxGUI()
+    bool FindConsoleBoxGUI()
     {
-        // B19 fix, because the script inherits from another one instead of monobehaviour i can 
-        //  not trigger awake when the object is being instansiated. TODO: try finding a more 
-        //  efficient way to get the text meshproGUI instead of find();
-        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+		// B19 fix, because the script inherits from another one instead of monobehaviour i can 
+		//  not trigger awake when the object is being instansiated. TODO: try finding a more 
+		//  efficient way to get the text meshproGUI instead of find();
+
+		// B20 when the custom console box is inactive it does not find the gameobject
+		try
+		{
+            GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+            ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+		}
+		catch (System.Exception)
+		{
+            return false;
+		}
+
+        return true;
     }
 }

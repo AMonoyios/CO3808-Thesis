@@ -6,7 +6,6 @@ public class CollidableFoliage : MonoBehaviour
 {
     public Material[] materials;
     
-    Transform player;
     Vector3 playerPosition;
 
     // Start is called before the first frame update

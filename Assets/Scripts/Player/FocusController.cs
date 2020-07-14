@@ -21,11 +21,6 @@ public class FocusController : MonoBehaviour
         cam = Camera.main;
     }
 
-    private void Awake()
-    {
-        FindConsoleBoxGUI();
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -66,8 +61,10 @@ public class FocusController : MonoBehaviour
     // focusing a specific interactable item
     void Focus (InteractPoint newFocus)
     {
-        ConsoleBoxGUI.text += "DEBUG - PLAYER: focusing " + newFocus.name + "\n";
+		if (FindConsoleBoxGUI())
+		    ConsoleBoxGUI.text += "DEBUG - PLAYER: focusing " + newFocus.name + "\n";
         Debug.Log("DEBUG - PLAYER: focusing " + newFocus.name);
+    
         focus = newFocus;
         newFocus.OnFocused(this.transform);
     }
@@ -75,18 +72,31 @@ public class FocusController : MonoBehaviour
     // Defocusing interactable item
     public void DeFocus()
     {
-        ConsoleBoxGUI.text += "DEBUG - PLAYER: defocusing " + focus.name + "\n";
+		if (FindConsoleBoxGUI())
+            ConsoleBoxGUI.text += "DEBUG - PLAYER: defocusing " + focus.name + "\n";
         Debug.Log("DEBUG - PLAYER: defocusing " + focus.name);
+        
         focus.OnDeFocused();
         focus = null;
     }
 
-    void FindConsoleBoxGUI()
+    bool FindConsoleBoxGUI()
     {
         // B19 fix, because the script inherits from another one instead of monobehaviour i can 
         //  not trigger awake when the object is being instansiated. TODO: try finding a more 
         //  efficient way to get the text meshproGUI instead of find();
-        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+
+        // B20 when the custom console box is inactive it does not find the gameobject
+        try
+        {
+            GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+            ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+        }
+        catch (System.Exception)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

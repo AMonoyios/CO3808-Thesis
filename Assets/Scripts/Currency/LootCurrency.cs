@@ -24,8 +24,6 @@ public class LootCurrency : InteractPoint
 
     public override void Interact()
     {
-        FindConsoleBoxGUI();
-        
         base.Interact();
 
         PickUpCurrency();
@@ -33,13 +31,15 @@ public class LootCurrency : InteractPoint
 
     void PickUpCurrency()
     {
-        // Add to balance
-        ConsoleBoxGUI.text += "DEBUG - CURRENCY: Added " + currency.name + " to your balance \n";
+		// Add to balance
+		if (FindConsoleBoxGUI())
+            ConsoleBoxGUI.text += "DEBUG - CURRENCY: Added " + currency.name + " to your balance \n";
         Debug.Log("DEBUG - CURRENCY: Added " + currency.name + " to your balance");
         characterStats.Balance += currency.CurrencyValue;
 
-        // Delete from game world
-        ConsoleBoxGUI.text += "DEBUG - CURRENCY: Deleting " + gameObject.name + "\n";
+		// Delete from game world
+		if (FindConsoleBoxGUI())
+            ConsoleBoxGUI.text += "DEBUG - CURRENCY: Deleting " + gameObject.name + "\n";
         Debug.Log("DEBUG - CURRENCY: Deleting " + gameObject.name);
         Destroy(gameObject);
 
@@ -47,12 +47,23 @@ public class LootCurrency : InteractPoint
         focusController.DeFocus();
     }
 
-    void FindConsoleBoxGUI()
+    bool FindConsoleBoxGUI()
     {
         // B19 fix, because the script inherits from another one instead of monobehaviour i can 
         //  not trigger awake when the object is being instansiated. TODO: try finding a more 
         //  efficient way to get the text meshproGUI instead of find();
-        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+
+        // B20 when the custom console box is inactive it does not find the gameobject
+        try
+        {
+            GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+            ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+        }
+        catch (System.Exception)
+        {
+            return false;
+        }
+
+        return true;
     }
 }
