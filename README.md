@@ -139,3 +139,8 @@ Worked on Custom console UI <br/>
 Bug fixing (B20)            <br/>
 #### bugs:
 B20) Fixed - When Custom console was deactivated messeges threw null reference errors <br/>
+
+### 20w29b:
+Started convertion of equipment items to custom scriptable objects  <br/>
+Re-orginized files                                                  <br/>
+Started work on implementing a simple equipment properties menu     <br/>
