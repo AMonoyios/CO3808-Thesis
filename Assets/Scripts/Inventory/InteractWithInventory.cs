@@ -12,6 +12,18 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
     public Button DeleteButton;
     public TextMeshProUGUI ItemCounter;
 
+    // B21 fix, items clip and fall under the world when dropped
+    [Header("Inventory interaction properties")]
+    [Range(-2.0f, 2.0f)]
+    public float DropOffsetX = 0.0f;
+    [Range(-2.0f, 2.0f)]
+    public float DropOffsetY = 0.5f;
+    [Range(-2.0f, 2.0f)]
+    public float DropOffsetZ = 0.0f;
+
+    [HideInInspector]
+    public Vector3 DropOffset;
+
     private GameObject Player;
 
     ItemBlueprint item;
@@ -19,6 +31,8 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         Player = GameObject.Find("Player");
+
+        DropOffset = new Vector3(DropOffsetX, DropOffsetY, DropOffsetZ);
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
@@ -69,8 +83,8 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
 		if (FindConsoleBoxGUI())
             ConsoleBoxGUI.text += "DEBUG - ITEM: Dropping " + SlotItem.ItemName + "\n";
         Debug.Log("DEBUG - ITEM: Dropping " + SlotItem.ItemName);
-
-        GameObject itemName = (GameObject)Instantiate(SlotItem.itemPrefab, Player.transform.position, Player.transform.rotation);
+        
+        GameObject itemName = (GameObject)Instantiate(SlotItem.itemPrefab, Player.transform.position + DropOffset, Player.transform.rotation);
         DeleteItemOnSlot();
     }
 

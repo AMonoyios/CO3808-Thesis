@@ -16,4 +16,9 @@ public class ItemBlueprint : ScriptableObject
     {
         Debug.Log("DEBUG - ITEM: Using " + ItemName);
     }
+
+    public void RemoveEquipment()
+    {
+        Inventory.InventoryInstance.RemoveFromInventory(this);
+    }
 }
