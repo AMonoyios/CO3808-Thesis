@@ -144,3 +144,12 @@ B20) Fixed - When Custom console was deactivated messeges threw null reference e
 Started convertion of equipment items to custom scriptable objects  <br/>
 Re-orginized files                                                  <br/>
 Started work on implementing a simple equipment properties menu     <br/>
+
+### 20w30a:
+Worked on equipment system                            <br/>
+Added the ability to drop and equip items             <br/>
+Implemented equipment swap when slot already occupied <br/>
+Worked on placeholder textures                        <br/>
+Bug fixing (B21)                                      <br/>
+#### bugs:
+B21) Fixed - Items clipping out of the world when dropped from inventory  <br/>
