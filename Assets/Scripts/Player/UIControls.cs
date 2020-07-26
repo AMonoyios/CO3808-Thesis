@@ -16,6 +16,11 @@ public class UIControls: MonoBehaviour
     public KeyCode InventoryKeybind;
     private bool InventoryToggleState;
 
+    [Header("Equipment UI settings")]
+    public GameObject EquipmentUI;
+    public KeyCode EquipmentKeybind;
+    private bool EquipmentToggleState;
+
     [HideInInspector]
     public List<KeyCode> AllKeybinds = new List<KeyCode>();
 
@@ -29,6 +34,10 @@ public class UIControls: MonoBehaviour
         // Close the inventory when the game starts
         InventoryToggleState = false;
         InventoryUI.SetActive(InventoryToggleState);
+
+        // Close the equipment when the game starts
+        EquipmentToggleState = false;
+        EquipmentUI.SetActive(EquipmentToggleState);
     }
 
 	void Awake()
@@ -45,6 +54,12 @@ public class UIControls: MonoBehaviour
             InventoryUI.SetActive(InventoryToggleState);
         }
 
+        if (Input.GetKeyDown(EquipmentKeybind))
+        {
+            EquipmentToggleState = !EquipmentToggleState;
+            EquipmentUI.SetActive(EquipmentToggleState);
+        }
+
         if (Input.GetKeyDown(ConsoleKeybind))
         {
             DeveloperConsoleToggleState = !DeveloperConsoleToggleState;
@@ -56,8 +71,9 @@ public class UIControls: MonoBehaviour
 	{
         AllKeybinds.Add(ConsoleKeybind);
         AllKeybinds.Add(InventoryKeybind);
+        AllKeybinds.Add(EquipmentKeybind);
 
-		for (int i = 0; i < AllKeybinds.Count; i++)
+        for (int i = 0; i < AllKeybinds.Count; i++)
 		{
 			if (AllKeybinds[i] == KeyCode.None)
 			{

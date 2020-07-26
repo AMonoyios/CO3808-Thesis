@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
     private TextMeshProUGUI ConsoleBoxGUI;
 
     // Creating the list for the total items in the inventory
-    public int InventorySlots = 16;
+    public int InventorySlots = 15;
     public List<InventoryItems> InventoryItems = new List<InventoryItems>();
 
     // In order to update the inventory UI without using the function in the Update() we can 

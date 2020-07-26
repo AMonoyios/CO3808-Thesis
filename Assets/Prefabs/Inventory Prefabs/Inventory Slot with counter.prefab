@@ -354,7 +354,10 @@ MonoBehaviour:
   SlotIcon: {fileID: 5854399205296506627}
   DeleteButton: {fileID: 3463755022533444774}
   ItemCounter: {fileID: 3668300301568718176}
-  Player: {fileID: 0}
+  DropOffsetX: 0
+  DropOffsetY: 0.5
+  DropOffsetZ: 0
+  DropOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8419191393324985346
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +370,7 @@ GameObject:
   - component: {fileID: 5433453435511024910}
   - component: {fileID: 3668300301568718176}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Item quantity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -490,13 +493,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0.06579494, w: 0}
   m_textInfo:
     textComponent: {fileID: 3668300301568718176}
-    characterCount: 3
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 1
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

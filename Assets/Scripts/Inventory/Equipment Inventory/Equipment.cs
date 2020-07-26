@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Equipment : MonoBehaviour
 {
-	#region EquipmentController Singleton
+	#region EquipmentSingleton
 
 	public static Equipment EquipmentInstance;
 
@@ -15,7 +15,12 @@ public class Equipment : MonoBehaviour
 
 	#endregion
 
-	EquipmentBlueprint[] equipmentSlot;
+	public EquipmentBlueprint[] equipmentSlot;
+
+	// In order to update the equipment UI without using the function in the Update() we can 
+	//  use a delegate
+	public delegate void EquipmentUpdated(EquipmentBlueprint item);
+	public EquipmentUpdated CallEquipmentUpdated;
 
 	private void Start()
 	{
@@ -29,7 +34,7 @@ public class Equipment : MonoBehaviour
 
 		// get equipment currently in use
 		EquipmentBlueprint oldEquipment;
-
+		
 		// Swap new equipment with old
 		if (equipmentSlot[SlotIndex] != null)
 		{
@@ -39,6 +44,10 @@ public class Equipment : MonoBehaviour
 		}
 
 		equipmentSlot[SlotIndex] = Item;
-	}
 
+		if (CallEquipmentUpdated != null)
+		{
+			CallEquipmentUpdated.Invoke(Item);
+		}
+	}
 }
