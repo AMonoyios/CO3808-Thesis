@@ -153,3 +153,11 @@ Worked on placeholder textures                        <br/>
 Bug fixing (B21)                                      <br/>
 #### bugs:
 B21) Fixed - Items clipping out of the world when dropped from inventory  <br/>
+
+### 20w30b:
+Added equipment UI                              <br/>
+UI can now display current equipped items       <br/>
+Converted all UI updates to delegate singletons <br/>
+#### bugs:
+B22) Working - Player can interact behind the equipment ui  <br/>
+B23) Pending - Un-Equip button doesn't work                 <br/>
