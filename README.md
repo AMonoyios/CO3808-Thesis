@@ -159,5 +159,12 @@ Added equipment UI                              <br/>
 UI can now display current equipped items       <br/>
 Converted all UI updates to delegate singletons <br/>
 #### bugs:
-B22) Working - Player can interact behind the equipment ui  <br/>
-B23) Pending - Un-Equip button doesn't work                 <br/>
+B22) Fixed - Player can interact behind the equipment ui  <br/>
+B23) Working - Un-Equip button doesn't work                 <br/>
+
+### 20w37a:
+Player can interact with Inventories  <br/>
+Items have unique tool tips           <br/>
+Removed Custom Console Box (Beta)     <br/>
+#### bugs:
+B24) Working - Player pointing does not update correctly  <br/>
