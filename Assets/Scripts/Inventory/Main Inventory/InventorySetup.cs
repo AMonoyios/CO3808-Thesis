@@ -4,7 +4,7 @@ using TMPro;
 
 public class InventorySetup : MonoBehaviour
 {
-    private TextMeshProUGUI ConsoleBoxGUI;
+    //private TextMeshProUGUI ConsoleBoxGUI;
 
     // Cache the inventory instancing
     Inventory inventory;
@@ -26,9 +26,9 @@ public class InventorySetup : MonoBehaviour
     }
 
     void UpdateInventory_UI()
-    {
-		if (FindConsoleBoxGUI())
-            ConsoleBoxGUI.text += "DEBUG - INVENTORY: Updating inventory UI \n";
+    {   
+		//if (FindConsoleBoxGUI())
+        //    ConsoleBoxGUI.text += "DEBUG - INVENTORY: Updating inventory UI \n";
         Debug.Log("DEBUG - INVENTORY: Updating inventory UI");
     
         for (int i = 0; i < InventorySlots.Length; i++)
@@ -54,23 +54,23 @@ public class InventorySetup : MonoBehaviour
         }
     }
 
-    bool FindConsoleBoxGUI()
-    {
-        // B19 fix, because the script inherits from another one instead of monobehaviour i can 
-        //  not trigger awake when the object is being instansiated. TODO: try finding a more 
-        //  efficient way to get the text meshproGUI instead of find();
-
-        // B20 when the custom console box is inactive it does not find the gameobject
-        try
-        {
-            GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-            ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
-        }
-        catch (System.Exception)
-        {
-            return false;
-        }
-
-        return true;
-    }
+    //bool FindConsoleBoxGUI()
+    //{
+    //    // B19 fix, because the script inherits from another one instead of monobehaviour i can 
+    //    //  not trigger awake when the object is being instansiated. TODO: try finding a more 
+    //    //  efficient way to get the text meshproGUI instead of find();
+    //
+    //    // B20 when the custom console box is inactive it does not find the gameobject
+    //    try
+    //    {
+    //        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+    //        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+    //    }
+    //    catch (System.Exception)
+    //    {
+    //        return false;
+    //    }
+    //
+    //    return true;
+    //}
 }

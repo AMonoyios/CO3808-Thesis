@@ -18,6 +18,7 @@ MonoBehaviour:
   StackUntil: 1
   itemPrefab: {fileID: 3208721538202414809, guid: 69db2fcd0b9d2cf4c9ec86319852f241,
     type: 3}
+  ItemDescription: Boots that were created in order to test various game features.
   EquipSlot: 3
   Protection: 10
   Damage: 5

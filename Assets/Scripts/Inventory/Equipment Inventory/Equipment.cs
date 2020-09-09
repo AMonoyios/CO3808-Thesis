@@ -19,7 +19,7 @@ public class Equipment : MonoBehaviour
 
 	// In order to update the equipment UI without using the function in the Update() we can 
 	//  use a delegate
-	public delegate void EquipmentUpdated(EquipmentBlueprint item);
+	public delegate void EquipmentUpdated(EquipmentBlueprint item, bool AddorRemove);
 	public EquipmentUpdated CallEquipmentUpdated;
 
 	private void Start()
@@ -39,7 +39,6 @@ public class Equipment : MonoBehaviour
 		if (equipmentSlot[SlotIndex] != null)
 		{
 			oldEquipment = equipmentSlot[SlotIndex];
-
 			Inventory.InventoryInstance.AddToInventory(oldEquipment);
 		}
 
@@ -47,7 +46,32 @@ public class Equipment : MonoBehaviour
 
 		if (CallEquipmentUpdated != null)
 		{
-			CallEquipmentUpdated.Invoke(Item);
+			CallEquipmentUpdated.Invoke(Item, true);
 		}
+	}
+
+	public void UnEquip(int SlotIndex)
+	{
+		// Try adding equipment item to inventory
+		if (Inventory.InventoryInstance.InventorySlots > Inventory.InventoryInstance.InventoryItems.Count)
+		{
+			EquipmentBlueprint ItemToUnequip = Equipment.EquipmentInstance.equipmentSlot[SlotIndex];
+			Inventory.InventoryInstance.AddToInventory(ItemToUnequip);
+
+			if (CallEquipmentUpdated != null)  // TODO: items are being deleted when you have more than one equipped item and then click unequip
+			{
+				CallEquipmentUpdated.Invoke(ItemToUnequip, false);
+			}
+			equipmentSlot[SlotIndex] = null;
+		}
+		else
+		{
+			Debug.LogError("ERROR - EquipmentInventory: Item can not be unequip, no space in inventory!");
+		}
+
+		//// Reset equipment slot
+		//SlotIcon.sprite = null;
+		//SlotIcon.enabled = false;
+		//UnEquipButton.interactable = false;
 	}
 }

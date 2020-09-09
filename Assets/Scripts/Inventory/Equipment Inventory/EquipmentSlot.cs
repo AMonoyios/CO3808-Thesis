@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public enum EquipmentType
 {
@@ -10,12 +11,15 @@ public enum EquipmentType
     Legs,
     Feet,
     RightHand,
-    LeftHand
+    LeftHand,
+    NeckAcc,
+    HandAcc
 }
 
 public class EquipmentSlot : MonoBehaviour
 {
     Equipment equipment;
+    public GameObject EquipmentBag;
 
     [Header("Each equipment slot components")]
     public Image SlotIcon;
@@ -30,26 +34,72 @@ public class EquipmentSlot : MonoBehaviour
     }
 
     // Update is called once per frame
-    void UpdateEquipment_UI(EquipmentBlueprint Item)
+    void UpdateEquipment_UI(EquipmentBlueprint Item, bool AddorRemove)
     {
-        Debug.Log("Update equipment UI: " + Item.ItemName);
-
-		if ((int)Item.EquipSlot == (int)equipmentType)
+		if (AddorRemove == true)
 		{
-            AddEquipmentToSlot(Item);
+		    if ((int)Item.EquipSlot == (int)equipmentType && AddEquipmentToSlot(Item) == true)
+		    {
+                Debug.Log("DEBUG - EquipmentInventory: Update equipment UI: " + Item.ItemName);
+		    }
+		}
+		else if (AddorRemove == false)
+		{
+		    for (int i = 0; i < Enum.GetNames(typeof(EquipmentType)).Length; i++)
+		    {
+		    	if (i == (int)Item.EquipSlot && RemoveEquipmentFromSlot(i) == true)
+		    	{
+                    Debug.Log("DEBUG - EquipmentInventory: Equipment slot " + i + " unequiped");
+                }
+            }
+		}
+		else
+		{
+            Debug.LogError("ERROR - EquipmentInventory: UpdateEquipment_UI has an invalid action index!");
 		}
     }
 
-    public void AddEquipmentToSlot(EquipmentBlueprint SlotItem)
+    bool AddEquipmentToSlot(EquipmentBlueprint SlotItem)
     {
-        SlotIcon.sprite = SlotItem.ItemIcon;
-        SlotIcon.enabled = true;
-        UnEquipButton.interactable = true;
+		// display equipment to slot
+		try
+		{
+            SlotIcon.sprite = SlotItem.ItemIcon;
+            SlotIcon.enabled = true;
+            UnEquipButton.interactable = true;
+		}
+		catch (System.Exception)
+		{
+            return false;
+			throw;
+		}
+
+        return true;
+    }
+
+    public bool RemoveEquipmentFromSlot(int EquipmentSlotIndex)
+	{
+		// reset equipment slot
+		try
+		{
+            GameObject EquipmentSlot = EquipmentBag.transform.GetChild(EquipmentSlotIndex).gameObject;
+            
+            EquipmentSlot.transform.GetChild(0).GetComponent<EquipmentSlot>().SlotIcon.sprite = null;
+            EquipmentSlot.transform.GetChild(0).GetComponent<EquipmentSlot>().SlotIcon.enabled = false;
+            EquipmentSlot.transform.GetChild(0).GetComponent<EquipmentSlot>().UnEquipButton.interactable = false;
+        }
+		catch (System.Exception)
+		{
+            return false;
+            throw;
+		}
+
+        return true;
     }
 
     // TODO 
-    // 1) Disable movement or interactions when hovering over equipment UI
-    // 2) Implement Un-Equip item button
-    // 3) Add left hand and right hand equipment slots
+    // DONE - 1) Disable movement or interactions when hovering over equipment UI
+    // DONE - 2) Implement Un-Equip item button
+    // DONE - 3) Add left hand and right hand equipment slots
     // 4) Add an Un-Equip all keybind action
 }

@@ -4,7 +4,7 @@ using TMPro;
 
 public class ChestInteraction : InteractPoint
 {
-    private new TextMeshProUGUI ConsoleBoxGUI;
+    //TextMeshProUGUI ConsoleBoxGUI;
 
     private FocusController focusController;
     private Animator animator;
@@ -61,8 +61,8 @@ public class ChestInteraction : InteractPoint
 
     void OpenChest()
     {
-		if (FindConsoleBoxGUI())
-            ConsoleBoxGUI.text += "DEBUG - ITEM: Chest " + FocusChestName + " Opening \n";
+		//if (FindConsoleBoxGUI())
+        //    ConsoleBoxGUI.text += "DEBUG - ITEM: Chest " + FocusChestName + " Opening \n";
         Debug.Log("DEBUG - ITEM: Chest " + FocusChestName + " Opening");
 
         animator = focusController.focus.GetComponent<Animator>();
@@ -70,8 +70,8 @@ public class ChestInteraction : InteractPoint
 
         if (!hasBeenLooted)
         {
-			if (FindConsoleBoxGUI())
-                ConsoleBoxGUI.text += "DEBUG - ITEM: Looting " + FocusChestName + "\n";
+			//if (FindConsoleBoxGUI())
+            //    ConsoleBoxGUI.text += "DEBUG - ITEM: Looting " + FocusChestName + "\n";
             Debug.Log("DEBUG - ITEM: Looting " + FocusChestName);
 
             // Spawn all loot of the chest
@@ -86,16 +86,16 @@ public class ChestInteraction : InteractPoint
         else
         {
 			// for now throw a message
-			if (FindConsoleBoxGUI())
-                ConsoleBoxGUI.text += "DEBUG - ITEM: Chest " + FocusChestName + " already looted \n";
+			//if (FindConsoleBoxGUI())
+            //    ConsoleBoxGUI.text += "DEBUG - ITEM: Chest " + FocusChestName + " already looted \n";
             Debug.Log("DEBUG - ITEM: Chest " + FocusChestName + " already looted");
         }
     }
 
     void CloseChest()
     {
-		if (FindConsoleBoxGUI())
-            ConsoleBoxGUI.text += "DEBUG - ITEM: Chest " + FocusChestName + " Closing \n";
+		//if (FindConsoleBoxGUI())
+        //    ConsoleBoxGUI.text += "DEBUG - ITEM: Chest " + FocusChestName + " Closing \n";
         Debug.Log("DEBUG - ITEM: Chest " + FocusChestName + " Closing");
 
         animator.SetBool("Open_Chest", false);
@@ -103,8 +103,8 @@ public class ChestInteraction : InteractPoint
 
     void SpawnChestLoot(int ChestLootIndex)
     {
-		if (FindConsoleBoxGUI())
-            ConsoleBoxGUI.text += "DEBUG - ITEM: Spawning " + ChestLootCount[ChestLootIndex].name + "\n";
+		//if (FindConsoleBoxGUI())
+        //    ConsoleBoxGUI.text += "DEBUG - ITEM: Spawning " + ChestLootCount[ChestLootIndex].name + "\n";
         Debug.Log("DEBUG - ITEM: Spawning " + ChestLootCount[ChestLootIndex].name);
 
         // Calculate the spawn velocity of the loot
@@ -120,23 +120,23 @@ public class ChestInteraction : InteractPoint
         NewLoot.GetComponent<Rigidbody>().AddRelativeForce(itemSpawnForce);
     }
 
-    bool FindConsoleBoxGUI()
-    {
-        // B19 fix, because the script inherits from another one instead of monobehaviour i can 
-        //  not trigger awake when the object is being instansiated. TODO: try finding a more 
-        //  efficient way to get the text meshproGUI instead of find();
-
-        // B20 when the custom console box is inactive it does not find the gameobject
-        try
-        {
-            GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-            ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
-        }
-        catch (System.Exception)
-        {
-            return false;
-        }
-
-        return true;
-    }
+    //bool FindConsoleBoxGUI()
+    //{
+    //    // B19 fix, because the script inherits from another one instead of monobehaviour i can 
+    //    //  not trigger awake when the object is being instansiated. TODO: try finding a more 
+    //    //  efficient way to get the text meshproGUI instead of find();
+    //
+    //    // B20 when the custom console box is inactive it does not find the gameobject
+    //    try
+    //    {
+    //        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+    //        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+    //    }
+    //    catch (System.Exception)
+    //    {
+    //        return false;
+    //    }
+    //
+    //    return true;
+    //}
 }

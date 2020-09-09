@@ -7,7 +7,9 @@ public enum EquipmentSlots
 	Legs, 
 	Feet, 
 	RightHand, 
-	LeftHand
+	LeftHand,
+	NeckAcc,
+	HandAcc
 }
 
 [CreateAssetMenu(fileName = "New Equipment", menuName = "Custom Scriptable Objects/Game Objects/Equipment")]
@@ -30,8 +32,6 @@ public class EquipmentBlueprint : ItemBlueprint
 		Equipment.EquipmentInstance.Equip(this);
 
 		// remove from inventory
-		RemoveEquipment();
-
-		// *TODO show armor wearing at the moment in the Inventory UI*
+		RemoveItem();
 	}
 }

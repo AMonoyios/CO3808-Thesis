@@ -18,6 +18,7 @@ MonoBehaviour:
   StackUntil: 1
   itemPrefab: {fileID: 7408832201007227148, guid: ba201a9f1d3a70c4183a442c79cbf252,
     type: 3}
+  ItemDescription: Chestplate that was created in order to test various game features.
   EquipSlot: 1
   Protection: 10
   Damage: 0

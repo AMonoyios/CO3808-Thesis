@@ -18,6 +18,7 @@ MonoBehaviour:
   StackUntil: 1
   itemPrefab: {fileID: 3076387859463237619, guid: 12e889c84c8da764896e2bdfde0c1f9f,
     type: 3}
+  ItemDescription: Chestplate to test the armor swap capability.
   EquipSlot: 1
   Protection: 4
   Damage: 0

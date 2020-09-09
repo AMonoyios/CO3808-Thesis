@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class FocusController : MonoBehaviour
 {
-    private TextMeshProUGUI ConsoleBoxGUI;
+    //TextMeshProUGUI ConsoleBoxGUI;
     private Camera cam;
 
     [Range(10.0f,40.0f)]
@@ -25,7 +26,8 @@ public class FocusController : MonoBehaviour
     void Update()
     {
         // when hitting the left mouse button 
-        if (Input.GetMouseButtonDown(0))
+        // B22 fix, player interacting with items behind the UI interface
+        if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0))
         {
             // creating a ray from the screen to a point in game
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -61,8 +63,8 @@ public class FocusController : MonoBehaviour
     // focusing a specific interactable item
     void Focus (InteractPoint newFocus)
     {
-		if (FindConsoleBoxGUI())
-		    ConsoleBoxGUI.text += "DEBUG - PLAYER: focusing " + newFocus.name + "\n";
+		//if (FindConsoleBoxGUI())
+		//    ConsoleBoxGUI.text += "DEBUG - PLAYER: focusing " + newFocus.name + "\n";
         Debug.Log("DEBUG - PLAYER: focusing " + newFocus.name);
     
         focus = newFocus;
@@ -72,31 +74,31 @@ public class FocusController : MonoBehaviour
     // Defocusing interactable item
     public void DeFocus()
     {
-		if (FindConsoleBoxGUI())
-            ConsoleBoxGUI.text += "DEBUG - PLAYER: defocusing " + focus.name + "\n";
+		//if (FindConsoleBoxGUI())
+        //    ConsoleBoxGUI.text += "DEBUG - PLAYER: defocusing " + focus.name + "\n";
         Debug.Log("DEBUG - PLAYER: defocusing " + focus.name);
         
         focus.OnDeFocused();
         focus = null;
     }
 
-    bool FindConsoleBoxGUI()
-    {
-        // B19 fix, because the script inherits from another one instead of monobehaviour i can 
-        //  not trigger awake when the object is being instansiated. TODO: try finding a more 
-        //  efficient way to get the text meshproGUI instead of find();
-
-        // B20 when the custom console box is inactive it does not find the gameobject
-        try
-        {
-            GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-            ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
-        }
-        catch (System.Exception)
-        {
-            return false;
-        }
-
-        return true;
-    }
+    //bool FindConsoleBoxGUI()
+    //{
+    //    // B19 fix, because the script inherits from another one instead of monobehaviour i can 
+    //    //  not trigger awake when the object is being instansiated. TODO: try finding a more 
+    //    //  efficient way to get the text meshproGUI instead of find();
+    //
+    //    // B20 when the custom console box is inactive it does not find the gameobject
+    //    try
+    //    {
+    //        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+    //        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+    //    }
+    //    catch (System.Exception)
+    //    {
+    //        return false;
+    //    }
+    //
+    //    return true;
+    //}
 }

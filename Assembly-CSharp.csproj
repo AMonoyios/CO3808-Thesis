@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Enviroment\GrassRandomPlacement.cs" />
     <Compile Include="Assets\Scripts\Inventory\Equipment Inventory\Equipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Equipment Inventory\EquipmentSlot.cs" />
+    <Compile Include="Assets\Scripts\Inventory\ItemsTooltips.cs" />
     <Compile Include="Assets\Scripts\Inventory\Main Inventory\InteractWithInventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\Main Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\Main Inventory\InventorySetup.cs" />

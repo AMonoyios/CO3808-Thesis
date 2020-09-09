@@ -10,6 +10,7 @@ public class ItemBlueprint : ScriptableObject
     public bool isDefault = false;
     public int StackUntil = 1;
     public GameObject itemPrefab = null;
+    public string ItemDescription;
 
     // The use for each item
     public virtual void UseItem()
@@ -17,7 +18,7 @@ public class ItemBlueprint : ScriptableObject
         Debug.Log("DEBUG - ITEM: Using " + ItemName);
     }
 
-    public void RemoveEquipment()
+    public void RemoveItem()
     {
         Inventory.InventoryInstance.RemoveFromInventory(this);
     }

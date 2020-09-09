@@ -5,7 +5,7 @@ using TMPro;
 
 public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
 {
-    private TextMeshProUGUI ConsoleBoxGUI;
+    //private TextMeshProUGUI ConsoleBoxGUI;
 
     [Header("Each inventory slot components")]
     public Image SlotIcon;
@@ -42,8 +42,8 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
             if (eventData.button == PointerEventData.InputButton.Left)
             {
 				// Left clicked on item (Using item)
-				if (FindConsoleBoxGUI())
-                    ConsoleBoxGUI.text += "DEBUG - INVENTORY: Mouse button left was pressed on " + Inventory.InventoryInstance.PrintItemName(item) + "\n";
+				//if (FindConsoleBoxGUI())
+                //    ConsoleBoxGUI.text += "DEBUG - INVENTORY: Mouse button left was pressed on " + Inventory.InventoryInstance.PrintItemName(item) + "\n";
                 Debug.Log("DEBUG - INVENTORY: Mouse button left was pressed on " + Inventory.InventoryInstance.PrintItemName(item));
 
                 item.UseItem();
@@ -51,8 +51,8 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
             else if (eventData.button == PointerEventData.InputButton.Right)
             {
 				// Right clicked on item (Drop item)
-				if (FindConsoleBoxGUI())
-                    ConsoleBoxGUI.text += "DEBUG - INVENTORY: Mouse button right was pressed on " + Inventory.InventoryInstance.PrintItemName(item) + "\n";
+				//if (FindConsoleBoxGUI())
+                //    ConsoleBoxGUI.text += "DEBUG - INVENTORY: Mouse button right was pressed on " + Inventory.InventoryInstance.PrintItemName(item) + "\n";
                 Debug.Log("DEBUG - INVENTORY: Mouse button right was pressed on " + Inventory.InventoryInstance.PrintItemName(item));
 
                 DropItem(item);
@@ -80,8 +80,8 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
 
     public void DropItem(ItemBlueprint SlotItem)
     {
-		if (FindConsoleBoxGUI())
-            ConsoleBoxGUI.text += "DEBUG - ITEM: Dropping " + SlotItem.ItemName + "\n";
+		//if (FindConsoleBoxGUI())
+        //    ConsoleBoxGUI.text += "DEBUG - ITEM: Dropping " + SlotItem.ItemName + "\n";
         Debug.Log("DEBUG - ITEM: Dropping " + SlotItem.ItemName);
         
         GameObject itemName = (GameObject)Instantiate(SlotItem.itemPrefab, Player.transform.position + DropOffset, Player.transform.rotation);
@@ -93,23 +93,23 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
         Inventory.InventoryInstance.RemoveFromInventory(item);
     }
 
-    bool FindConsoleBoxGUI()
-    {
-        // B19 fix, because the script inherits from another one instead of monobehaviour i can 
-        //  not trigger awake when the object is being instansiated. TODO: try finding a more 
-        //  efficient way to get the text meshproGUI instead of find();
-
-        // B20 when the custom console box is inactive it does not find the gameobject
-        try
-        {
-            GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-            ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
-        }
-        catch (System.Exception)
-        {
-            return false;
-        }
-
-        return true;
-    }
+    //bool FindConsoleBoxGUI()
+    //{
+    //    // B19 fix, because the script inherits from another one instead of monobehaviour i can 
+    //    //  not trigger awake when the object is being instansiated. TODO: try finding a more 
+    //    //  efficient way to get the text meshproGUI instead of find();
+    //
+    //    // B20 when the custom console box is inactive it does not find the gameobject
+    //    try
+    //    {
+    //        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+    //        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+    //    }
+    //    catch (System.Exception)
+    //    {
+    //        return false;
+    //    }
+    //
+    //    return true;
+    //}
 }
