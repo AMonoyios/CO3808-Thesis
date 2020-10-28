@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEditor;
 
 public class InteractPoint : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class InteractPoint : MonoBehaviour
     
     bool isFocus = false;
     bool hasInteracted = false;
+
+    private bool isSelected;
 
     Transform player;
 
@@ -55,35 +58,58 @@ public class InteractPoint : MonoBehaviour
         player = null;
     }
 
-    // Visualizes a sphere around an interactable object, for developing ease
-    void OnDrawGizmosSelected()
+    // Visualizes gizmos to all interactables in editor window for developing ease
+    void OnDrawGizmos()
     {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(interactionPoint.position, radius);
+        if (isSelected)
+        {
+            isSelected = false;
+            return;
+        }
 
-        // Bug fix B7 
+		if (isFocus)
+		{
+            // Draw gizmos for focused items
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(interactionPoint.position, radius);
+		}
+		else
+		{
+            // Draw unselected gizmos
+            Gizmos.color = Color.white * .5f;
+            Gizmos.DrawWireSphere(interactionPoint.position, radius);
+        }
+
         if (interactionPoint == null)
         {
             interactionPoint = transform;
         }
     }
+    void OnDrawGizmosSelected()
+    {
+        isSelected = true;
+
+        // Draw selected gizmos
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(interactionPoint.position, radius);
+    }
 
     //bool FindConsoleBoxGUI()
     //{
-	//	// B19 fix, because the script inherits from another one instead of monobehaviour i can 
-	//	//  not trigger awake when the object is being instansiated. TODO: try finding a more 
-	//	//  efficient way to get the text meshproGUI instead of find();
+    //	// B19 fix, because the script inherits from another one instead of monobehaviour i can 
+    //	//  not trigger awake when the object is being instansiated. TODO: try finding a more 
+    //	//  efficient way to get the text meshproGUI instead of find();
     //
-	//	// B20 when the custom console box is inactive it does not find the gameobject
-	//	try
-	//	{
+    //	// B20 when the custom console box is inactive it does not find the gameobject
+    //	try
+    //	{
     //        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
     //        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
-	//	}
-	//	catch (System.Exception)
-	//	{
+    //	}
+    //	catch (System.Exception)
+    //	{
     //        return false;
-	//	}
+    //	}
     //
     //    return true;
     //}

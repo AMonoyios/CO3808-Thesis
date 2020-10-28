@@ -53,6 +53,9 @@ public class Inventory : MonoBehaviour
                 //    ConsoleBoxGUI.text += "DEBUG - INVENTORY: Inventory has " + (InventorySlots - InventoryItems.Count) + " slot(s) left \n";
                 Debug.Log("DEBUG - INVENTORY: Inventory has " + (InventorySlots-InventoryItems.Count) + " slot(s) left");
 
+                // TODO Gizmos
+                // Call a function that toggles the accessability of the item in GizmosManager
+
                 if (InventoryItems.Count > 0)
                 {
                     if (!SuccessfullyStackedItem(item))
