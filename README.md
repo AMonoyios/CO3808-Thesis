@@ -172,3 +172,8 @@ B24) Fixed - Player pointing does not update correctly  <br/>
 ### 20w44a:
 Worked on technical plan of this project  <br/>
 Bug fixing (B23, B24)                     <br/>
+
+### 20w44b:
+Worked on custom GUI for gizmos in inspector  <br/>
+Improved Gizmos control and apperance         <br/>
+
