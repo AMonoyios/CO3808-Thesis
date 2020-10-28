@@ -2,7 +2,7 @@
 using TMPro;
 using System.Collections.Generic;
 
-public class UIControls: MonoBehaviour
+public class UIControls : MonoBehaviour
 {
     //private TextMeshProUGUI ConsoleBoxGUI;
 

@@ -2050,6 +2050,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventoryBag: {fileID: 1105915864}
   InventoryUI: {fileID: 1046205847}
+--- !u!1 &1393961899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6648024122221629417, guid: 9cd24766106c53c458e9bcf7fbd26a3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6648024121681266944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1462450885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4584,8 +4590,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ChestLootCount.Array.data[3]
       value: 
-      objectReference: {fileID: 5999802713547910210, guid: fd935836e1687ff48891039c46c5d263,
-        type: 3}
+      objectReference: {fileID: 1393961899}
     - target: {fileID: 5386153236406691045, guid: f5ce897ed303b2e4aaefc737a055477c,
         type: 3}
       propertyPath: xOffset

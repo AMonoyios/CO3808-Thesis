@@ -98,8 +98,8 @@ public class EquipmentSlot : MonoBehaviour
     }
 
     // TODO 
-    // DONE - 1) Disable movement or interactions when hovering over equipment UI
-    // DONE - 2) Implement Un-Equip item button
-    // DONE - 3) Add left hand and right hand equipment slots
-    // 4) Add an Un-Equip all keybind action
+    // DONE     - 1) Disable movement or interactions when hovering over equipment UI
+    // DONE     - 2) Implement Un-Equip item button
+    // DONE     - 3) Add left hand and right hand equipment slots
+    // WORKING  - 4) Add an Un-Equip all keybind action
 }

@@ -37,17 +37,11 @@ public class PlayerPointing : MonoBehaviour
             Vector3 MouseDir = MousePos - Camera.main.transform.position;
 
             // Casting a ray whenever the mouse moves
-            if (Input.mousePosition != CurrentMousePosition)
-            {
-                UpdateRay(MouseDir);
-            }
-
-            CurrentMousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
+            CurrentMousePosition = UpdateRay(MouseDir);
         }
-
     }
 
-    void UpdateRay(Vector3 MouseDirection)
+    Vector3 UpdateRay(Vector3 MouseDirection)
     {
         // Cast ray each time this function is called
         if (Physics.Raycast(Camera.main.transform.position, MouseDirection, out hit, rayRange))
@@ -66,7 +60,11 @@ public class PlayerPointing : MonoBehaviour
 
                 ClearIndicator();
             }
+            
+            CurrentMousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
         }
+
+        return CurrentMousePosition;
     }
 
     void DrawPointLine(Vector3 startPos, Vector3 endPos, Color color)

@@ -58,7 +58,7 @@ public class Equipment : MonoBehaviour
 			EquipmentBlueprint ItemToUnequip = Equipment.EquipmentInstance.equipmentSlot[SlotIndex];
 			Inventory.InventoryInstance.AddToInventory(ItemToUnequip);
 
-			if (CallEquipmentUpdated != null)  // TODO: items are being deleted when you have more than one equipped item and then click unequip
+			if (CallEquipmentUpdated != null)  // Fixed: items are being deleted when you have more than one equipped item and then click unequip
 			{
 				CallEquipmentUpdated.Invoke(ItemToUnequip, false);
 			}
