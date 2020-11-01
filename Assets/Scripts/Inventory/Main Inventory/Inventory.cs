@@ -30,6 +30,7 @@ public class Inventory : MonoBehaviour
 
     //private TextMeshProUGUI ConsoleBoxGUI;
 
+    [Header("Inventory Properties")]
     // Creating the list for the total items in the inventory
     public int InventorySlots = 15;
     public List<InventoryItems> InventoryItems = new List<InventoryItems>();
@@ -39,8 +40,19 @@ public class Inventory : MonoBehaviour
     public delegate void ItemUpdated();
     public ItemUpdated CallItemUpdated;
 
-    // Adding the item to the list
-    public bool AddToInventory(ItemBlueprint item)
+    [Header("Gizmo Reference")]
+    // Cache Gizmos Script
+    public GameObject gizmoManager;
+    GizmosManager gizmos;
+
+	private void Start()
+	{
+        gizmoManager = GameObject.Find("GizmoManager");
+        gizmos = gizmoManager.GetComponent<GizmosManager>();
+    }
+
+	// Adding the item to the list
+	public bool AddToInventory(ItemBlueprint item)
     {
         // if an item is a default one then the item is already in "use" so there is no point
         //  of wasting space in inventory for it. If we want to display the items that are in
@@ -52,6 +64,9 @@ public class Inventory : MonoBehaviour
 				//if (FindConsoleBoxGUI())
                 //    ConsoleBoxGUI.text += "DEBUG - INVENTORY: Inventory has " + (InventorySlots - InventoryItems.Count) + " slot(s) left \n";
                 Debug.Log("DEBUG - INVENTORY: Inventory has " + (InventorySlots-InventoryItems.Count) + " slot(s) left");
+
+                // Remove item from list of Gizmos
+                gizmos.RemoveFocusObjFromArray(item.itemPrefab);
 
                 // TODO Gizmos
                 // Call a function that toggles the accessability of the item in GizmosManager
@@ -78,6 +93,7 @@ public class Inventory : MonoBehaviour
             {
 				//if (FindConsoleBoxGUI())
                 //    ConsoleBoxGUI.text += "DEBUG - INVENTORY: Inventory does not have enough space for " + item.ItemName + "\n";
+                
                 Debug.Log("DEBUG - INVENTORY: Inventory does not have enough space for " + item.ItemName);
                 return false;
             }
@@ -91,7 +107,6 @@ public class Inventory : MonoBehaviour
         if (FindSpecificItem(item) >= 0)
         {
             int index = FindSpecificItem(item);
-
             // check if we have multible items stacked at the same slot
             if (InventoryItems[index].itemQuantity > 1)
             {

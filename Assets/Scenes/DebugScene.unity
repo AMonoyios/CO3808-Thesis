@@ -174,6 +174,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionPoint: {fileID: 135035526}
   radius: 2
+  gizmoManager: {fileID: 0}
+  gizmos: {fileID: 0}
+  isFocus: 0
+  hasInteracted: 0
+  isSelected: 0
   itemBlueprint: {fileID: 11400000, guid: 44588738ae551c048875e40f32e276a4, type: 2}
 --- !u!65 &135035523
 BoxCollider:
@@ -391,6 +396,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionPoint: {fileID: 319206604}
   radius: 2
+  gizmoManager: {fileID: 0}
+  gizmos: {fileID: 0}
+  isFocus: 0
+  hasInteracted: 0
+  isSelected: 0
   itemBlueprint: {fileID: 11400000, guid: ef07c2b758d0f1f40b88b6441dbb23bd, type: 2}
 --- !u!65 &319206601
 BoxCollider:
@@ -1529,6 +1539,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4515252606870717155}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1290673574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1290673576}
+  - component: {fileID: 1290673575}
+  m_Layer: 0
+  m_Name: GizmoManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1290673575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290673574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae1649e52276034888980e208e97bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FocusObjects: []
+  UnselectedGizmo: {r: 1, g: 0, b: 0, a: 1}
+  UnselectedIntensity: 0.472
+  SelectedGizmo: {r: 0.03756249, g: 1, b: 0, a: 1}
+  SelectedIntensity: 1
+  FocusedGizmo: {r: 1, g: 0, b: 0.6841278, a: 1}
+  FocusedIntensity: 1
+--- !u!4 &1290673576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290673574}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5631242, y: 0.5514016, z: 7.7681785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1292567592 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6446979644481992767, guid: d460f8290e5c92c41b197072eb16f120,
@@ -1888,6 +1948,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionPoint: {fileID: 1305322697}
   radius: 2
+  gizmoManager: {fileID: 0}
+  gizmos: {fileID: 0}
+  isFocus: 0
+  hasInteracted: 0
+  isSelected: 0
   itemBlueprint: {fileID: 11400000, guid: 44588738ae551c048875e40f32e276a4, type: 2}
 --- !u!65 &1305322694
 BoxCollider:
@@ -2295,6 +2360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventorySlots: 15
   InventoryItems: []
+  gizmoManager: {fileID: 1290673574}
 --- !u!114 &1516229817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2845,62 +2911,6 @@ MonoBehaviour:
   InventorySlotIndex: 0
   TooltipUI: {fileID: 1719708905}
   TooltipTextBox: {fileID: 856144732}
---- !u!1 &2016556802
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2016556804}
-  - component: {fileID: 2016556803}
-  m_Layer: 0
-  m_Name: Global Managers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2016556803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016556802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a3a5ac7675cfbd47a69828d94f1effd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Interactables:
-  - point: 
-    isAccessible: 0
-  - point: 
-    isAccessible: 0
-  - point: 
-    isAccessible: 0
-  - point: 
-    isAccessible: 0
-  - point: 
-    isAccessible: 0
-  - point: 
-    isAccessible: 0
---- !u!4 &2016556804
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016556802}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2022043216
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,6 +3215,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 779741157801289955, guid: d460f8290e5c92c41b197072eb16f120,
+        type: 3}
+      propertyPath: gizmoManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 779741158303291542, guid: d460f8290e5c92c41b197072eb16f120,
+        type: 3}
+      propertyPath: gizmoManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 779741158496104841, guid: d460f8290e5c92c41b197072eb16f120,
+        type: 3}
+      propertyPath: gizmoManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 779741158954251371, guid: d460f8290e5c92c41b197072eb16f120,
+        type: 3}
+      propertyPath: gizmoManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6446979643559621426, guid: d460f8290e5c92c41b197072eb16f120,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -3624,6 +3654,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6624007237290783597, guid: d460f8290e5c92c41b197072eb16f120,
+        type: 3}
+      propertyPath: gizmoManager
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d460f8290e5c92c41b197072eb16f120, type: 3}
@@ -4496,6 +4531,31 @@ PrefabInstance:
       propertyPath: interactionPoint
       value: 
       objectReference: {fileID: 1233758859}
+    - target: {fileID: 4515252608082297120, guid: c0599447181412f4582cbc52cb9c9f74,
+        type: 3}
+      propertyPath: UnselectedIntensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515252608082297120, guid: c0599447181412f4582cbc52cb9c9f74,
+        type: 3}
+      propertyPath: UnselectedGizmo.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515252608082297120, guid: c0599447181412f4582cbc52cb9c9f74,
+        type: 3}
+      propertyPath: UnselectedGizmo.r
+      value: 0.4339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515252608082297120, guid: c0599447181412f4582cbc52cb9c9f74,
+        type: 3}
+      propertyPath: UnselectedGizmo.g
+      value: 0.20265219
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515252608082297120, guid: c0599447181412f4582cbc52cb9c9f74,
+        type: 3}
+      propertyPath: UnselectedGizmo.b
+      value: 0.20265219
+      objectReference: {fileID: 0}
     - target: {fileID: 4515252608082297121, guid: c0599447181412f4582cbc52cb9c9f74,
         type: 3}
       propertyPath: m_Name
@@ -4702,7 +4762,7 @@ PrefabInstance:
     - target: {fileID: 5386153236406691045, guid: f5ce897ed303b2e4aaefc737a055477c,
         type: 3}
       propertyPath: ChestLootCount.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5386153236406691045, guid: f5ce897ed303b2e4aaefc737a055477c,
         type: 3}

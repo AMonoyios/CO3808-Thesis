@@ -1,80 +1,123 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEditor;
-using UnityEditor.UIElements;
-using UnityEngine.UIElements;
-using System.Numerics;
 
 public class GizmosManager : MonoBehaviour
 {
-    // Custom serializable struct
-    [Serializable]
-    public struct Vector2i
+	// TODO NULL REFERENCE OnDrawGizmos()
+
+
+	[Header("All interactable objects in scene")]
+    public List<GameObject> FocusObjects;
+    private GameObject[] gameObjects;
+
+	[Header("Gizmos Properties")]
+	public Color UnselectedGizmo;
+	[Range(0.0f, 1.0f)]
+	public float UnselectedIntensity = 1.0f;
+
+	public Color SelectedGizmo;
+	[Range(0.0f, 1.0f)]
+	public float SelectedIntensity = 1.0f;
+
+	public Color FocusedGizmo;
+	[Range(0.0f, 1.0f)]
+	public float FocusedIntensity = 1.0f;
+
+	// Start is called before the first frame update
+	void Start()
     {
-        public string point;
-        public bool isAccessible;
+		// Initializing List of Gizmos
+		InitializeFocusObjArray();
+	}
 
-        public Vector2i(string point, bool isAccessible)
+	public void InitializeFocusObjArray()
+	{
+		// Find all gameobjects in Scene
+		gameObjects = GameObject.FindObjectsOfType(typeof(GameObject)) as GameObject[];
+		
+		// Check one by one if they are in focus layer
+		foreach (GameObject obj in gameObjects.ToList())
 		{
-            this.point = point;
-            this.isAccessible = isAccessible;
-		}
-    }
-
-    // Creating a custom drawer for the intaractables and their accessibility
-    [CustomPropertyDrawer(typeof(Vector2i))]
-    public class Interactable_CPD : PropertyDrawer
-	{
-        override public void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-        {
-            EditorGUI.BeginProperty(position, label, property);
-
-            position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
-
-            // Don't make child fields be indented
-            var indent = EditorGUI.indentLevel;
-            EditorGUI.indentLevel = 0;
-
-            // Calculate rects
-            float width = position.width;
-            Rect pointRect = new Rect(position.x, position.y, width - (width / 15), position.height);
-            Rect accessRect = new Rect(position.x + (width - width / 20), position.y, width / 20, position.height);
-
-            // Draw fields - passs GUIContent.none to each so they are drawn without labels
-            EditorGUI.PropertyField(pointRect, property.FindPropertyRelative("point"), GUIContent.none);
-            EditorGUI.PropertyField(accessRect, property.FindPropertyRelative("isAccessible"), GUIContent.none);
-
-            // Set indent back to what it was
-            EditorGUI.indentLevel = indent;
-
-            EditorGUI.EndProperty();
+			if (obj.layer == 8)
+			{
+				// Add them to the list
+				FocusObjects.Add(obj);
+			}
 		}
 	}
 
-    // An array for the custom struct
-    public List<Vector2i> Interactables;
-
-	private void Start()
+	public void AddFocusObjToArray(GameObject item)
 	{
-        GetInteractables();
+		// Check if item is in focus layer
+		if (item.layer==8)
+		{
+			// Add it to the list
+            FocusObjects.Add(item);
+		}
 	}
 
-	public void GetInteractables()
+    public void RemoveFocusObjFromArray(GameObject item)
 	{
-        Interactables.Clear();
+		// Find the item in the list
+		foreach (GameObject obj in FocusObjects.ToList())
+		{
+			if (obj.name == item.name)
+			{
+				// Remove it
+				FocusObjects.Remove(obj);
+			}
+		}
+	}
 
-        InteractPoint[] TempPoint = FindObjectsOfType(typeof(InteractPoint)) as InteractPoint[];
-        Debug.Log("Found " + TempPoint.Length + " interactables in scene");
+	// Visualizes gizmos to all interactables in editor window for developing ease
+	void OnDrawGizmos()
+	{
+		foreach (GameObject obj in FocusObjects)
+		{ 
+			if (UnityEditor.Selection.activeGameObject == this.gameObject)
+			{
+				if (obj.GetComponent<InteractPoint>().isSelected)
+				{
+					obj.GetComponent<InteractPoint>().isSelected = false;
+					return;
+				}
 
-        foreach (InteractPoint item in TempPoint)
-        {
-            Interactables.Add(new Vector2i(item.name, true));
-        }
-    }
+				if (obj.GetComponent<InteractPoint>().isFocus)
+				{
+					// Draw gizmos for focused items
+					Gizmos.color = FocusedGizmo * FocusedIntensity;
+					Gizmos.DrawWireSphere(obj.GetComponent<InteractPoint>().interactionPoint.position, obj.GetComponent<InteractPoint>().radius);
+				}
+				else
+				{
+					// Draw unselected gizmos
+					Gizmos.color = UnselectedGizmo * UnselectedIntensity;
+					Gizmos.DrawWireSphere(obj.GetComponent<InteractPoint>().interactionPoint.position, obj.GetComponent<InteractPoint>().radius);
+				}
 
-    // TODO Gizmos
-    // create a function that enables the accesability of an item
-    // create a function that disables the accesability of an item
+				if (obj.GetComponent<InteractPoint>().interactionPoint == null)
+				{
+					obj.GetComponent<InteractPoint>().interactionPoint = transform;
+				}
+			}
+			else
+			{
+				return;
+			}
+
+		}
+	}
+	void OnDrawGizmosSelected()
+	{
+		foreach (GameObject obj in FocusObjects)
+		{
+			obj.GetComponent<InteractPoint>().isSelected = true;
+		
+			// Draw selected gizmos
+			Gizmos.color = SelectedGizmo * SelectedIntensity;
+			Gizmos.DrawWireSphere(obj.GetComponent<InteractPoint>().interactionPoint.position, obj.GetComponent<InteractPoint>().radius);
+		}
+	}
 }

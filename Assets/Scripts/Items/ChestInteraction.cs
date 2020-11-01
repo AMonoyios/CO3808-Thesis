@@ -118,6 +118,9 @@ public class ChestInteraction : InteractPoint
 
         // Apply velocity to the newly spawned loot (changed to relative force B12 fix)
         NewLoot.GetComponent<Rigidbody>().AddRelativeForce(itemSpawnForce);
+
+        // Add Chest loot to list (Gizmos)
+        gizmos.AddFocusObjToArray(NewLoot);
     }
 
     //bool FindConsoleBoxGUI()

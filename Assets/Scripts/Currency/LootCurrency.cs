@@ -31,8 +31,9 @@ public class LootCurrency : InteractPoint
 
     void PickUpCurrency()
     {
-		// Add to balance
-		//if (FindConsoleBoxGUI())
+        // Add to balance
+        //if (FindConsoleBoxGUI())
+
         //    ConsoleBoxGUI.text += "DEBUG - CURRENCY: Added " + currency.name + " to your balance \n";
         Debug.Log("DEBUG - CURRENCY: Added " + currency.name + " to your balance");
         characterStats.Balance += currency.CurrencyValue;

@@ -21,6 +21,11 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
     [Range(-2.0f, 2.0f)]
     public float DropOffsetZ = 0.0f;
 
+    [Header("Gizmo Reference")]
+    // Cache Gizmos Script
+    public GameObject gizmoManager;
+    GizmosManager gizmos;
+
     [HideInInspector]
     public Vector3 DropOffset;
 
@@ -33,6 +38,9 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
         Player = GameObject.Find("Player");
 
         DropOffset = new Vector3(DropOffsetX, DropOffsetY, DropOffsetZ);
+
+        gizmoManager = GameObject.Find("GizmoManager");
+        gizmos = gizmoManager.GetComponent<GizmosManager>();
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
@@ -84,7 +92,13 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
         //    ConsoleBoxGUI.text += "DEBUG - ITEM: Dropping " + SlotItem.ItemName + "\n";
         Debug.Log("DEBUG - ITEM: Dropping " + SlotItem.ItemName);
         
-        GameObject itemName = (GameObject)Instantiate(SlotItem.itemPrefab, Player.transform.position + DropOffset, Player.transform.rotation);
+        // Spawn item in world
+        GameObject DroppedItem = (GameObject)Instantiate(SlotItem.itemPrefab, Player.transform.position + DropOffset, Player.transform.rotation);
+
+        // Add item to list of Gizmos
+        gizmos.AddFocusObjToArray(DroppedItem);
+
+        // Delete from inventory
         DeleteItemOnSlot();
     }
 

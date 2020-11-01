@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEditor;
+using System.Collections;
 
 public class InteractPoint : MonoBehaviour
 {
@@ -11,10 +12,17 @@ public class InteractPoint : MonoBehaviour
     [Range(1.25f, 4.0f)]
     public float radius = 2.0f;
     
-    bool isFocus = false;
-    bool hasInteracted = false;
+    [Header("Gizmo Reference")]
+    // Cache Gizmos Script
+    public GameObject gizmoManager;
+    public GizmosManager gizmos;
 
-    private bool isSelected;
+    [HideInInspector]
+    public bool isFocus = false;
+    [HideInInspector]
+    public bool hasInteracted = false;
+    [HideInInspector]
+    public bool isSelected;
 
     Transform player;
 
@@ -22,10 +30,18 @@ public class InteractPoint : MonoBehaviour
     // enemies have health attack etc but a loot chest has loot in it
     public virtual void Interact()
     {
-		//if (FindConsoleBoxGUI())
+        //if (FindConsoleBoxGUI())
         //    ConsoleBoxGUI.text += "DEBUG - PLAYER: Interacting with " + transform.name + "\n";
 
+        gizmos.RemoveFocusObjFromArray(this.gameObject);
+
         Debug.Log("DEBUG - PLAYER: Interacting with " + transform.name);
+    }
+
+    private void Start()
+    {
+        gizmoManager = GameObject.Find("GizmoManager");
+        gizmos = gizmoManager.GetComponent<GizmosManager>();
     }
 
     void Update()
@@ -57,42 +73,8 @@ public class InteractPoint : MonoBehaviour
         isFocus = false;
         player = null;
     }
-
-    // Visualizes gizmos to all interactables in editor window for developing ease
-    void OnDrawGizmos()
-    {
-        if (isSelected)
-        {
-            isSelected = false;
-            return;
-        }
-
-		if (isFocus)
-		{
-            // Draw gizmos for focused items
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(interactionPoint.position, radius);
-		}
-		else
-		{
-            // Draw unselected gizmos
-            Gizmos.color = Color.white * .5f;
-            Gizmos.DrawWireSphere(interactionPoint.position, radius);
-        }
-
-        if (interactionPoint == null)
-        {
-            interactionPoint = transform;
-        }
-    }
-    void OnDrawGizmosSelected()
-    {
-        isSelected = true;
-
-        // Draw selected gizmos
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(interactionPoint.position, radius);
-    }
+    
+    
 
     //bool FindConsoleBoxGUI()
     //{
