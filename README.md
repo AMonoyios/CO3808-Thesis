@@ -177,3 +177,9 @@ Bug fixing (B23, B24)                     <br/>
 Worked on custom GUI for gizmos in inspector  <br/>
 Improved Gizmos control and apperance         <br/>
 
+### 20w44c:
+Worked on Gizmos                                <br/>
+Optimized the structure of gizmo list updating  <br/>
+#### bugs:
+B25) Working - Null reference onDrawGizmos and onDrawGizmosSelected <br/>
+B26) Working - Gizmos flicker and not all of them work              <br/>
