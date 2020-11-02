@@ -181,5 +181,11 @@ Improved Gizmos control and apperance         <br/>
 Worked on Gizmos                                <br/>
 Optimized the structure of gizmo list updating  <br/>
 #### bugs:
-B25) Working - Null reference onDrawGizmos and onDrawGizmosSelected <br/>
-B26) Working - Gizmos flicker and not all of them work              <br/>
+B25) Fixed - Null reference onDrawGizmos and onDrawGizmosSelected <br/>
+B26) Fixed - Gizmos flicker and not all of them work              <br/>
+
+### 20w45a:
+Finished Gizmo manager                                        <br/>
+Cleaned code                                                  <br/>
+Made a list that has all the interactable items in the scene  <br/>
+Bug fixing (B25, B26)                                         <br/>
