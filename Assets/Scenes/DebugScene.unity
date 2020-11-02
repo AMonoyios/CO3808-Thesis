@@ -174,8 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionPoint: {fileID: 135035526}
   radius: 2
-  gizmoManager: {fileID: 0}
-  gizmos: {fileID: 0}
+  gizmos: {fileID: 1290673575}
   isFocus: 0
   hasInteracted: 0
   isSelected: 0
@@ -396,8 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionPoint: {fileID: 319206604}
   radius: 2
-  gizmoManager: {fileID: 0}
-  gizmos: {fileID: 0}
+  gizmos: {fileID: 1290673575}
   isFocus: 0
   hasInteracted: 0
   isSelected: 0
@@ -1459,7 +1457,7 @@ PrefabInstance:
     - target: {fileID: 6686249996713953236, guid: 3cedba0ece6fc754cb83c18b44320292,
         type: 3}
       propertyPath: extraGrass
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6686249996713953236, guid: 3cedba0ece6fc754cb83c18b44320292,
         type: 3}
@@ -1570,10 +1568,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FocusObjects: []
   UnselectedGizmo: {r: 1, g: 0, b: 0, a: 1}
-  UnselectedIntensity: 0.472
-  SelectedGizmo: {r: 0.03756249, g: 1, b: 0, a: 1}
+  UnselectedIntensity: 0.5
+  SelectedGizmo: {r: 1, g: 1, b: 1, a: 1}
   SelectedIntensity: 1
-  FocusedGizmo: {r: 1, g: 0, b: 0.6841278, a: 1}
+  FocusedGizmo: {r: 0, g: 1, b: 0.0408051, a: 1}
   FocusedIntensity: 1
 --- !u!4 &1290673576
 Transform:
@@ -1948,8 +1946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionPoint: {fileID: 1305322697}
   radius: 2
-  gizmoManager: {fileID: 0}
-  gizmos: {fileID: 0}
+  gizmos: {fileID: 1290673575}
   isFocus: 0
   hasInteracted: 0
   isSelected: 0
@@ -4317,6 +4314,16 @@ PrefabInstance:
       propertyPath: interactionPoint
       value: 
       objectReference: {fileID: 1540504506}
+    - target: {fileID: 3208721538202414815, guid: 69db2fcd0b9d2cf4c9ec86319852f241,
+        type: 3}
+      propertyPath: gizmos
+      value: 
+      objectReference: {fileID: 1290673575}
+    - target: {fileID: 3208721538202414815, guid: 69db2fcd0b9d2cf4c9ec86319852f241,
+        type: 3}
+      propertyPath: isSelected
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69db2fcd0b9d2cf4c9ec86319852f241, type: 3}
 --- !u!1001 &3454660619767780622
@@ -4391,6 +4398,16 @@ PrefabInstance:
       propertyPath: interactionPoint
       value: 
       objectReference: {fileID: 1014934220}
+    - target: {fileID: 3454660619134904013, guid: 6b648b73c572a4445a9d789dd0617d7f,
+        type: 3}
+      propertyPath: gizmos
+      value: 
+      objectReference: {fileID: 1290673575}
+    - target: {fileID: 3454660619134904013, guid: 6b648b73c572a4445a9d789dd0617d7f,
+        type: 3}
+      propertyPath: isSelected
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b648b73c572a4445a9d789dd0617d7f, type: 3}
 --- !u!1 &3713126308661603571 stripped
@@ -4486,6 +4503,16 @@ PrefabInstance:
       propertyPath: interactionPoint
       value: 
       objectReference: {fileID: 1543176274}
+    - target: {fileID: 4034197431649506988, guid: f5a73d12a0c76704cba0581147b83d48,
+        type: 3}
+      propertyPath: gizmos
+      value: 
+      objectReference: {fileID: 1290673575}
+    - target: {fileID: 4034197431649506988, guid: f5a73d12a0c76704cba0581147b83d48,
+        type: 3}
+      propertyPath: isSelected
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5a73d12a0c76704cba0581147b83d48, type: 3}
 --- !u!1 &4349417898160697999 stripped
@@ -4555,6 +4582,16 @@ PrefabInstance:
         type: 3}
       propertyPath: UnselectedGizmo.b
       value: 0.20265219
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515252608082297120, guid: c0599447181412f4582cbc52cb9c9f74,
+        type: 3}
+      propertyPath: gizmos
+      value: 
+      objectReference: {fileID: 1290673575}
+    - target: {fileID: 4515252608082297120, guid: c0599447181412f4582cbc52cb9c9f74,
+        type: 3}
+      propertyPath: isSelected
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4515252608082297121, guid: c0599447181412f4582cbc52cb9c9f74,
         type: 3}
@@ -4857,6 +4894,16 @@ PrefabInstance:
       propertyPath: radius
       value: 1.37
       objectReference: {fileID: 0}
+    - target: {fileID: 5386153236406691045, guid: f5ce897ed303b2e4aaefc737a055477c,
+        type: 3}
+      propertyPath: gizmos
+      value: 
+      objectReference: {fileID: 1290673575}
+    - target: {fileID: 5386153236406691045, guid: f5ce897ed303b2e4aaefc737a055477c,
+        type: 3}
+      propertyPath: isSelected
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5ce897ed303b2e4aaefc737a055477c, type: 3}
 --- !u!1001 &6433437268728145370
@@ -4931,6 +4978,16 @@ PrefabInstance:
       propertyPath: interactionPoint
       value: 
       objectReference: {fileID: 39180639}
+    - target: {fileID: 3076387859463237628, guid: 12e889c84c8da764896e2bdfde0c1f9f,
+        type: 3}
+      propertyPath: gizmos
+      value: 
+      objectReference: {fileID: 1290673575}
+    - target: {fileID: 3076387859463237628, guid: 12e889c84c8da764896e2bdfde0c1f9f,
+        type: 3}
+      propertyPath: isSelected
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12e889c84c8da764896e2bdfde0c1f9f, type: 3}
 --- !u!1 &6555079292121375049 stripped
@@ -4966,6 +5023,16 @@ PrefabInstance:
       propertyPath: interactionPoint
       value: 
       objectReference: {fileID: 1393961906}
+    - target: {fileID: 6648024120999021332, guid: 9cd24766106c53c458e9bcf7fbd26a3b,
+        type: 3}
+      propertyPath: gizmos
+      value: 
+      objectReference: {fileID: 1290673575}
+    - target: {fileID: 6648024120999021332, guid: 9cd24766106c53c458e9bcf7fbd26a3b,
+        type: 3}
+      propertyPath: isSelected
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6648024122221629417, guid: 9cd24766106c53c458e9bcf7fbd26a3b,
         type: 3}
       propertyPath: m_Name
@@ -5061,6 +5128,16 @@ PrefabInstance:
       propertyPath: interactionPoint
       value: 
       objectReference: {fileID: 1040186219}
+    - target: {fileID: 7166262257008258673, guid: 8d822f958bf20b041a9f8069d9621b67,
+        type: 3}
+      propertyPath: gizmos
+      value: 
+      objectReference: {fileID: 1290673575}
+    - target: {fileID: 7166262257008258673, guid: 8d822f958bf20b041a9f8069d9621b67,
+        type: 3}
+      propertyPath: isSelected
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7166262257008258675, guid: 8d822f958bf20b041a9f8069d9621b67,
         type: 3}
       propertyPath: m_Name
@@ -5135,6 +5212,16 @@ PrefabInstance:
       propertyPath: interactionPoint
       value: 
       objectReference: {fileID: 1624252650}
+    - target: {fileID: 7408832201007227139, guid: ba201a9f1d3a70c4183a442c79cbf252,
+        type: 3}
+      propertyPath: gizmos
+      value: 
+      objectReference: {fileID: 1290673575}
+    - target: {fileID: 7408832201007227139, guid: ba201a9f1d3a70c4183a442c79cbf252,
+        type: 3}
+      propertyPath: isSelected
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7408832201007227143, guid: ba201a9f1d3a70c4183a442c79cbf252,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5214,6 +5301,16 @@ PrefabInstance:
       propertyPath: interactionPoint
       value: 
       objectReference: {fileID: 221864560}
+    - target: {fileID: 9170158173944971111, guid: 06be3ce808f8d384da78180810191fe7,
+        type: 3}
+      propertyPath: gizmos
+      value: 
+      objectReference: {fileID: 1290673575}
+    - target: {fileID: 9170158173944971111, guid: 06be3ce808f8d384da78180810191fe7,
+        type: 3}
+      propertyPath: isSelected
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9170158173944971115, guid: 06be3ce808f8d384da78180810191fe7,
         type: 3}
       propertyPath: m_LocalPosition.x

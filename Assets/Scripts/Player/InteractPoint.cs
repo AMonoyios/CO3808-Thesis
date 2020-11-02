@@ -14,7 +14,6 @@ public class InteractPoint : MonoBehaviour
     
     [Header("Gizmo Reference")]
     // Cache Gizmos Script
-    public GameObject gizmoManager;
     public GizmosManager gizmos;
 
     [HideInInspector]
@@ -40,8 +39,7 @@ public class InteractPoint : MonoBehaviour
 
     private void Start()
     {
-        gizmoManager = GameObject.Find("GizmoManager");
-        gizmos = gizmoManager.GetComponent<GizmosManager>();
+        gizmos = GameObject.Find("GizmoManager").GetComponent<GizmosManager>();
     }
 
     void Update()
@@ -73,26 +71,67 @@ public class InteractPoint : MonoBehaviour
         isFocus = false;
         player = null;
     }
-    
-    
 
-    //bool FindConsoleBoxGUI()
-    //{
-    //	// B19 fix, because the script inherits from another one instead of monobehaviour i can 
-    //	//  not trigger awake when the object is being instansiated. TODO: try finding a more 
-    //	//  efficient way to get the text meshproGUI instead of find();
-    //
-    //	// B20 when the custom console box is inactive it does not find the gameobject
-    //	try
-    //	{
-    //        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-    //        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
-    //	}
-    //	catch (System.Exception)
-    //	{
-    //        return false;
-    //	}
-    //
-    //    return true;
-    //}
+#if UNITY_EDITOR
+	// Visualizes gizmos to all interactables in editor window for developing ease
+	void OnDrawGizmos()
+	{
+		if (gizmos.FocusObjects.Count > 0)
+		{
+			foreach (GameObject obj in gizmos.FocusObjects)
+			{
+				if (obj.name == this.name)
+				{
+					if (isSelected)
+					{
+						isSelected = false;
+						return;
+					}
+					
+					if (isFocus)
+					{
+						// Draw gizmos for focused items
+						Gizmos.color = gizmos.FocusedGizmo * gizmos.FocusedIntensity;
+						Gizmos.DrawWireSphere(interactionPoint.position, radius);
+					}
+					else
+					{
+						// Draw unselected gizmos
+						Gizmos.color = gizmos.UnselectedGizmo * gizmos.UnselectedIntensity;
+						Gizmos.DrawWireSphere(interactionPoint.position, radius);
+					}
+				}
+			}
+		}
+	}
+
+	void OnDrawGizmosSelected()
+	{
+		isSelected = true;
+
+		// Draw selected gizmos
+		Gizmos.color = gizmos.SelectedGizmo * gizmos.SelectedIntensity;
+		Gizmos.DrawWireSphere(interactionPoint.position, radius);
+	}
+#endif
+
+	//bool FindConsoleBoxGUI()
+	//{
+	//	// B19 fix, because the script inherits from another one instead of monobehaviour i can 
+	//	//  not trigger awake when the object is being instansiated. TODO: try finding a more 
+	//	//  efficient way to get the text meshproGUI instead of find();
+	//
+	//	// B20 when the custom console box is inactive it does not find the gameobject
+	//	try
+	//	{
+	//        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
+	//        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
+	//	}
+	//	catch (System.Exception)
+	//	{
+	//        return false;
+	//	}
+	//
+	//    return true;
+	//}
 }

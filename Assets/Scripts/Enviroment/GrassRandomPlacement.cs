@@ -5,7 +5,7 @@ public class GrassRandomPlacement : MonoBehaviour
     [Header("Grass group spawner properties")]
     public GameObject grassPrefab;
     public GameObject grassVolumeBox;
-    [Range(0,50),Tooltip("It will spawn the grassPrefab + the extraGrass")]
+    [Range(0,500),Tooltip("It will spawn the grassPrefab + the extraGrass")]
     public int extraGrass;
     [Range(0.1f, 5.0f)]
     public float grassRange;
