@@ -193,7 +193,6 @@ Bug fixing (B25, B26)                                         <br/>
 ### 20w45b:
 Created placeholders for all equipable slots                                                  <br/>
 Created a better equipment stat system                                                        <br/>
-- uses lists for custom structures for positives and negative traits for each unique item     <br/>
 Removed the Gameobject.Find() with a singleton instance of the player for all scripts         <br/>
 Fixed tool tip UI to show new traits system                                                   <br/>
 Fixed bugs                                                                                    <br/>
