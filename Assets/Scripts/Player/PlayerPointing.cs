@@ -76,8 +76,13 @@ public class PlayerPointing : MonoBehaviour
     {
         if (!hasIndicatorSpawned)
         {
+            // Calculate position of indicator
+            Vector3 spawnPos = new Vector3(hitObject.transform.position.x,
+                                      hitObject.transform.position.y,
+                                      hitObject.transform.position.z);
+
             // Spawn Indicator prefab
-            SelectionModel = (GameObject)Instantiate(IndicatorPrefab, hitObject.gameObject.transform.position, Quaternion.identity);
+            SelectionModel = (GameObject)Instantiate(IndicatorPrefab, spawnPos, Quaternion.identity);
             SelectionModel.transform.rotation *= Quaternion.Euler(-90,0,0);
             SelectionModel.name = hitObject.name + " Indicator";
 

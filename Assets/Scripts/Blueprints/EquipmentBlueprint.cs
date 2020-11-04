@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public enum EquipmentSlots 
 { 
@@ -12,6 +13,35 @@ public enum EquipmentSlots
 	HandAcc
 }
 
+[System.Serializable]
+public struct Positives
+{
+	public PositiveTraits traits;
+	[Range(1,10)]
+	public int traitLevel;
+}
+
+public enum PositiveTraits
+{
+	Protection,
+	Speed,
+	Damage
+}
+
+[System.Serializable]
+public struct Negatives
+{
+	public NegativeTraits traits;
+	[Range(1,10)]
+	public int traitLevel;
+}
+
+public enum NegativeTraits
+{
+	Slowness,
+	Glumsy
+}
+
 [CreateAssetMenu(fileName = "New Equipment", menuName = "Custom Scriptable Objects/Game Objects/Equipment")]
 public class EquipmentBlueprint : ItemBlueprint
 {
@@ -19,10 +49,8 @@ public class EquipmentBlueprint : ItemBlueprint
 	// Properties for all equipment
 	public EquipmentSlots EquipSlot;
 
-	[Range(0,10)]
-	public int Protection;
-	[Range(0,10)]
-	public int Damage;
+	public List<Positives> PositiveTraits;
+	public List<Negatives> NegativeTraits;
 
 	public override void UseItem()
 	{

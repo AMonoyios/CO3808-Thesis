@@ -29,13 +29,16 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
     [HideInInspector]
     public Vector3 DropOffset;
 
-    private GameObject Player;
+    // Used the Player Instance Class to avoid slowdowns
+    //private GameObject Player;
+    GameObject playerInstance;
 
     ItemBlueprint item;
 
     private void Start()
     {
-        Player = GameObject.Find("Player");
+        playerInstance = PlayerManager.Instance.player;
+        //Player = GameObject.Find("Player");
 
         DropOffset = new Vector3(DropOffsetX, DropOffsetY, DropOffsetZ);
 
@@ -91,9 +94,10 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
 		//if (FindConsoleBoxGUI())
         //    ConsoleBoxGUI.text += "DEBUG - ITEM: Dropping " + SlotItem.ItemName + "\n";
         Debug.Log("DEBUG - ITEM: Dropping " + SlotItem.ItemName);
-        
+
         // Spawn item in world
-        GameObject DroppedItem = (GameObject)Instantiate(SlotItem.itemPrefab, Player.transform.position + DropOffset, Player.transform.rotation);
+        GameObject DroppedItem = (GameObject)Instantiate(SlotItem.itemPrefab, playerInstance.transform.position + DropOffset, playerInstance.transform.rotation);
+        //GameObject DroppedItem = (GameObject)Instantiate(SlotItem.itemPrefab, Player.transform.position + DropOffset, Player.transform.rotation);
 
         // Add item to list of Gizmos
         gizmos.AddFocusObjToArray(DroppedItem);

@@ -3,6 +3,8 @@
 [CreateAssetMenu(fileName = "New Item", menuName = "Custom Scriptable Objects/Game Objects/Item")]
 public class ItemBlueprint : ScriptableObject
 {
+    public EquipmentBlueprint equipBP;
+
     [Header("Item specific properties")]
     // Properties for all Item types
     public string ItemName = "New Item";

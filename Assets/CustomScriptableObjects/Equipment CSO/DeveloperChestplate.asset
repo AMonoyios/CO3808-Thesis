@@ -12,13 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1901aa0496b5b23469ce3c2282d03208, type: 3}
   m_Name: DeveloperChestplate
   m_EditorClassIdentifier: 
+  equipBP: {fileID: 11400000}
   ItemName: Infinity Chestplate
-  ItemIcon: {fileID: 21300000, guid: 9a0b57de6e956fc4abd998368033064f, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 768e49779134e154099807d753239b4e, type: 3}
   isDefault: 0
   StackUntil: 1
-  itemPrefab: {fileID: 7408832201007227148, guid: ba201a9f1d3a70c4183a442c79cbf252,
+  itemPrefab: {fileID: 1528957864014236070, guid: af3a409f5b0aed14798e24faf0f9181d,
     type: 3}
   ItemDescription: Chestplate that was created in order to test various game features.
   EquipSlot: 1
-  Protection: 10
-  Damage: 0
+  PositiveTraits:
+  - traits: 0
+    traitLevel: 10
+  - traits: 1
+    traitLevel: 3
+  NegativeTraits:
+  - traits: 0
+    traitLevel: 1
+  - traits: 1
+    traitLevel: 1

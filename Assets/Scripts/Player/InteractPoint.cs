@@ -23,11 +23,22 @@ public class InteractPoint : MonoBehaviour
     [HideInInspector]
     public bool isSelected;
 
-    Transform player;
+	// Used the Player Instance Class to avoid slowdowns
+	// For this class we initialize it as public so the 
+	// classes that inherit from it have access to it.
+	public GameObject playerInstance;
+	//Transform player;
 
-    // We want to interact with all interactables but not all interactables have the same interaction
-    // enemies have health attack etc but a loot chest has loot in it
-    public virtual void Interact()
+	private void Start()
+	{
+		playerInstance = PlayerManager.Instance.player;
+		
+		gizmos = GameObject.Find("GizmoManager").GetComponent<GizmosManager>();
+	}
+
+	// We want to interact with all interactables but not all interactables have the same interaction
+	// enemies have health attack etc but a loot chest has loot in it
+	public virtual void Interact()
     {
         //if (FindConsoleBoxGUI())
         //    ConsoleBoxGUI.text += "DEBUG - PLAYER: Interacting with " + transform.name + "\n";
@@ -37,18 +48,13 @@ public class InteractPoint : MonoBehaviour
         Debug.Log("DEBUG - PLAYER: Interacting with " + transform.name);
     }
 
-    private void Start()
-    {
-        gizmos = GameObject.Find("GizmoManager").GetComponent<GizmosManager>();
-    }
-
     void Update()
     {
         // we want to interact with an interactable when we are focused and we aren't already interacting with it
         if (isFocus && hasInteracted != true)
         {
             // toggling the interact via comparing range of interactable item and player
-            float distance = Vector3.Distance(player.position, interactionPoint.position);
+            float distance = Vector3.Distance(playerInstance.transform.position, interactionPoint.position);
             if (distance <= radius)
             {
                 Interact();
@@ -58,18 +64,16 @@ public class InteractPoint : MonoBehaviour
     }
 
     // setting the focus to the new one
-    public void OnFocused(Transform playerTransform)
+    public void OnFocused()
     {
-        isFocus = true;
-        player = playerTransform;
+        isFocus = !isFocus;
         hasInteracted = false;
     }
 
     // "Reset" focus for a new one
     public void OnDeFocused()
     {
-        isFocus = false;
-        player = null;
+        isFocus = !isFocus;
     }
 
 #if UNITY_EDITOR

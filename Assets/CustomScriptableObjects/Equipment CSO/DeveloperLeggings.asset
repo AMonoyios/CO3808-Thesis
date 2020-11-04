@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1901aa0496b5b23469ce3c2282d03208, type: 3}
-  m_Name: DeveloperBoots
+  m_Name: DeveloperLeggings
   m_EditorClassIdentifier: 
   equipBP: {fileID: 11400000}
-  ItemName: Infinity Boots
-  ItemIcon: {fileID: 21300000, guid: 0406263e170fcdd4fb53703f4a67fdc0, type: 3}
+  ItemName: DeveloperLeg
+  ItemIcon: {fileID: 21300000, guid: d59038066e601c145b15da160a471995, type: 3}
   isDefault: 0
   StackUntil: 1
-  itemPrefab: {fileID: 3376675472176686143, guid: ca1e209191ac9144db3cdb5308e99885,
+  itemPrefab: {fileID: 2353120089813043062, guid: b8c0836c1f7d3264a93f32c3462ae34a,
     type: 3}
-  ItemDescription: Boots that were created in order to test various game features.
-  EquipSlot: 3
+  ItemDescription: Jeggings that were created in order to test various game features.
+  EquipSlot: 2
   PositiveTraits:
   - traits: 0
-    traitLevel: 5
+    traitLevel: 6
   - traits: 1
-    traitLevel: 10
+    traitLevel: 8
   NegativeTraits:
-  - traits: 1
-    traitLevel: 1
   - traits: 0
+    traitLevel: 1
+  - traits: 1
     traitLevel: 1

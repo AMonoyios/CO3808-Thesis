@@ -25,12 +25,20 @@ public class ChestInteraction : InteractPoint
 
     private Vector3 LootSpawnPoint;
     private string FocusChestName;
-    private GameObject Player;
+
+    // Used the Player Instance Class to avoid slowdowns
+    //private GameObject Player;
+    
+    //GameObject playerInstance;
 
     void Awake()
     {
-        Player = GameObject.Find("Player");
-        focusController = Player.GetComponent<FocusController>();
+        //Player = GameObject.Find("Player");
+        //focusController = Player.GetComponent<FocusController>();
+
+        // Get player instance
+        playerInstance = PlayerManager.Instance.player;
+        focusController = playerInstance.GetComponent<FocusController>();
     }
 
     public override void Interact()

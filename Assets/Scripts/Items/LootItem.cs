@@ -9,15 +9,22 @@ public class LootItem : InteractPoint
     
     private FocusController focusController;
 
+    // Used the Player Instance Class to avoid slowdowns
+    //GameObject playerInstance;
+
     //TextMeshProUGUI ConsoleBoxGUI;
 
-	// In order to avoid having to drag and drop each Gameobject to every single item we create, 
-	//  we can use GetComponent and search all the game files for the specific gameobject, this
-	//  is not a perfect solution but we only do it once right before the game starts. 
-	void Awake()
+    // In order to avoid having to drag and drop each Gameobject to every single item we create, 
+    //  we can use GetComponent and search all the game files for the specific gameobject, this
+    //  is not a perfect solution but we only do it once right before the game starts. 
+    void Awake()
     {
-        GameObject Player = GameObject.Find("Player");
-        focusController = Player.GetComponent<FocusController>();
+        // Get player instance
+        playerInstance = PlayerManager.Instance.player;
+        focusController = playerInstance.GetComponent<FocusController>();
+
+        //GameObject Player = GameObject.Find("Player");
+        //focusController = Player.GetComponent<FocusController>();
     }
 
     public override void Interact()
@@ -34,7 +41,7 @@ public class LootItem : InteractPoint
         //    ConsoleBoxGUI.text += "DEBUG - ITEM: Added " + itemBlueprint.name + " to inventory \n";
         Debug.Log("DEBUG - ITEM: Added " + itemBlueprint.name + " to inventory");
         bool successfulPickup = Inventory.InventoryInstance.AddToInventory(itemBlueprint);
-        
+
         // Delete item from game world
         if (successfulPickup == true)
             Destroy(gameObject);

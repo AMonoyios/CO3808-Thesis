@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 7360617700597859486}
   m_Layer: 8
   m_Name: Stackable Test Item Red 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: Item
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 9170158173944971110}
   m_LocalRotation: {x: 0, y: -0.1310713, z: 0, w: 0.99137294}
   m_LocalPosition: {x: -11.659, y: 0.533, z: 8.472}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.49999997, y: 0.5, z: 0.49999997}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,11 +108,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93b077e65ac74845a7faf5c30e9d7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeveloperConsoleBox: {fileID: 0}
-  radius: 1.302
   interactionPoint: {fileID: 9170158173944971115}
+  radius: 1.302
+  gizmos: {fileID: 0}
+  isFocus: 0
+  hasInteracted: 0
+  isSelected: 1
   itemBlueprint: {fileID: 11400000, guid: ef07c2b758d0f1f40b88b6441dbb23bd, type: 2}
-  focusController: {fileID: 0}
 --- !u!114 &9170158173944971116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1139f562899a9a54f9e6d25d990a302e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeveloperConsoleBox: {fileID: 0}
 --- !u!54 &7360617700597859486
 Rigidbody:
   m_ObjectHideFlags: 0

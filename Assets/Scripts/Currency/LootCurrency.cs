@@ -10,6 +10,9 @@ public class LootCurrency : InteractPoint
     private FocusController focusController;
     private AllCharacterStats characterStats;
 
+    // Used the Player Instance Class to avoid slowdowns
+    //GameObject playerInstance;
+
     //TextMeshProUGUI ConsoleBoxGUI;
 
     // In order to avoid having to drag and drop each Gameobject to every single coin we create, 
@@ -17,9 +20,17 @@ public class LootCurrency : InteractPoint
     //  is not a perfect solution but we only do it once right before the game starts. 
     void Awake()
     {
-        GameObject Player = GameObject.Find("Player");
-        focusController = Player.GetComponent<FocusController>();
-        characterStats = Player.GetComponent<AllCharacterStats>();
+        // Removed this in order to prevent unessesary game slowdowns
+        // Replaced it with an instance of the player in 1 global script
+        //GameObject Player = GameObject.Find("Player");
+        //focusController = Player.GetComponent<FocusController>();
+        //characterStats = Player.GetComponent<AllCharacterStats>();
+        
+        // Get player instance
+        playerInstance = PlayerManager.Instance.player;
+
+        focusController = playerInstance.GetComponent<FocusController>();
+        characterStats = playerInstance.GetComponent<AllCharacterStats>();
     }
 
     public override void Interact()
