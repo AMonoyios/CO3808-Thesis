@@ -28,7 +28,7 @@ public class LootCurrency : InteractPoint
         
         // Get player instance
         playerInstance = PlayerManager.Instance.player;
-
+        
         focusController = playerInstance.GetComponent<FocusController>();
         characterStats = playerInstance.GetComponent<AllCharacterStats>();
     }

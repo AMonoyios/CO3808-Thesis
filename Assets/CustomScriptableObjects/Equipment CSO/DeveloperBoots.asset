@@ -17,7 +17,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 21300000, guid: 0406263e170fcdd4fb53703f4a67fdc0, type: 3}
   isDefault: 0
   StackUntil: 1
-  itemPrefab: {fileID: 3376675472176686143, guid: ca1e209191ac9144db3cdb5308e99885,
+  itemPrefab: {fileID: 7784881898158077885, guid: ca1e209191ac9144db3cdb5308e99885,
     type: 3}
   ItemDescription: Boots that were created in order to test various game features.
   EquipSlot: 3

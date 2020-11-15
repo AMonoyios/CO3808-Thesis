@@ -17,7 +17,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 21300000, guid: 768e49779134e154099807d753239b4e, type: 3}
   isDefault: 0
   StackUntil: 1
-  itemPrefab: {fileID: 1528957864014236070, guid: af3a409f5b0aed14798e24faf0f9181d,
+  itemPrefab: {fileID: 5633657927607537261, guid: af3a409f5b0aed14798e24faf0f9181d,
     type: 3}
   ItemDescription: Chestplate that was created in order to test various game features.
   EquipSlot: 1

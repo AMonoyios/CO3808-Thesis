@@ -90,7 +90,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _playerposition: {r: -2.6281638, g: 0.00000011920929, b: 3.3489258, a: 0}
+    - _playerposition: {r: -2.26, g: 0, b: 3.490541e-21, a: 0}
 --- !u!114 &4859754590599300877
 MonoBehaviour:
   m_ObjectHideFlags: 11

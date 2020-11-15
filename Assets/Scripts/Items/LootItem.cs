@@ -27,7 +27,7 @@ public class LootItem : InteractPoint
         //focusController = Player.GetComponent<FocusController>();
     }
 
-    public override void Interact()
+	public override void Interact()
     {
         base.Interact();
 

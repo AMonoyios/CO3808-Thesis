@@ -29,10 +29,9 @@ public class InteractPoint : MonoBehaviour
 	public GameObject playerInstance;
 	//Transform player;
 
-	private void Start()
+	void Start()
 	{
 		playerInstance = PlayerManager.Instance.player;
-		
 		gizmos = GameObject.Find("GizmoManager").GetComponent<GizmosManager>();
 	}
 

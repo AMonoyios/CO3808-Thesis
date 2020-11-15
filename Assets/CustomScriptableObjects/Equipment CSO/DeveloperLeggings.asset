@@ -17,7 +17,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 21300000, guid: d59038066e601c145b15da160a471995, type: 3}
   isDefault: 0
   StackUntil: 1
-  itemPrefab: {fileID: 2353120089813043062, guid: b8c0836c1f7d3264a93f32c3462ae34a,
+  itemPrefab: {fileID: 2669747134856640759, guid: b8c0836c1f7d3264a93f32c3462ae34a,
     type: 3}
   ItemDescription: Jeggings that were created in order to test various game features.
   EquipSlot: 2
