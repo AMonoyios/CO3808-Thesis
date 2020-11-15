@@ -197,3 +197,8 @@ Removed the Gameobject.Find() with a singleton instance of the player for all sc
 Fixed tool tip UI to show new traits system                                                   <br/>
 Fixed bugs                                                                                    <br/>
 Code cleaning needed                                                                          <br/>
+
+### 20w46a:
+Added unique positive and negative traits for equipment     <br/>
+Added scalable UI for tooltip with new stat system support  <br/>
+Temp imported a frame viewer for performance testing        <br/>
