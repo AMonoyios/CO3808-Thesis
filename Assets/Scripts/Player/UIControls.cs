@@ -1,16 +1,8 @@
 ﻿using UnityEngine;
-using TMPro;
 using System.Collections.Generic;
 
 public class UIControls : MonoBehaviour
 {
-    //private TextMeshProUGUI ConsoleBoxGUI;
-
-    //[Header("Custom Console UI settings")]
-    //public GameObject DeveloperConsoleBox;
-    //public KeyCode ConsoleKeybind;
-    //private bool DeveloperConsoleToggleState;
-
     [Header("Inventory UI settings")]
     public GameObject InventoryUI;
     public KeyCode InventoryKeybind;
@@ -27,10 +19,6 @@ public class UIControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //// Close the Developer Console when the game starts
-        //DeveloperConsoleToggleState = false;
-        //DeveloperConsoleBox.SetActive(DeveloperConsoleToggleState);
-
         // Close the inventory when the game starts
         InventoryToggleState = false;
         InventoryUI.SetActive(InventoryToggleState);
@@ -59,17 +47,10 @@ public class UIControls : MonoBehaviour
             EquipmentToggleState = !EquipmentToggleState;
             EquipmentUI.SetActive(EquipmentToggleState);
         }
-
-        //if (Input.GetKeyDown(ConsoleKeybind))
-        //{
-        //    DeveloperConsoleToggleState = !DeveloperConsoleToggleState;
-        //    DeveloperConsoleBox.SetActive(DeveloperConsoleToggleState);
-        //}
     }
 
     void CheckKeybinds(List<KeyCode> AllKeybinds)
 	{
-        //AllKeybinds.Add(ConsoleKeybind);
         AllKeybinds.Add(InventoryKeybind);
         AllKeybinds.Add(EquipmentKeybind);
 

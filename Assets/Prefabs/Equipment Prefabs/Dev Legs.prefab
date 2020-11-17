@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2669747134856640759}
-  m_LocalRotation: {x: -0, y: 0.024273, z: -0, w: 0.9997054}
+  m_LocalRotation: {x: 0, y: 0.024275126, z: 0, w: 0.9997053}
   m_LocalPosition: {x: -11.48, y: 0.803, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -114,7 +114,7 @@ MonoBehaviour:
   isFocus: 0
   hasInteracted: 0
   isSelected: 1
-  playerInstance: {fileID: 0}
+  playerManager: {fileID: 0}
   itemBlueprint: {fileID: 11400000, guid: 6d5db0fb94714854981c130642505dd6, type: 2}
 --- !u!114 &2669747134856640753
 MonoBehaviour:

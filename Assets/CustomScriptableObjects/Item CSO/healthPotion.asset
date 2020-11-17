@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05137a39c4d8df94d991b79fadc39058, type: 3}
   m_Name: healthPotion
   m_EditorClassIdentifier: 
+  equipBP: {fileID: 0}
   ItemName: Health Pot
   ItemIcon: {fileID: 21300000, guid: 3ff141cd3e723654aaa96f116b16e38c, type: 3}
   isDefault: 0
-  StackUntil: 2
+  StackUntil: 1
   itemPrefab: {fileID: 9170158173944971110, guid: 06be3ce808f8d384da78180810191fe7,
     type: 3}
   ItemDescription: Heals the player.

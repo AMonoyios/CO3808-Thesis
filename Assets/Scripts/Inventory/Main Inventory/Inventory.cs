@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 [System.Serializable]
 public class InventoryItems
@@ -27,8 +26,6 @@ public class Inventory : MonoBehaviour
         InventoryInstance = this;
     }
     #endregion
-
-    //private TextMeshProUGUI ConsoleBoxGUI;
 
     [Header("Inventory Properties")]
     // Creating the list for the total items in the inventory
@@ -61,15 +58,10 @@ public class Inventory : MonoBehaviour
         {
             if (InventoryItems.Count < InventorySlots)
             {
-				//if (FindConsoleBoxGUI())
-                //    ConsoleBoxGUI.text += "DEBUG - INVENTORY: Inventory has " + (InventorySlots - InventoryItems.Count) + " slot(s) left \n";
-                Debug.Log("DEBUG - INVENTORY: Inventory has " + (InventorySlots-InventoryItems.Count) + " slot(s) left");
+				Debug.Log("DEBUG - INVENTORY: Inventory has " + (InventorySlots-InventoryItems.Count) + " slot(s) left");
 
                 // Remove item from list of Gizmos
                 gizmos.RemoveFocusObjFromArray(item.itemPrefab);
-
-                // TODO Gizmos
-                // Call a function that toggles the accessability of the item in GizmosManager
 
                 if (InventoryItems.Count > 0)
                 {
@@ -91,9 +83,6 @@ public class Inventory : MonoBehaviour
             }
             else
             {
-				//if (FindConsoleBoxGUI())
-                //    ConsoleBoxGUI.text += "DEBUG - INVENTORY: Inventory does not have enough space for " + item.ItemName + "\n";
-                
                 Debug.Log("DEBUG - INVENTORY: Inventory does not have enough space for " + item.ItemName);
                 return false;
             }
@@ -129,8 +118,6 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < InventoryItems.Count; i++)
         {
-			//if (FindConsoleBoxGUI())
-            //    ConsoleBoxGUI.text += "DEBUG - INVENTORY: inventory checking at index -> " + i + "\n";
             Debug.Log("DEBUG - INVENTORY: item stacking checking at index -> " + i);
 
             if (InventoryItems[i].item.ItemName == item.ItemName && InventoryItems[i].itemQuantity < item.StackUntil)
@@ -148,8 +135,6 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < InventoryItems.Count; i++)
         {
-			//if (FindConsoleBoxGUI())
-            //    ConsoleBoxGUI.text += "DEBUG - INVENTORY: item in inventory checking at index -> " + i + "\n";
             Debug.Log("DEBUG - INVENTORY: item in inventory checking at index -> " + i);
 
             if (InventoryItems[i].item.ItemName == item.ItemName)
@@ -172,30 +157,8 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-			//if (FindConsoleBoxGUI())
-            //    ConsoleBoxGUI.text += "WARNING - INVENTORY: Item name not found! \n";
             Debug.LogWarning("WARNING - INVENTORY: Item name not found!");
             return "ITEM NOT FOUND";
         }
     }
-
-    //bool FindConsoleBoxGUI()
-    //{
-    //    // B19 fix, because the script inherits from another one instead of monobehaviour i can 
-    //    //  not trigger awake when the object is being instansiated. TODO: try finding a more 
-    //    //  efficient way to get the text meshproGUI instead of find();
-    //
-    //    // B20 when the custom console box is inactive it does not find the gameobject
-    //    try
-    //    {
-    //        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-    //        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
-    //    }
-    //    catch (System.Exception)
-    //    {
-    //        return false;
-    //    }
-    //
-    //    return true;
-    //}
 }

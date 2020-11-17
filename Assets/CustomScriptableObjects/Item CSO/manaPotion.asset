@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05137a39c4d8df94d991b79fadc39058, type: 3}
   m_Name: manaPotion
   m_EditorClassIdentifier: 
+  equipBP: {fileID: 0}
   ItemName: Mana Pot
   ItemIcon: {fileID: 21300000, guid: e6f5a247e557af04db58fbea4c641ade, type: 3}
   isDefault: 0
-  StackUntil: 99
+  StackUntil: 5
   itemPrefab: {fileID: 7166262257008258675, guid: 8d822f958bf20b041a9f8069d9621b67,
     type: 3}
   ItemDescription: Restores mana.

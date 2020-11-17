@@ -30,15 +30,13 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
     public Vector3 DropOffset;
 
     // Used the Player Instance Class to avoid slowdowns
-    //private GameObject Player;
-    GameObject playerInstance;
+    public PlayerManager playerManager;
 
     ItemBlueprint item;
 
     private void Start()
     {
-        playerInstance = PlayerManager.Instance.player;
-        //Player = GameObject.Find("Player");
+        playerManager = PlayerManager.Instance.player.GetComponent<PlayerManager>();
 
         DropOffset = new Vector3(DropOffsetX, DropOffsetY, DropOffsetZ);
 
@@ -53,8 +51,6 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
             if (eventData.button == PointerEventData.InputButton.Left)
             {
 				// Left clicked on item (Using item)
-				//if (FindConsoleBoxGUI())
-                //    ConsoleBoxGUI.text += "DEBUG - INVENTORY: Mouse button left was pressed on " + Inventory.InventoryInstance.PrintItemName(item) + "\n";
                 Debug.Log("DEBUG - INVENTORY: Mouse button left was pressed on " + Inventory.InventoryInstance.PrintItemName(item));
 
                 item.UseItem();
@@ -62,8 +58,6 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
             else if (eventData.button == PointerEventData.InputButton.Right)
             {
 				// Right clicked on item (Drop item)
-				//if (FindConsoleBoxGUI())
-                //    ConsoleBoxGUI.text += "DEBUG - INVENTORY: Mouse button right was pressed on " + Inventory.InventoryInstance.PrintItemName(item) + "\n";
                 Debug.Log("DEBUG - INVENTORY: Mouse button right was pressed on " + Inventory.InventoryInstance.PrintItemName(item));
 
                 DropItem(item);
@@ -91,13 +85,10 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
 
     public void DropItem(ItemBlueprint SlotItem)
     {
-		//if (FindConsoleBoxGUI())
-        //    ConsoleBoxGUI.text += "DEBUG - ITEM: Dropping " + SlotItem.ItemName + "\n";
         Debug.Log("DEBUG - ITEM: Dropping " + SlotItem.ItemName);
 
         // Spawn item in world
-        GameObject DroppedItem = (GameObject)Instantiate(SlotItem.itemPrefab, playerInstance.transform.position + DropOffset, playerInstance.transform.rotation);
-        //GameObject DroppedItem = (GameObject)Instantiate(SlotItem.itemPrefab, Player.transform.position + DropOffset, Player.transform.rotation);
+        GameObject DroppedItem = (GameObject)Instantiate(SlotItem.itemPrefab, playerManager.player.transform.position + DropOffset, playerManager.player.transform.rotation);
 
         // Add item to list of Gizmos
         gizmos.AddFocusObjToArray(DroppedItem);
@@ -110,24 +101,4 @@ public class InteractWithInventory : MonoBehaviour, IPointerClickHandler
     {
         Inventory.InventoryInstance.RemoveFromInventory(item);
     }
-
-    //bool FindConsoleBoxGUI()
-    //{
-    //    // B19 fix, because the script inherits from another one instead of monobehaviour i can 
-    //    //  not trigger awake when the object is being instansiated. TODO: try finding a more 
-    //    //  efficient way to get the text meshproGUI instead of find();
-    //
-    //    // B20 when the custom console box is inactive it does not find the gameobject
-    //    try
-    //    {
-    //        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-    //        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
-    //    }
-    //    catch (System.Exception)
-    //    {
-    //        return false;
-    //    }
-    //
-    //    return true;
-    //}
 }

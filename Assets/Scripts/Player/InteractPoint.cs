@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
-using TMPro;
 using UnityEditor;
 using System.Collections;
 
 public class InteractPoint : MonoBehaviour
 {
-    //private TextMeshProUGUI ConsoleBoxGUI;
-
     [Header("Interact Point Properties")]
     public Transform interactionPoint;
     [Range(1.25f, 4.0f)]
@@ -26,22 +23,22 @@ public class InteractPoint : MonoBehaviour
 	// Used the Player Instance Class to avoid slowdowns
 	// For this class we initialize it as public so the 
 	// classes that inherit from it have access to it.
-	public GameObject playerInstance;
-	//Transform player;
+	public PlayerManager playerManager;
+
+	void Awake()
+	{
+		gizmos = GameObject.Find("GizmoManager").GetComponent<GizmosManager>();
+	}
 
 	void Start()
 	{
-		playerInstance = PlayerManager.Instance.player;
-		gizmos = GameObject.Find("GizmoManager").GetComponent<GizmosManager>();
+		playerManager = PlayerManager.Instance.player.GetComponent<PlayerManager>();
 	}
 
 	// We want to interact with all interactables but not all interactables have the same interaction
 	// enemies have health attack etc but a loot chest has loot in it
 	public virtual void Interact()
     {
-        //if (FindConsoleBoxGUI())
-        //    ConsoleBoxGUI.text += "DEBUG - PLAYER: Interacting with " + transform.name + "\n";
-
         gizmos.RemoveFocusObjFromArray(this.gameObject);
 
         Debug.Log("DEBUG - PLAYER: Interacting with " + transform.name);
@@ -53,7 +50,7 @@ public class InteractPoint : MonoBehaviour
         if (isFocus && hasInteracted != true)
         {
             // toggling the interact via comparing range of interactable item and player
-            float distance = Vector3.Distance(playerInstance.transform.position, interactionPoint.position);
+            float distance = Vector3.Distance(playerManager.player.transform.position, interactionPoint.position);
             if (distance <= radius)
             {
                 Interact();
@@ -90,7 +87,7 @@ public class InteractPoint : MonoBehaviour
 						isSelected = false;
 						return;
 					}
-					
+
 					if (isFocus)
 					{
 						// Draw gizmos for focused items
@@ -117,24 +114,4 @@ public class InteractPoint : MonoBehaviour
 		Gizmos.DrawWireSphere(interactionPoint.position, radius);
 	}
 #endif
-
-	//bool FindConsoleBoxGUI()
-	//{
-	//	// B19 fix, because the script inherits from another one instead of monobehaviour i can 
-	//	//  not trigger awake when the object is being instansiated. TODO: try finding a more 
-	//	//  efficient way to get the text meshproGUI instead of find();
-	//
-	//	// B20 when the custom console box is inactive it does not find the gameobject
-	//	try
-	//	{
-	//        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-	//        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
-	//	}
-	//	catch (System.Exception)
-	//	{
-	//        return false;
-	//	}
-	//
-	//    return true;
-	//}
 }

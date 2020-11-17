@@ -114,6 +114,7 @@ MonoBehaviour:
   isFocus: 0
   hasInteracted: 0
   isSelected: 1
+  playerManager: {fileID: 0}
   itemBlueprint: {fileID: 11400000, guid: ef07c2b758d0f1f40b88b6441dbb23bd, type: 2}
 --- !u!114 &9170158173944971116
 MonoBehaviour:

@@ -161,9 +161,9 @@ GameObject:
   m_Layer: 8
   m_Name: Wooden Chest 1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1136526800412510154
 Transform:
@@ -266,18 +266,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b987a7742e901634db393a64d7324e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.25
   interactionPoint: {fileID: 5386153237007062744}
-  focusController: {fileID: 0}
-  animator: {fileID: 0}
+  radius: 1.37
+  gizmos: {fileID: 0}
+  isFocus: 0
+  hasInteracted: 0
+  isSelected: 1
+  playerManager: {fileID: 0}
   hasBeenLooted: 0
-  ChestLootCount: []
-  UpForce: 0.5
-  SideForce: 4
-  LootSpawnPoint: {x: 0, y: 0, z: 0}
-  xOffset: -0.5
+  ChestLootCount:
+  - {fileID: 4034197431649506979, guid: f5a73d12a0c76704cba0581147b83d48, type: 3}
+  - {fileID: 7166262257008258675, guid: 8d822f958bf20b041a9f8069d9621b67, type: 3}
+  - {fileID: 9170158173944971110, guid: 06be3ce808f8d384da78180810191fe7, type: 3}
+  xOffset: 0
   yOffset: 0.5
   zOffset: 0
+  ForwardForce: 200
+  UpwardForce: 150
+  LeftToRightForce: 100
 --- !u!1 &5038254867271418256
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +392,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2536233628515434404
 Transform:

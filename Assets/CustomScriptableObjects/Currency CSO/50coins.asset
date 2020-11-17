@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: 50coins
   m_EditorClassIdentifier: 
   CurrencyName: 50 coins
-  CurrencyIcon: {fileID: 0}
   CurrencyValue: 50
   isDefault: 0

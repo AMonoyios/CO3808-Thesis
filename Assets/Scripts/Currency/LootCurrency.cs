@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using TMPro;
 
 public class LootCurrency : InteractPoint
 {
@@ -11,26 +10,24 @@ public class LootCurrency : InteractPoint
     private AllCharacterStats characterStats;
 
     // Used the Player Instance Class to avoid slowdowns
-    //GameObject playerInstance;
-
-    //TextMeshProUGUI ConsoleBoxGUI;
+    //private GameObject playerInstance;
 
     // In order to avoid having to drag and drop each Gameobject to every single coin we create, 
     //  we can use GetComponent and search all the game files for the specific gameobject, this
     //  is not a perfect solution but we only do it once right before the game starts. 
-    void Awake()
+    private void Start()
     {
         // Removed this in order to prevent unessesary game slowdowns
         // Replaced it with an instance of the player in 1 global script
         //GameObject Player = GameObject.Find("Player");
         //focusController = Player.GetComponent<FocusController>();
         //characterStats = Player.GetComponent<AllCharacterStats>();
-        
+
         // Get player instance
-        playerInstance = PlayerManager.Instance.player;
-        
-        focusController = playerInstance.GetComponent<FocusController>();
-        characterStats = playerInstance.GetComponent<AllCharacterStats>();
+        playerManager = PlayerManager.Instance.player.GetComponent<PlayerManager>();
+
+        focusController = playerManager.player.GetComponent<FocusController>();
+        characterStats = playerManager.player.GetComponent<AllCharacterStats>();
     }
 
     public override void Interact()
@@ -43,39 +40,14 @@ public class LootCurrency : InteractPoint
     void PickUpCurrency()
     {
         // Add to balance
-        //if (FindConsoleBoxGUI())
-
-        //    ConsoleBoxGUI.text += "DEBUG - CURRENCY: Added " + currency.name + " to your balance \n";
         Debug.Log("DEBUG - CURRENCY: Added " + currency.name + " to your balance");
         characterStats.Balance += currency.CurrencyValue;
 
 		// Delete from game world
-		//if (FindConsoleBoxGUI())
-        //    ConsoleBoxGUI.text += "DEBUG - CURRENCY: Deleting " + gameObject.name + "\n";
         Debug.Log("DEBUG - CURRENCY: Deleting " + gameObject.name);
         Destroy(gameObject);
 
         // Stop Focusing the deleted currency
         focusController.DeFocus();
     }
-
-    //bool FindConsoleBoxGUI()
-    //{
-    //    // B19 fix, because the script inherits from another one instead of monobehaviour i can 
-    //    //  not trigger awake when the object is being instansiated. TODO: try finding a more 
-    //    //  efficient way to get the text meshproGUI instead of find();
-    //
-    //    // B20 when the custom console box is inactive it does not find the gameobject
-    //    try
-    //    {
-    //        GameObject CustomConsoleBox = GameObject.Find("Developer Console");
-    //        ConsoleBoxGUI = CustomConsoleBox.GetComponent<TextMeshProUGUI>();
-    //    }
-    //    catch (System.Exception)
-    //    {
-    //        return false;
-    //    }
-    //
-    //    return true;
-    //}
 }

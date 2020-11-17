@@ -18,7 +18,7 @@ GameObject:
   m_Layer: 8
   m_Name: 1coin Prefab
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4515252608082297121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,13 +108,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c867f0a2ccbe00499fb867aba9028ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.25
   interactionPoint: {fileID: 4515252608082297124}
+  radius: 1.25
+  gizmos: {fileID: 0}
+  isFocus: 0
+  hasInteracted: 0
+  isSelected: 1
+  playerManager: {fileID: 0}
   currency: {fileID: 11400000, guid: 486f79fb992fbf546b3e5f8599defc38, type: 2}
-  focusController: {fileID: 0}
-  characterStats: {fileID: 0}
-  CustomConsoleBox: {fileID: 0}
-  ConsoleBoxGUI: {fileID: 0}
 --- !u!54 &4515252608082297131
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -143,4 +144,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1139f562899a9a54f9e6d25d990a302e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeveloperConsoleBox: {fileID: 0}
