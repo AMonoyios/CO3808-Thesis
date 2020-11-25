@@ -210,3 +210,7 @@ B28) Fixed - Gizmos trying to render items that are picked up   <br/>
 Fixed error with item dropping and having a null focus pointer  <br/>
 Fixed error gizmos trying to render inventory items or armor    <br/>
 Completely removed Custom console GUI                           <br/>
+
+### 20w48a - ignore:
+Changed OS on laptop device and had to clone and push new files <br/>
+
