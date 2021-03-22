@@ -214,3 +214,6 @@ Completely removed Custom console GUI                           <br/>
 ### 20w48a - ignore:
 Changed OS on laptop device and had to clone and push new files <br/>
 
+### 21w12a:
+Equipment Inventory automatically closes/opens depending on Inventory state <br/>
+Applying traits to player in realtime depending on equipment                <br/>
