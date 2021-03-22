@@ -2006,8 +2006,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f388f377ac3e3844faf4a1316d5b82ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 3
+  MovementSpeed: 1.5
   RotationSpeed: 7
+  characterStats: {fileID: 0}
 --- !u!114 &1516229815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,6 +2022,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Balance: 0
+  Health: 100
+  Protection: 1
+  Speed: 1
+  Damage: 1
 --- !u!114 &1516229816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2360,7 +2365,7 @@ Transform:
   - {fileID: 536550345}
   - {fileID: 1775308925}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1719708905 stripped
 GameObject:
@@ -3208,7 +3213,7 @@ PrefabInstance:
     - target: {fileID: 4515252608082297124, guid: c0599447181412f4582cbc52cb9c9f74,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4515252608082297124, guid: c0599447181412f4582cbc52cb9c9f74,
         type: 3}

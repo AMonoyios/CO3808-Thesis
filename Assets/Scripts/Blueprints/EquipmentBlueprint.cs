@@ -17,8 +17,8 @@ public enum EquipmentSlots
 public struct Positives
 {
 	public PositiveTraits traits;
-	[Range(1,10)]
-	public int traitLevel;
+	[Range(0.1f,1.0f)]
+	public float traitLevel;
 }
 
 public enum PositiveTraits
@@ -32,14 +32,14 @@ public enum PositiveTraits
 public struct Negatives
 {
 	public NegativeTraits traits;
-	[Range(1,10)]
-	public int traitLevel;
+	[Range(0.1f,1.0f)]
+	public float traitLevel;
 }
 
 public enum NegativeTraits
 {
 	Slowness,
-	Glumsy
+	Exposure
 }
 
 [CreateAssetMenu(fileName = "New Equipment", menuName = "Custom Scriptable Objects/Game Objects/Equipment")]

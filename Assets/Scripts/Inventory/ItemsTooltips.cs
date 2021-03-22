@@ -79,13 +79,13 @@ public class ItemsTooltips : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 				// print item positive stats
 				foreach (Positives PosTraits in item.equipBP.PositiveTraits)
 				{
-					ToolPositive.text += PosTraits.traits.ToString() + ": " + PosTraits.traitLevel.ToString() + "\n";
+					ToolPositive.text += PosTraits.traits.ToString() + ": " + (PosTraits.traitLevel * 100).ToString() + "% \n";
 				}
 
 				// print item negaive stats
 				foreach (Negatives NegTraits in item.equipBP.NegativeTraits)
 				{
-					ToolNegative.text += NegTraits.traits.ToString() + ": " + NegTraits.traitLevel.ToString() + "\n";
+					ToolNegative.text += NegTraits.traits.ToString() + ": " + (NegTraits.traitLevel * 100).ToString() + "% \n";
 				}
 			}
 

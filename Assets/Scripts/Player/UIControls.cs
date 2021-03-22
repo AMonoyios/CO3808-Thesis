@@ -40,13 +40,27 @@ public class UIControls : MonoBehaviour
         {
             InventoryToggleState = !InventoryToggleState;
             InventoryUI.SetActive(InventoryToggleState);
+
+            if (InventoryToggleState == false)
+            {
+                EquipmentToggleState = false;
+                EquipmentUI.SetActive(EquipmentToggleState);
+            }
         }
 
         if (Input.GetKeyDown(EquipmentKeybind))
         {
             EquipmentToggleState = !EquipmentToggleState;
             EquipmentUI.SetActive(EquipmentToggleState);
+
+            if (InventoryToggleState == false)
+            {
+                InventoryToggleState = !InventoryToggleState;
+                InventoryUI.SetActive(InventoryToggleState);
+            }
         }
+
+        
     }
 
     void CheckKeybinds(List<KeyCode> AllKeybinds)

@@ -23,11 +23,7 @@ MonoBehaviour:
   EquipSlot: 2
   PositiveTraits:
   - traits: 0
-    traitLevel: 6
-  - traits: 1
-    traitLevel: 8
-  NegativeTraits:
-  - traits: 0
-    traitLevel: 1
+    traitLevel: 0.5
   - traits: 1
     traitLevel: 1
+  NegativeTraits: []

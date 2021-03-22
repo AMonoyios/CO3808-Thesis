@@ -17,6 +17,9 @@ public class Equipment : MonoBehaviour
 
 	public EquipmentBlueprint[] equipmentSlot;
 
+	private AllCharacterStats characterStats;
+	private PlayerManager playerManager;
+
 	// In order to update the equipment UI without using the function in the Update() we can 
 	//  use a delegate
 	public delegate void EquipmentUpdated(EquipmentBlueprint item, bool AddorRemove);
@@ -26,6 +29,10 @@ public class Equipment : MonoBehaviour
 	{
 		int SlotSize = System.Enum.GetNames(typeof(EquipmentSlots)).Length;
 		equipmentSlot = new EquipmentBlueprint[SlotSize];
+
+		// Get player instance
+		playerManager = PlayerManager.Instance.player.GetComponent<PlayerManager>();
+		characterStats = playerManager.player.GetComponent<AllCharacterStats>();
 	}
 
 	public void Equip(EquipmentBlueprint Item)
@@ -44,6 +51,9 @@ public class Equipment : MonoBehaviour
 
 		equipmentSlot[SlotIndex] = Item;
 
+		// apply the trait values of the equipment to the player stat
+		ApplyTraitsToPlayer(Item);
+
 		if (CallEquipmentUpdated != null)
 		{
 			CallEquipmentUpdated.Invoke(Item, true);
@@ -57,6 +67,9 @@ public class Equipment : MonoBehaviour
 		{
 			EquipmentBlueprint ItemToUnequip = Equipment.EquipmentInstance.equipmentSlot[SlotIndex];
 			Inventory.InventoryInstance.AddToInventory(ItemToUnequip);
+
+			// remove trait values of the equipment to the player stat
+			RemoveTraitsFromPlayer(ItemToUnequip);
 
 			if (CallEquipmentUpdated != null)  // Fixed: items are being deleted when you have more than one equipped item and then click unequip
 			{
@@ -73,5 +86,106 @@ public class Equipment : MonoBehaviour
 		//SlotIcon.sprite = null;
 		//SlotIcon.enabled = false;
 		//UnEquipButton.interactable = false;
+	}
+
+	public void ApplyTraitsToPlayer(ItemBlueprint Item) 
+	{
+		foreach (Positives PosTraits in Item.equipBP.PositiveTraits)
+		{
+			Debug.Log("Applying " + PosTraits.traitLevel.ToString() + " level(s) of " + PosTraits.traits.ToString());
+
+			switch (PosTraits.traits)
+			{
+				case PositiveTraits.Protection:
+					{
+						characterStats.Protection += PosTraits.traitLevel;
+					}
+					break;
+				case PositiveTraits.Speed:
+					{
+						characterStats.Speed += PosTraits.traitLevel;
+					}
+					break;
+				case PositiveTraits.Damage:
+					{
+						characterStats.Damage += PosTraits.traitLevel;
+					}
+					break;
+				default:
+					break;
+			}
+		}
+
+		// apply the negative trait values of the equipment to the player stat
+		foreach (Negatives NegTraits in Item.equipBP.NegativeTraits)
+		{
+			Debug.Log("Applying " + NegTraits.traitLevel.ToString() + " level(s) of " + NegTraits.traits.ToString());
+
+			switch (NegTraits.traits)
+			{
+				case NegativeTraits.Slowness:
+					{
+						characterStats.Speed -= NegTraits.traitLevel;
+					}
+					break;
+				case NegativeTraits.Exposure:
+					{
+						characterStats.Protection -= NegTraits.traitLevel;
+					}
+					break;
+				default:
+					break;
+			}
+		}
+	}
+	public void RemoveTraitsFromPlayer(ItemBlueprint Item)
+	{
+		foreach (Positives PosTraits in Item.equipBP.PositiveTraits)
+		{
+			Debug.Log("Removing " + PosTraits.traitLevel.ToString() + " level(s) of " + PosTraits.traits.ToString());
+
+			switch (PosTraits.traits)
+			{
+				case PositiveTraits.Protection:
+					{
+						characterStats.Protection -= PosTraits.traitLevel;
+					}
+					break;
+				case PositiveTraits.Speed:
+					{
+						characterStats.Speed -= PosTraits.traitLevel;
+					}
+					break;
+				case PositiveTraits.Damage:
+					{
+						characterStats.Damage -= PosTraits.traitLevel;
+					}
+					break;
+				default:
+					break;
+			}
+		}
+
+		// apply the negative trait values of the equipment to the player stat
+		foreach (Negatives NegTraits in Item.equipBP.NegativeTraits)
+		{
+			Debug.Log("Applying " + NegTraits.traitLevel.ToString() + " level(s) of " + NegTraits.traits.ToString());
+
+			switch (NegTraits.traits)
+			{
+				case NegativeTraits.Slowness:
+					{
+						characterStats.Speed += NegTraits.traitLevel;
+					}
+					break;
+				case NegativeTraits.Exposure:
+					{
+						characterStats.Protection += NegTraits.traitLevel;
+					}
+					break;
+				default:
+					break;
+			}
+		}
 	}
 }

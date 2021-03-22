@@ -7,7 +7,17 @@ public class MovementController : MonoBehaviour
     public float MovementSpeed;
     public float RotationSpeed;
 
+    public AllCharacterStats characterStats;
+    private PlayerManager playerManager;
+
     Quaternion newRotation;
+
+    private void Start()
+    {
+        // Get player instance
+        playerManager = PlayerManager.Instance.player.GetComponent<PlayerManager>();
+        characterStats = playerManager.player.GetComponent<AllCharacterStats>();
+    }
 
     void Update()
     {
@@ -22,6 +32,11 @@ public class MovementController : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * RotationSpeed);
             
-        transform.Translate(movement * MovementSpeed * Time.deltaTime, Space.World);
+        transform.Translate(movement * MovementSpeed * Mathf.Clamp(characterStats.Speed, 0.25f, float.MaxValue) * Time.deltaTime, Space.World);
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Debug.Log(MovementSpeed * characterStats.Speed);
+        }
     }
 }
