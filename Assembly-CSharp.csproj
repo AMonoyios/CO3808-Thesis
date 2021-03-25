@@ -70,6 +70,8 @@
     <Compile Include="Assets\OmniSARTechnologies\LiteFPSCounter\Demo\Scripts\HeavyRenderingController.cs" />
     <Compile Include="Assets\OmniSARTechnologies\LiteFPSCounter\Demo\Scripts\SimpleSceneSwitcher.cs" />
     <Compile Include="Assets\OmniSARTechnologies\LiteFPSCounter\Scripts\LiteFPSCounter.cs" />
+    <Compile Include="Assets\Scripts\Ai\AiNavigationController.cs" />
+    <Compile Include="Assets\Scripts\Ai\PedestrianSpawner.cs" />
     <Compile Include="Assets\Scripts\Blueprints\CurrencyBlueprint.cs" />
     <Compile Include="Assets\Scripts\Blueprints\EquipmentBlueprint.cs" />
     <Compile Include="Assets\Scripts\Blueprints\ItemBlueprint.cs" />
@@ -96,6 +98,10 @@
     <Compile Include="Assets\Scripts\Player\UIControls.cs" />
     <Compile Include="Assets\Scripts\Stats\AllCharacterStats.cs" />
     <Compile Include="Assets\Scripts\Stats\Stats.cs" />
+    <Compile Include="Assets\Scripts\Waypoints\Waypoint.cs" />
+    <Compile Include="Assets\Scripts\Waypoints\WaypointEditor.cs" />
+    <Compile Include="Assets\Scripts\Waypoints\WaypointManagerWindow.cs" />
+    <Compile Include="Assets\Scripts\Waypoints\WaypointNavigator.cs" />
     <Compile Include="Assets\Scripts\temp&amp;test\movingWall.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
