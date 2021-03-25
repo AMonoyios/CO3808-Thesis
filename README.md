@@ -222,3 +222,8 @@ Applying traits to player in realtime depending on equipment                <br/
 Implemented paths that Ai/NPC can navigate to <br/>
 Added probability to the direction of the Ai  <br/>
 Created tool for easy creation of Paths       <br/>
+
+### 21w12c:
+Added save/load game ability <br/>
+#### bugs:
+B29) Working - Scriptable Objects do not save/load  <br/>
