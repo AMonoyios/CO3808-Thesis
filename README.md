@@ -217,3 +217,8 @@ Changed OS on laptop device and had to clone and push new files <br/>
 ### 21w12a:
 Equipment Inventory automatically closes/opens depending on Inventory state <br/>
 Applying traits to player in realtime depending on equipment                <br/>
+
+### 21w12b:
+Implemented paths that Ai/NPC can navigate to <br/>
+Added probability to the direction of the Ai  <br/>
+Created tool for easy creation of Paths       <br/>
