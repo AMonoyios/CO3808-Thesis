@@ -33,7 +33,7 @@ public class LootItem : InteractPoint
         // Add item to inventory
         Debug.Log("DEBUG - ITEM: Added " + itemBlueprint.name + " to inventory");
         bool successfulPickup = Inventory.InventoryInstance.AddToInventory(itemBlueprint);
-
+        
         // Delete item from game world
         if (successfulPickup == true)
             Destroy(gameObject);

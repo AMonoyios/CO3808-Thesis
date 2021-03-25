@@ -42,6 +42,7 @@ public enum NegativeTraits
 	Exposure
 }
 
+[System.Serializable]
 [CreateAssetMenu(fileName = "New Equipment", menuName = "Custom Scriptable Objects/Game Objects/Equipment")]
 public class EquipmentBlueprint : ItemBlueprint
 {

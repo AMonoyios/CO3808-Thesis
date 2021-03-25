@@ -96,6 +96,8 @@
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerPointing.cs" />
     <Compile Include="Assets\Scripts\Player\UIControls.cs" />
+    <Compile Include="Assets\Scripts\SaveGame\SaveManager.cs" />
+    <Compile Include="Assets\Scripts\SaveGame\SavedData.cs" />
     <Compile Include="Assets\Scripts\Stats\AllCharacterStats.cs" />
     <Compile Include="Assets\Scripts\Stats\Stats.cs" />
     <Compile Include="Assets\Scripts\Waypoints\Waypoint.cs" />

@@ -14,6 +14,7 @@ public class InventoryItems
     }
 }
 
+[System.Serializable]
 public class Inventory : MonoBehaviour
 {
 	#region InventorySingleton
@@ -46,6 +47,11 @@ public class Inventory : MonoBehaviour
 	{
         gizmoManager = GameObject.Find("GizmoManager");
         gizmos = gizmoManager.GetComponent<GizmosManager>();
+    }
+
+    public List<InventoryItems> GetInventory()
+    {
+        return InventoryInstance.InventoryItems;
     }
 
 	// Adding the item to the list
@@ -87,6 +93,7 @@ public class Inventory : MonoBehaviour
                 return false;
             }
         }
+
         return true;
     }
 
