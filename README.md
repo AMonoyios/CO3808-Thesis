@@ -227,3 +227,7 @@ Created tool for easy creation of Paths       <br/>
 Added save/load game ability <br/>
 #### bugs:
 B29) Working - Scriptable Objects do not save/load  <br/>
+
+### 21w12d:
+Reworked save function                          <br/>
+scriptable objects save capable but needs work  <br/>
