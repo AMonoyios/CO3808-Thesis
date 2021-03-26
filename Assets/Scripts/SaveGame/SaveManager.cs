@@ -11,10 +11,9 @@ public class SaveManager
         string path = Application.persistentDataPath + "/Data.bacon";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        //var json = JsonUtility.ToJson(characterStats, inventory);
         SavedData data = new SavedData(characterStats, inventory);
-
         formatter.Serialize(stream, data);
+
         stream.Close();
     }
 
@@ -24,14 +23,21 @@ public class SaveManager
 
 		if (File.Exists(path))
 		{
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+			try
+			{
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream stream = new FileStream(path, FileMode.Open);
 
-            SavedData data = formatter.Deserialize(stream) as SavedData;
-            //var json = formatter.Deserialize(stream) as SavedData;
-            stream.Close();
-
-            return data;
+                SavedData data = formatter.Deserialize(stream) as SavedData;
+                stream.Close();
+                
+                return data;
+			}
+			catch (System.Exception)
+			{
+                Debug.LogError("Binary formatter failed");
+                return null;
+            }
 		}
 		else
 		{
