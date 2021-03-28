@@ -231,3 +231,12 @@ B29) Working - Scriptable Objects do not save/load  <br/>
 ### 21w12d:
 Reworked save function                          <br/>
 scriptable objects save capable but needs work  <br/>
+
+### 21w12e:
+Worked more on save/load implementation                     <br/>
+Created asset bundles and hosting them via XAMPP (locally)  <br/>
+Removed fps counter asset                                   <br/>
+Worked on enemy states, tracking and action triggers        <br/>
+Started creating a nicer scene                              <br/>
+#### bugs:
+B30) Fixed - Fixed build issues <br/>
