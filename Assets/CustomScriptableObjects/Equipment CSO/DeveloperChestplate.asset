@@ -20,6 +20,8 @@ MonoBehaviour:
   itemPrefab: {fileID: 5633657927607537261, guid: af3a409f5b0aed14798e24faf0f9181d,
     type: 3}
   ItemDescription: Chestplate that was created in order to test various game features.
+  Bundle: dev
+  AssetName: Dev_Chest
   EquipSlot: 1
   PositiveTraits:
   - traits: 0

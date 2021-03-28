@@ -9,7 +9,24 @@ public struct InventoryItem
     public string ItemIcon;
     public bool isDefault;
     public int StackUntil;
-    public string itemPrefab;
+    public string Bundle;
+    public string AssetName;
+    public string ItemDescription;
+}
+
+[System.Serializable]
+public struct InventoryEquipment
+{
+    public EquipmentSlots EquipSlot;
+    public List<Positives> PositiveTraits;
+    public List<Negatives> NegativeTraits;
+
+    public string ItemName;
+    public string ItemIcon;
+    public bool isDefault;
+    public int StackUntil;
+    public string Bundle;
+    public string AssetName;
     public string ItemDescription;
 }
 
@@ -37,6 +54,7 @@ public class SavedData
     public int inventorySlots;
     public SerializeTexture exportObj = new SerializeTexture();
     public List<InventoryItem> inventoryItems;
+    public List<InventoryEquipment> inventoryEquipment;
 
     public SavedData (AllCharacterStats characterStats, Inventory inventory)
     {
@@ -62,6 +80,7 @@ public class SavedData
         // player inventory
         inventorySlots = inventory.InventoryItems.Count;
         inventoryItems = new List<InventoryItem>();
+        inventoryEquipment = new List<InventoryEquipment>();
 		for (int i = 0; i < inventorySlots; i++)
 		{
             Debug.Log("checking inventory slot at index" + i);
@@ -70,23 +89,79 @@ public class SavedData
 			{
                 Debug.Log("found item at index " + i);
 
-                ItemBlueprint itemBP = inventory.GetInventory()[i].item;
-                InventoryItem item = new InventoryItem();
-                item.ItemName = itemBP.ItemName;
+				
+                if (inventory.GetInventory()[i].item is EquipmentBlueprint)
+				{
+                    InventoryEquipment item = new InventoryEquipment();
+                    EquipmentBlueprint equipBP = inventory.GetInventory()[i].item.equipBP;
 
-                Texture2D tex = itemBP.ItemIcon.texture;
-                exportObj.x = tex.width;
-                exportObj.y = tex.height;
-                exportObj.bytes = ImageConversion.EncodeToPNG(tex);
-                string icon = JsonUtility.ToJson(exportObj, false);
+                    EquipmentSlots equipmentSlots = equipBP.EquipSlot;
+                    item.EquipSlot = equipmentSlots;
 
-                item.ItemIcon = icon;
-                item.isDefault = itemBP.isDefault;
-                item.StackUntil = itemBP.StackUntil;
-                item.itemPrefab = null;
-                item.ItemDescription = itemBP.ItemDescription;
+                    List<Positives> positives = new List<Positives>();
+					for (int j = 0; j < equipBP.PositiveTraits.Count; j++)
+					{
+                        Positives posTrait = new Positives();
+                        posTrait.traitLevel = equipBP.PositiveTraits[j].traitLevel;
+                        posTrait.traits = equipBP.PositiveTraits[j].traits;
 
-                inventoryItems.Add(item);
+                        positives.Add(posTrait);
+					}
+
+                    List<Negatives> negatives = new List<Negatives>();
+                    for (int j = 0; j < equipBP.NegativeTraits.Count; j++)
+                    {
+                        Negatives negTrait = new Negatives();
+                        negTrait.traitLevel = equipBP.NegativeTraits[j].traitLevel;
+                        negTrait.traits = equipBP.NegativeTraits[j].traits;
+
+                        negatives.Add(negTrait);
+                    }
+
+                    item.ItemName = equipBP.ItemName;
+
+                    Texture2D tex = equipBP.ItemIcon.texture;
+                    exportObj.x = tex.width;
+                    exportObj.y = tex.height;
+                    exportObj.bytes = ImageConversion.EncodeToPNG(tex);
+                    string icon = JsonUtility.ToJson(exportObj, false);
+
+                    item.ItemIcon = icon;
+                    item.isDefault = equipBP.isDefault;
+                    item.StackUntil = equipBP.StackUntil;
+
+                    item.Bundle = equipBP.Bundle;
+                    item.AssetName = equipBP.AssetName;
+
+                    item.ItemDescription = equipBP.ItemDescription;
+
+                    inventoryEquipment.Add(item);
+				}
+				else
+				{
+                    InventoryItem item = new InventoryItem();
+                    ItemBlueprint itemBP = inventory.GetInventory()[i].item;
+                    
+                    item.ItemName = itemBP.ItemName;
+
+                    Texture2D tex = itemBP.ItemIcon.texture;
+                    exportObj.x = tex.width;
+                    exportObj.y = tex.height;
+                    exportObj.bytes = ImageConversion.EncodeToPNG(tex);
+                    string icon = JsonUtility.ToJson(exportObj, false);
+
+                    item.ItemIcon = icon;
+                    item.isDefault = itemBP.isDefault;
+                    item.StackUntil = itemBP.StackUntil;
+
+                    item.Bundle = itemBP.Bundle;
+                    item.AssetName = itemBP.AssetName;
+
+                    item.ItemDescription = itemBP.ItemDescription;
+
+                    inventoryItems.Add(item);
+				}
+                
             }
 		}
     }

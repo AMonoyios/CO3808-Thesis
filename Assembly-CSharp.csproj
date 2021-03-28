@@ -64,22 +64,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\OmniSARTechnologies\Common\Helper\GUI\ColorHelper.cs" />
-    <Compile Include="Assets\OmniSARTechnologies\Common\Helper\Reflection\CustomAttributes.cs" />
-    <Compile Include="Assets\OmniSARTechnologies\Common\Helper\Transforms\TransformRotate.cs" />
-    <Compile Include="Assets\OmniSARTechnologies\LiteFPSCounter\Demo\Scripts\HeavyRenderingController.cs" />
-    <Compile Include="Assets\OmniSARTechnologies\LiteFPSCounter\Demo\Scripts\SimpleSceneSwitcher.cs" />
-    <Compile Include="Assets\OmniSARTechnologies\LiteFPSCounter\Scripts\LiteFPSCounter.cs" />
     <Compile Include="Assets\Scripts\Ai\AiNavigationController.cs" />
     <Compile Include="Assets\Scripts\Ai\PedestrianSpawner.cs" />
     <Compile Include="Assets\Scripts\Blueprints\CurrencyBlueprint.cs" />
+    <Compile Include="Assets\Scripts\Blueprints\EnemyBlueprint.cs" />
     <Compile Include="Assets\Scripts\Blueprints\EquipmentBlueprint.cs" />
     <Compile Include="Assets\Scripts\Blueprints\ItemBlueprint.cs" />
     <Compile Include="Assets\Scripts\Currency\LootCurrency.cs" />
     <Compile Include="Assets\Scripts\Enviroment\CollidableFoliage.cs" />
     <Compile Include="Assets\Scripts\Enviroment\GizmosManager.cs" />
     <Compile Include="Assets\Scripts\Enviroment\GrassRandomPlacement.cs" />
-    <Compile Include="Assets\Scripts\Enviroment\PortalManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\Equipment Inventory\Equipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Equipment Inventory\EquipmentSlot.cs" />
     <Compile Include="Assets\Scripts\Inventory\ItemsTooltips.cs" />
@@ -100,16 +94,12 @@
     <Compile Include="Assets\Scripts\SaveGame\SaveManager.cs" />
     <Compile Include="Assets\Scripts\SaveGame\SavedData.cs" />
     <Compile Include="Assets\Scripts\Stats\AllCharacterStats.cs" />
-    <Compile Include="Assets\Scripts\Stats\Stats.cs" />
     <Compile Include="Assets\Scripts\Waypoints\Waypoint.cs" />
-    <Compile Include="Assets\Scripts\Waypoints\WaypointEditor.cs" />
-    <Compile Include="Assets\Scripts\Waypoints\WaypointManagerWindow.cs" />
     <Compile Include="Assets\Scripts\Waypoints\WaypointNavigator.cs" />
     <Compile Include="Assets\Scripts\temp&amp;test\movingWall.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\OmniSARTechnologies\LiteFPSCounter\Demo\Shaders\HeavyRenderingTest.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />

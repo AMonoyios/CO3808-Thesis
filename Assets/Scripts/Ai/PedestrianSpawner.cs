@@ -7,6 +7,7 @@ public class PedestrianSpawner : MonoBehaviour
     public GameObject pedestrianPrefab;
     [Range(1,15)]
     public int pedestriansToSpawn = 1;
+    public List<EnemyBlueprint> enemyBlueprints;
 
     // Start is called before the first frame update
     void Start()

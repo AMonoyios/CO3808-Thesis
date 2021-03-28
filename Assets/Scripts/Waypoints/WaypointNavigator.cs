@@ -73,56 +73,6 @@ public class WaypointNavigator : MonoBehaviour
                 }
             }
 
-            //bool willBranch = false;
-            //if (currentWaypoint.branches != null && currentWaypoint.branches.Count > 0)
-            //{
-            //    if (Random.Range(0.0f, 1.0f) <= currentWaypoint.branchProbability)
-            //    {
-            //        willBranch = true;
-            //    }
-            //    else
-            //    {
-            //        willBranch = false;
-            //    }
-            //}
-            //
-            //if (willBranch)
-            //{
-            //    currentWaypoint = currentWaypoint.branches[Random.Range(0, currentWaypoint.branches.Count - 1)];
-            //
-            //    if (canSwapDirection)
-            //    {
-            //        navigateToNextWaypoint = !navigateToNextWaypoint;
-            //    }
-            //}
-            //else
-            //{
-            //    if (navigateToNextWaypoint)
-            //    {
-            //        if (currentWaypoint.previousWaypoint != null)
-            //        {
-            //            currentWaypoint = currentWaypoint.previousWaypoint;
-            //        }
-            //        else
-            //        {
-            //            currentWaypoint = currentWaypoint.nextWaypoint;
-            //            navigateToNextWaypoint = false;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        if (currentWaypoint.nextWaypoint != null)
-            //        {
-            //            currentWaypoint = currentWaypoint.nextWaypoint;
-            //        }
-            //        else
-            //        {
-            //            currentWaypoint = currentWaypoint.previousWaypoint;
-            //            navigateToNextWaypoint = true;
-            //        }
-            //    }
-            //}
-
             controller.SetDestination(currentWaypoint.GetPosition());
         }
     }

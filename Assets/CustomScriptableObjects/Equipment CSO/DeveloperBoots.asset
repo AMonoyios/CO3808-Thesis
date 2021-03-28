@@ -20,6 +20,8 @@ MonoBehaviour:
   itemPrefab: {fileID: 7784881898158077885, guid: ca1e209191ac9144db3cdb5308e99885,
     type: 3}
   ItemDescription: Boots that were created in order to test various game features.
+  Bundle: dev
+  AssetName: Dev_Boots
   EquipSlot: 3
   PositiveTraits:
   - traits: 0

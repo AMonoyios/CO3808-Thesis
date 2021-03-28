@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public enum EquipmentSlots 
 { 
 	Head, 
@@ -21,6 +22,7 @@ public struct Positives
 	public float traitLevel;
 }
 
+[System.Serializable]
 public enum PositiveTraits
 {
 	Protection,
@@ -36,6 +38,7 @@ public struct Negatives
 	public float traitLevel;
 }
 
+[System.Serializable]
 public enum NegativeTraits
 {
 	Slowness,

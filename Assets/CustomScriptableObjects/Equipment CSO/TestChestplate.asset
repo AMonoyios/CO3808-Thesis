@@ -20,6 +20,8 @@ MonoBehaviour:
   itemPrefab: {fileID: 1065119982920539141, guid: aeb527002235e3441b1997f46ce445d2,
     type: 3}
   ItemDescription: Chestplate to test the armor swap capability.
+  Bundle: dev
+  AssetName: Test_Chest
   EquipSlot: 1
   PositiveTraits: []
   NegativeTraits: []

@@ -20,6 +20,8 @@ MonoBehaviour:
   itemPrefab: {fileID: 4436059576373583080, guid: 60ba5e71c53856040ab51c2f4368da73,
     type: 3}
   ItemDescription: Helmet that was created in order to test various game features.
+  Bundle: dev
+  AssetName: Dev_Head
   EquipSlot: 0
   PositiveTraits:
   - traits: 0
