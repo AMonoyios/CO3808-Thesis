@@ -226,7 +226,7 @@ Created tool for easy creation of Paths       <br/>
 ### 21w12c:
 Added save/load game ability <br/>
 #### bugs:
-B29) Working - Scriptable Objects do not save/load  <br/>
+B29) Dropped - Scriptable Objects do not save/load  <br/>
 
 ### 21w12d:
 Reworked save function                          <br/>
@@ -240,3 +240,10 @@ Worked on enemy states, tracking and action triggers        <br/>
 Started creating a nicer scene                              <br/>
 #### bugs:
 B30) Fixed - Fixed build issues <br/>
+
+### 21w12f:
+Player stats work (equipment and enemies are affected by it)        <br/>
+Enemies patrol a generated path randomly                            <br/>
+Enemies can detect/attack/forget the player                         <br/>
+Each enemy has unique attack damage and attack type chances         <br/>
+dropped save/load functionality (scriptable objects do not like it) <br/>
