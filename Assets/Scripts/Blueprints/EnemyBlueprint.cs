@@ -2,15 +2,28 @@
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "New Enemy", menuName = "Custom Scriptable Objects/NPC/Enemy")]
-public class EnemyBlueprint : ScriptableObject
+public class EnemyBlueprint : CharacterBlueprint
 {
-    [Header("Enemy Properties")]
-    public bool isEnemy = true;
-    public NPCState npcState = NPCState.none;
+    [Header("Enemy Properties"), HideInInspector]
+    public EnemyState enemyState = EnemyState.patrolling;
+    [Range(1.0f, 3.0f)]
+    public float enemyAttackRadius = 1.5f;
     [Range(1.0f, 10.0f)]
-    public float npcInteractionRadius = 2.0f;
-    public EnemyState enemyState = EnemyState.none;
-    [Range(1.0f, 10.0f)]
-    public float enemyInteractionRadius = 2.0f;
+    public float enemySpotRadius = 2.0f;
     public float enemyForgetRadius = 15.0f;
+    
+    [Range(0.1f, 10.0f)]
+    public float smallAttack = 5.0f;
+    [Range(40.0f,50.0f)]
+    public float smallAttackChance = 45.0f;
+    
+    [Range(10.1f, 25.0f)]
+    public float bigAttack = 15.0f;
+    [Range(20.0f, 35.0f)]
+    public float bigAttackChance = 27.5f;
+    
+    [Range(25.1f, 50.0f)]
+    public float criticalAttack = 40.0f;
+    [Range(2.5f,7.5f)]
+    public float critiaclChance = 5.0f;
 }

@@ -4127,7 +4127,7 @@ GameObject:
   - component: {fileID: 1741724440}
   m_Layer: 0
   m_Name: AiWaypoints
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4178,14 +4178,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884fd98abc615da4d9afbc6b543d1e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pedestrianPrefab: {fileID: 4190486091236451500, guid: 8e580fc052717ab40af3e3477dd2deb2,
-    type: 3}
-  pedestriansToSpawn: 8
-  enemyBlueprints:
+  characterType: 1
+  spawnSpecificCharacters: 1
+  passiveNPCBlueprints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  EnemyBlueprints:
   - {fileID: 11400000, guid: 36d3d9a4e7e5b2648972c5d2996996e5, type: 2}
   - {fileID: 11400000, guid: 738ffcf8dcb6ce946bc02283cd4b9d59, type: 2}
   - {fileID: 11400000, guid: 735a9be4c3e69994ba8d8bbeddad3e2d, type: 2}
   - {fileID: 11400000, guid: c89cb207e1a28a447a6f0c1095bc9136, type: 2}
+  charactersToSpawn: 4
 --- !u!114 &1763961105 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7670217878683964481, guid: 00569fb7c505c244b9255612257530de,

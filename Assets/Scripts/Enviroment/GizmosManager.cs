@@ -13,36 +13,20 @@ public class GizmosManager : MonoBehaviour
 	
 	[Header("Gizmos Properties")]
 	public Color UnselectedGizmo;
-	[Range(0.0f, 1.0f)]
-	public float UnselectedIntensity = 1.0f;
 
 	public Color SelectedGizmo;
-	[Range(0.0f, 1.0f)]
-	public float SelectedIntensity = 1.0f;
 
 	public Color FocusedGizmo;
-	[Range(0.0f, 1.0f)]
-	public float FocusedIntensity = 1.0f;
 
 	public Color PatrolingEnemyGizmo;
-	[Range(0.0f, 1.0f)]
-	public float PatrolingEnemyIntensity = 1.0f;
 
 	public Color AttackingEnemyGizmo;
-	[Range(0.0f, 1.0f)]
-	public float AttackingEnemyIntensity = 1.0f;
 
 	public Color EvadingEnemyGizmo;
-	[Range(0.0f, 1.0f)]
-	public float EvadingEnemyIntensity = 1.0f;
 
 	public Color IdleNPCGizmo;
-	[Range(0.0f, 1.0f)]
-	public float IdleNPCIntensity = 1.0f;
 
 	public Color FocusedNPCGizmo;
-	[Range(0.0f, 1.0f)]
-	public float FocusedNPCIntensity = 1.0f;
 
 	// Start is called before the first frame update
 	void Start()

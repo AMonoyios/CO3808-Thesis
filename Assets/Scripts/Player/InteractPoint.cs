@@ -91,13 +91,13 @@ public class InteractPoint : MonoBehaviour
 					if (isFocus)
 					{
 						// Draw gizmos for focused items
-						Gizmos.color = gizmos.FocusedGizmo * gizmos.FocusedIntensity;
+						Gizmos.color = gizmos.FocusedGizmo * 1.0f;
 						Gizmos.DrawWireSphere(interactionPoint.position, radius);
 					}
 					else
 					{
 						// Draw unselected gizmos
-						Gizmos.color = gizmos.UnselectedGizmo * gizmos.UnselectedIntensity;
+						Gizmos.color = gizmos.UnselectedGizmo * 0.5f;
 						Gizmos.DrawWireSphere(interactionPoint.position, radius);
 					}
 				}
@@ -110,7 +110,7 @@ public class InteractPoint : MonoBehaviour
 		isSelected = true;
 
 		// Draw selected gizmos
-		Gizmos.color = gizmos.SelectedGizmo * gizmos.SelectedIntensity;
+		Gizmos.color = gizmos.SelectedGizmo * 1.0f;
 		Gizmos.DrawWireSphere(interactionPoint.position, radius);
 	}
 #endif

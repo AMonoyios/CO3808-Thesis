@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaypointNavigator : MonoBehaviour
 {
-    AiNavigationController controller;
+    public AiNavigationController controller;
     public Waypoint currentWaypoint;
     [Range(0.0f, 1.0f)]
     public float directionSwapChance = 0.0f;
@@ -21,6 +21,14 @@ public class WaypointNavigator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject parentWaypoint = GameObject.FindGameObjectWithTag("Waypoint");
+
+        Transform[] waypointsTransforms = parentWaypoint.GetComponentsInChildren<Transform>();
+        this.transform.position = waypointsTransforms[Random.Range(0, waypointsTransforms.Length)].position;
+
+        Waypoint[] waypoints = parentWaypoint.GetComponentsInChildren<Waypoint>();
+        currentWaypoint = waypoints[Random.Range(0, waypoints.Length)];
+
         controller.SetDestination(currentWaypoint.GetPosition());
     }
 
@@ -30,16 +38,16 @@ public class WaypointNavigator : MonoBehaviour
         if (controller.reachedDesination)
         {
             bool willBranch = false;
-
+            
             if (currentWaypoint.branches != null && currentWaypoint.branches.Count > 0)
             {
                 willBranch = Random.Range(0.0f, 1.0f) <= currentWaypoint.branchProbability ? true : false;
             }
-
+            
             if (willBranch)
             {
                 currentWaypoint = currentWaypoint.branches[Random.Range(0, currentWaypoint.branches.Count - 1)];
-
+            
                 if (directionSwapChance > 0.0f)
                 {
                     navigateToNextWaypoint = Random.Range(0.0f, 1.0f) <= directionSwapChance ? true : false;

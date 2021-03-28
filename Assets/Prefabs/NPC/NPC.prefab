@@ -156,11 +156,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac34a030046006e49a332c0bc4519651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
-  rotationSpeed: 190
-  stopDistance: 1
-  destination: {x: 0, y: 0, z: 0}
+  patrolDestination: {x: 0, y: 0, z: 0}
   reachedDesination: 0
+  isAttacking: 0
+  attackTimer: 5
+  timer: 0
+  totalAttackChance: 0
+  gizmos: {fileID: 0}
 --- !u!114 &4190486091236451501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,5 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92746343a6ea5b74ba3c7afd12b443f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
   currentWaypoint: {fileID: 0}
   directionSwapChance: 0.75

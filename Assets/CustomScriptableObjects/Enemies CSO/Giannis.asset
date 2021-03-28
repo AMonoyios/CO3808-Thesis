@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc85d435a2f6b24798b08ed30c7b1bc, type: 3}
   m_Name: Giannis
   m_EditorClassIdentifier: 
-  isEnemy: 1
-  npcState: 0
-  npcInteractionRadius: 2
+  prefab: {fileID: 4190486091236451500, guid: 8e580fc052717ab40af3e3477dd2deb2, type: 3}
+  prefabName: Giannis
+  movingSpeed: 1.5
+  rotationSpeed: 200
   enemyState: 1
   enemyInteractionRadius: 4.4
   enemyForgetRadius: 5

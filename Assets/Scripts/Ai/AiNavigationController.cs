@@ -4,14 +4,12 @@ using UnityEngine;
 
 public enum NPCState
 {
-    none,
     idle,
     focused
 }
 
 public enum EnemyState
 {
-    none,
     patrolling,
     attacking,
     evading
@@ -20,21 +18,22 @@ public enum EnemyState
 public class AiNavigationController : MonoBehaviour
 {
     private GameObject player;
-    private PedestrianSpawner spawner;
+    private AiSpawner spawner;
+    private int indexInList;
+    private EnemyState enemyState;
+    private AllCharacterStats characterStats;
+
+    [Header("Enemy Variables")]
+    public Vector3 patrolDestination;
+    public bool reachedDesination = false;
+    public bool isAttacking = false;
+    public float attackTimer = 5.0f;
+    private float timer;
+    private float totalAttackChance;
 
     [Header("Gizmo Reference")]
     // Cache Gizmos Script
     public GizmosManager gizmos;
-
-    [Header("Navigation Properties")]
-    public float movementSpeed = 1.0f;
-    public float rotationSpeed = 120.0f;
-    public float stopDistance = 2.5f;
-    public Vector3 patrolDestination;
-    public bool reachedDesination = false;
-
-    [Header("Enemy Properties")]
-    public int randomEnemyBP;
 
     void Awake()
     {
@@ -44,43 +43,88 @@ public class AiNavigationController : MonoBehaviour
     private void Start()
 	{
         player = GameObject.FindGameObjectWithTag("Player");
+        characterStats = player.GetComponent<AllCharacterStats>();
 
-        spawner = GameObject.Find("AiWaypoints").GetComponent<PedestrianSpawner>();
-        randomEnemyBP = Random.Range(0, spawner.enemyBlueprints.Count);
+        spawner = GameObject.Find("AiWaypoints").GetComponent<AiSpawner>();
 
-		if (spawner.enemyBlueprints[randomEnemyBP].isEnemy)
-		{
-            spawner.enemyBlueprints[randomEnemyBP].enemyState = EnemyState.patrolling;
+        if (spawner.characterType == CharacterType.Enemy)
+        {
+            for (int i = 0; i < spawner.EnemyBlueprints.Count; i++)
+			{
+				if (this.name == spawner.EnemyBlueprints[i].prefabName)
+				{
+                    indexInList = i;
+                    
+                    totalAttackChance = spawner.EnemyBlueprints[i].smallAttackChance + 
+                                        spawner.EnemyBlueprints[i].bigAttackChance + 
+                                        spawner.EnemyBlueprints[i].critiaclChance;
+                }
+			}
 		}
 		else
 		{
-            spawner.enemyBlueprints[randomEnemyBP].npcState = NPCState.idle;
-		}
-	}
+            for (int i = 0; i < spawner.passiveNPCBlueprints.Count; i++)
+            {
+                if (this.name == spawner.passiveNPCBlueprints[i].prefabName)
+                {
+                    indexInList = i;
+                }
+            }
+        }
+
+        timer = attackTimer;
+    }
 
 	// Update is called once per frame
 	void Update()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-		if (spawner.enemyBlueprints[randomEnemyBP].enemyState == EnemyState.patrolling && distanceToPlayer <= spawner.enemyBlueprints[randomEnemyBP].enemyInteractionRadius)
+        
+		if (spawner.characterType == CharacterType.Enemy)
 		{
-            spawner.enemyBlueprints[randomEnemyBP].enemyState = EnemyState.attacking;
-		}
-		else if (spawner.enemyBlueprints[randomEnemyBP].enemyState == EnemyState.attacking && distanceToPlayer >= spawner.enemyBlueprints[randomEnemyBP].enemyForgetRadius)
-   		{
-            spawner.enemyBlueprints[randomEnemyBP].enemyState = EnemyState.patrolling;
-        }
-
-		if (spawner.enemyBlueprints[randomEnemyBP].npcState == NPCState.idle || spawner.enemyBlueprints[randomEnemyBP].enemyState == EnemyState.patrolling)
-		{
-            if (transform.position != patrolDestination)
-            {
-                Patrolling();
+            enemyState = spawner.EnemyBlueprints[indexInList].enemyState;
+            
+			if (enemyState == EnemyState.patrolling && distanceToPlayer <= spawner.EnemyBlueprints[indexInList].enemySpotRadius)
+			{
+                enemyState = EnemyState.attacking;
             }
-		}
-		else if (spawner.enemyBlueprints[randomEnemyBP].enemyState == EnemyState.attacking)
+            else if (enemyState == EnemyState.attacking && distanceToPlayer >= spawner.EnemyBlueprints[indexInList].enemyForgetRadius)
+            {
+                enemyState = EnemyState.patrolling;
+            }
+
+			switch (enemyState)
+			{
+				case EnemyState.patrolling:
+					{
+                        Patrolling();
+					}
+                    break;
+				case EnemyState.attacking:
+					{
+                        ChasingPlayer();
+
+						if (isAttacking && attackTimer > 0)
+						{
+                            attackTimer -= Time.deltaTime;
+						}
+						else if (attackTimer <= 0)
+						{
+                            AttackAttempt();
+
+                            attackTimer = timer;
+                        }
+                    }
+                    break;
+				case EnemyState.evading:
+					break;
+				default:
+					break;
+			}
+        }
+		else
 		{
-            Attacking();
+            NPCState npcState = spawner.passiveNPCBlueprints[indexInList].npcState;
         }
     }
 
@@ -88,46 +132,95 @@ public class AiNavigationController : MonoBehaviour
 	{
         Vector3 destinationDirection = patrolDestination - transform.position;
         destinationDirection.y = 0;
-
+        
         float destinationDistance = destinationDirection.magnitude;
-
-        if (destinationDistance >= stopDistance)
+        
+        if (destinationDistance >= spawner.EnemyBlueprints[indexInList].enemyAttackRadius)
         {
             reachedDesination = false;
-
+        
             Quaternion targetRotation = Quaternion.LookRotation(destinationDirection);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-            transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+
+			if (spawner.characterType == CharacterType.Enemy)
+			{
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, spawner.EnemyBlueprints[indexInList].rotationSpeed * Time.deltaTime);
+                transform.Translate(Vector3.forward * spawner.EnemyBlueprints[indexInList].movingSpeed * Time.deltaTime);
+			}
+			else
+			{
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, spawner.passiveNPCBlueprints[indexInList].rotationSpeed * Time.deltaTime);
+                transform.Translate(Vector3.forward * spawner.passiveNPCBlueprints[indexInList].movingSpeed * Time.deltaTime);
+            }
         }
         else
         {
             reachedDesination = true;
         }
+
+        attackTimer = timer;
     }
 
-    void Attacking()
+    void ChasingPlayer()
 	{
         Vector3 playerPosition = player.transform.position;
+        
+        Vector3 destinationDirection = playerPosition - this.transform.position;
+        destinationDirection.y = 0;
 
-        if (transform.position != playerPosition)
+        float destinationDistance = Vector3.Distance(this.transform.position, playerPosition);
+        
+        if (destinationDistance >= spawner.EnemyBlueprints[indexInList].enemyAttackRadius)
         {
-            Vector3 destinationDirection = playerPosition - transform.position;
-            destinationDirection.y = 0;
+            transform.Translate(Vector3.forward * spawner.EnemyBlueprints[indexInList].movingSpeed * Time.deltaTime);
 
-            float destinationDistance = destinationDirection.magnitude;
-
-            if (destinationDistance >= stopDistance)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(destinationDirection);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-                transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
-            }
-            else
-            {
-
-            }
+            isAttacking = false;
         }
+        else
+        {
+            isAttacking = true;
+        }
+
+        Quaternion targetRotation = Quaternion.LookRotation(destinationDirection);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, spawner.EnemyBlueprints[indexInList].rotationSpeed * Time.deltaTime);
     }
+
+    void AttackAttempt()
+	{
+        EnemyBlueprint enemy = spawner.EnemyBlueprints[indexInList];
+        
+        Debug.Log(enemy.prefabName + " is attacking the player");
+
+        float randAttack = Random.value * 100;
+		if (randAttack < totalAttackChance)
+		{
+            Attack(randAttack, enemy);
+		}
+		else
+		{
+            Debug.Log(enemy.prefabName + " missed the attack");
+		}
+	}
+
+    void Attack(float randAttack, EnemyBlueprint enemy)
+	{
+		if (randAttack <= enemy.critiaclChance)
+		{
+            Debug.Log(enemy.prefabName + " performs a critical attack: " + randAttack);
+            characterStats.Health -= enemy.criticalAttack - ((enemy.criticalAttack * characterStats.Protection) / 100);
+		}
+		else if (randAttack > enemy.critiaclChance && randAttack <= enemy.bigAttackChance)
+		{
+            Debug.Log(enemy.prefabName + " performs a big attack: " + randAttack);
+            characterStats.Health -= enemy.bigAttack - ((enemy.bigAttack * characterStats.Protection) / 100);
+        }
+		else
+		{
+            Debug.Log(enemy.prefabName + " performs a small attack: " + randAttack);
+            characterStats.Health -= enemy.smallAttack - ((enemy.smallAttack * characterStats.Protection) / 100);
+        }
+
+        isAttacking = false;
+	}
 
     public void SetDestination(Vector3 destination)
     {
@@ -138,46 +231,80 @@ public class AiNavigationController : MonoBehaviour
     // visualize the npc state
     void OnDrawGizmos()
     {
-		switch (spawner.enemyBlueprints[randomEnemyBP].npcState)
-		{
-			case NPCState.idle:
-				{
-                    Gizmos.color = gizmos.IdleNPCGizmo * gizmos.IdleNPCIntensity;
-                    Gizmos.DrawWireSphere(transform.position, spawner.enemyBlueprints[randomEnemyBP].npcInteractionRadius);
-				}
-				break;
-			case NPCState.focused:
-				{
-                    Gizmos.color = gizmos.FocusedNPCGizmo * gizmos.FocusedNPCIntensity;
-                    Gizmos.DrawWireSphere(transform.position, spawner.enemyBlueprints[randomEnemyBP].npcInteractionRadius);
-                }
-                break;
-			default:
-				break;
-		}
+        if (spawner.characterType == CharacterType.Enemy)
+        {
+            EnemyBlueprint enemy = spawner.EnemyBlueprints[indexInList];
 
-		switch (spawner.enemyBlueprints[randomEnemyBP].enemyState)
-		{
-			case EnemyState.patrolling:
-				{
-                    Gizmos.color = gizmos.PatrolingEnemyGizmo * gizmos.PatrolingEnemyIntensity;
-                    Gizmos.DrawWireSphere(transform.position, spawner.enemyBlueprints[randomEnemyBP].enemyInteractionRadius);
-                }
-				break;
-			case EnemyState.attacking:
-				{
-                    Gizmos.color = gizmos.AttackingEnemyGizmo * gizmos.AttackingEnemyIntensity;
-                    Gizmos.DrawWireSphere(transform.position, spawner.enemyBlueprints[randomEnemyBP].enemyInteractionRadius);
-                }
-				break;
-			case EnemyState.evading:
-				{
-                    Gizmos.color = gizmos.EvadingEnemyGizmo * gizmos.EvadingEnemyIntensity;
-                    Gizmos.DrawWireSphere(transform.position, spawner.enemyBlueprints[randomEnemyBP].enemyInteractionRadius);
-                }
-                break;
-			default:
-				break;
-		}
-	}
+            switch (enemyState)
+			{
+				case EnemyState.patrolling:
+                    {
+                        Gizmos.color = gizmos.PatrolingEnemyGizmo * 1.0f;
+                        Gizmos.DrawWireSphere(transform.position, enemy.enemySpotRadius);
+
+                        Gizmos.color = gizmos.AttackingEnemyGizmo * 0.5f;
+                        Gizmos.DrawWireSphere(transform.position, enemy.enemyAttackRadius);
+
+                        Gizmos.color = gizmos.EvadingEnemyGizmo * 0.5f;
+                        Gizmos.DrawWireSphere(transform.position, enemy.enemyForgetRadius);
+                    }
+                    break;
+				case EnemyState.attacking:
+					{
+                        Gizmos.color = gizmos.PatrolingEnemyGizmo * 0.5f;
+                        Gizmos.DrawWireSphere(transform.position, enemy.enemySpotRadius);
+
+                        Gizmos.color = gizmos.AttackingEnemyGizmo * 1.0f;
+                        Gizmos.DrawWireSphere(transform.position, enemy.enemyAttackRadius);
+
+                        Gizmos.color = gizmos.EvadingEnemyGizmo * 0.5f;
+                        Gizmos.DrawWireSphere(transform.position, enemy.enemyForgetRadius);
+                    }
+                    break;
+				case EnemyState.evading:
+					{
+                        Gizmos.color = gizmos.PatrolingEnemyGizmo * 0.5f;
+                        Gizmos.DrawWireSphere(transform.position, enemy.enemySpotRadius);
+
+                        Gizmos.color = gizmos.AttackingEnemyGizmo * 0.5f;
+                        Gizmos.DrawWireSphere(transform.position, enemy.enemyAttackRadius);
+
+                        Gizmos.color = gizmos.EvadingEnemyGizmo * 1.0f;
+                        Gizmos.DrawWireSphere(transform.position, enemy.enemyForgetRadius);
+                    }
+                    break;
+				default:
+					break;
+			}
+        }
+        else
+        {
+			switch (spawner.passiveNPCBlueprints[indexInList].npcState)
+			{
+				case NPCState.idle:
+					{
+                        Gizmos.color = gizmos.IdleNPCGizmo * 1.0f;
+                        Gizmos.DrawWireSphere(transform.position, spawner.passiveNPCBlueprints[indexInList].npcInteractionRadius);
+
+                        Gizmos.color = gizmos.FocusedNPCGizmo * 0.5f;
+                        Gizmos.DrawWireSphere(transform.position, spawner.passiveNPCBlueprints[indexInList].npcInteractionRadius);
+
+                    }
+                    break;
+				case NPCState.focused:
+                    {
+                        Gizmos.color = gizmos.IdleNPCGizmo * 0.5f;
+                        Gizmos.DrawWireSphere(transform.position, spawner.passiveNPCBlueprints[indexInList].npcInteractionRadius);
+
+                        Gizmos.color = gizmos.FocusedNPCGizmo * 1.0f;
+                        Gizmos.DrawWireSphere(transform.position, spawner.passiveNPCBlueprints[indexInList].npcInteractionRadius);
+
+                    }
+                    break;
+				default:
+					break;
+			}
+
+        }
+    }
 }
