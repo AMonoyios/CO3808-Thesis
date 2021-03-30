@@ -247,3 +247,13 @@ Enemies patrol a generated path randomly                            <br/>
 Enemies can detect/attack/forget the player                         <br/>
 Each enemy has unique attack damage and attack type chances         <br/>
 dropped save/load functionality (scriptable objects do not like it) <br/>
+#### bugs:
+B31) Fixed - Stats not applying all the timeplayer can attack enemies <br/>
+
+### 21w13a:
+Tweaked test enemies values                 <br/>
+Enemies can die                             <br/>
+Added ui above enemies with health and name <br/>
+Added visualization for grass spawner       <br/>
+Created shop custom editor                  <br/>
+Added moving shop and static shop options   <br/>
