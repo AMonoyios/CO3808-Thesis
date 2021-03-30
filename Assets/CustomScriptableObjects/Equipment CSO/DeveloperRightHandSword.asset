@@ -10,22 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1901aa0496b5b23469ce3c2282d03208, type: 3}
-  m_Name: DeveloperChestplate
+  m_Name: DeveloperRightHandSword
   m_EditorClassIdentifier: 
   equipBP: {fileID: 11400000}
-  ItemName: Infinity Chestplate
-  ItemIcon: {fileID: 21300000, guid: 768e49779134e154099807d753239b4e, type: 3}
+  ItemName: Flaming Sword
+  ItemIcon: {fileID: 21300000, guid: 4b3836306d32753478de75278923ee6d, type: 3}
   isDefault: 0
   StackUntil: 1
-  itemPrefab: {fileID: 5633657927607537261, guid: af3a409f5b0aed14798e24faf0f9181d,
+  itemPrefab: {fileID: 4863066937955012068, guid: 035fc25f7c9a5e14b97a814332d1c81d,
     type: 3}
-  ItemDescription: Chestplate that was created in order to test various game features.
-  Bundle: dev
-  AssetName: Dev_Chest
-  EquipSlot: 1
+  ItemDescription: Flaming sword that burns all the bugs
+  Bundle: Bundle
+  AssetName: Asset_Name
+  EquipSlot: 4
   PositiveTraits:
-  - traits: 0
+  - traits: 2
     traitLevel: 5
-  NegativeTraits:
-  - traits: 0
-    traitLevel: 4
+  NegativeTraits: []

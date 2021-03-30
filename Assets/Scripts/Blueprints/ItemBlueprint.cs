@@ -14,7 +14,10 @@ public class ItemBlueprint : ScriptableObject
     public int StackUntil = 1;
     public GameObject itemPrefab = null;
     public string ItemDescription;
+    
+    [HideInInspector]
     public string Bundle = "Bundle";
+    [HideInInspector]
     public string AssetName = "Asset_Name";
 
     // The use for each item

@@ -18,8 +18,8 @@ public enum EquipmentSlots
 public struct Positives
 {
 	public PositiveTraits traits;
-	[Range(0.1f,1.0f)]
-	public float traitLevel;
+	[Range(1,3)]
+	public int traitLevel;
 }
 
 [System.Serializable]
@@ -34,8 +34,8 @@ public enum PositiveTraits
 public struct Negatives
 {
 	public NegativeTraits traits;
-	[Range(0.1f,1.0f)]
-	public float traitLevel;
+	[Range(1,3)]
+	public int traitLevel;
 }
 
 [System.Serializable]
@@ -53,7 +53,9 @@ public class EquipmentBlueprint : ItemBlueprint
 	// Properties for all equipment
 	public EquipmentSlots EquipSlot;
 
+	[Tooltip("Protection = Less damage taken \n Speed = Walk faster \n Damage = Deals more damage")]
 	public List<Positives> PositiveTraits;
+	[Tooltip("Slowness = Walk slower \n Exposure = Deals less damage")]
 	public List<Negatives> NegativeTraits;
 
 	public override void UseItem()

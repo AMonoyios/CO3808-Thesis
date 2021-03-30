@@ -2,6 +2,8 @@
 
 public class GrassRandomPlacement : MonoBehaviour
 {
+    public GizmosManager gizmos;
+
     [Header("Grass group spawner properties")]
     public GameObject grassPrefab;
     public GameObject grassVolumeBox;
@@ -33,4 +35,10 @@ public class GrassRandomPlacement : MonoBehaviour
         float VolumeBoxScale = Mathf.Clamp((grassRange * 2.0f) - VolumeBoxColliderOffset, 0.25f, Mathf.Infinity);
         grassVolumeBox.transform.localScale = new Vector3(VolumeBoxScale, 1, VolumeBoxScale);
     }
+
+	private void OnDrawGizmos()
+	{
+        Gizmos.color = gizmos.foliageGizmo;
+        Gizmos.DrawWireCube(new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z), new Vector3(grassRange * 2.0f, 1.0f, grassRange * 2.0f));
+	}
 }

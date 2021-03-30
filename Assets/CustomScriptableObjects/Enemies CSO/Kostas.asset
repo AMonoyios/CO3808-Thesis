@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc85d435a2f6b24798b08ed30c7b1bc, type: 3}
   m_Name: Kostas
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4190486091236451500, guid: 8e580fc052717ab40af3e3477dd2deb2, type: 3}
+  prefab: {fileID: 6685372410938123308, guid: 8e580fc052717ab40af3e3477dd2deb2, type: 3}
   prefabName: Kostas
   movingSpeed: 1.5
   rotationSpeed: 200
-  enemyState: 1
-  enemyInteractionRadius: 2
+  enemyState: 0
+  enemyAttackRadius: 1.5
+  enemySpotRadius: 2
   enemyForgetRadius: 3
+  smallAttack: 5
+  smallAttackChance: 47.1
+  bigAttack: 15
+  bigAttackChance: 28.2
+  criticalAttack: 40
+  critiaclChance: 7.5

@@ -81,15 +81,11 @@ public class Equipment : MonoBehaviour
 		{
 			Debug.LogError("ERROR - EquipmentInventory: Item can not be unequip, no space in inventory!");
 		}
-
-		//// Reset equipment slot
-		//SlotIcon.sprite = null;
-		//SlotIcon.enabled = false;
-		//UnEquipButton.interactable = false;
 	}
 
 	public void ApplyTraitsToPlayer(ItemBlueprint Item) 
 	{
+		// apply the positive trait values of the equipment to the player stat
 		foreach (Positives PosTraits in Item.equipBP.PositiveTraits)
 		{
 			Debug.Log("Applying " + PosTraits.traitLevel.ToString() + " level(s) of " + PosTraits.traits.ToString());
@@ -130,7 +126,7 @@ public class Equipment : MonoBehaviour
 					break;
 				case NegativeTraits.Exposure:
 					{
-						characterStats.Protection -= NegTraits.traitLevel;
+						characterStats.Damage -= NegTraits.traitLevel;
 					}
 					break;
 				default:
@@ -180,7 +176,7 @@ public class Equipment : MonoBehaviour
 					break;
 				case NegativeTraits.Exposure:
 					{
-						characterStats.Protection += NegTraits.traitLevel;
+						characterStats.Damage += NegTraits.traitLevel;
 					}
 					break;
 				default:

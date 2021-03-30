@@ -11,22 +11,25 @@ public class GizmosManager : MonoBehaviour
     public List<GameObject> FocusObjects;
     private GameObject[] gameObjects;
 	
-	[Header("Gizmos Properties")]
+	[Header("Interaction Colors")]
 	public Color UnselectedGizmo;
-
 	public Color SelectedGizmo;
-
 	public Color FocusedGizmo;
 
+	[Header("Enemy States Colors")]
 	public Color PatrolingEnemyGizmo;
-
 	public Color AttackingEnemyGizmo;
-
 	public Color EvadingEnemyGizmo;
 
+	[Header("NPC States Colors")]
 	public Color IdleNPCGizmo;
-
 	public Color FocusedNPCGizmo;
+
+	[Header("Foliage Color")]
+	public Color foliageGizmo;
+
+	[Header("Shop Color")]
+	public Color itemSpawnPoint;
 
 	// Start is called before the first frame update
 	void Start()

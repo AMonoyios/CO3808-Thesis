@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2669747134856640753}
   - component: {fileID: 2669747134856640752}
   m_Layer: 8
-  m_Name: Dev Legs
+  m_Name: Dev_Legs
   m_TagString: Equipment
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

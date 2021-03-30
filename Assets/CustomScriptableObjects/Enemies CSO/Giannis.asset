@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc85d435a2f6b24798b08ed30c7b1bc, type: 3}
   m_Name: Giannis
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4190486091236451500, guid: 8e580fc052717ab40af3e3477dd2deb2, type: 3}
+  prefab: {fileID: 5437931834086532417, guid: 2ac8f23e688c99a43a1d6d810a1b46f9, type: 3}
   prefabName: Giannis
-  movingSpeed: 1.5
+  movingSpeed: 2.32
   rotationSpeed: 200
-  enemyState: 1
-  enemyInteractionRadius: 4.4
+  enemyState: 0
+  enemyAttackRadius: 1.68
+  enemySpotRadius: 3.2
   enemyForgetRadius: 5
+  smallAttack: 5
+  smallAttackChance: 48.8
+  bigAttack: 15
+  bigAttackChance: 26.1
+  criticalAttack: 40
+  critiaclChance: 3.77

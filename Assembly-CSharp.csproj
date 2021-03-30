@@ -66,12 +66,16 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Ai\AiNavigationController.cs" />
     <Compile Include="Assets\Scripts\Ai\AiSpawner.cs" />
+    <Compile Include="Assets\Scripts\Ai\PlayerAttack.cs" />
+    <Compile Include="Assets\Scripts\Ai\Shop.cs" />
     <Compile Include="Assets\Scripts\Blueprints\CharacterBlueprint.cs" />
     <Compile Include="Assets\Scripts\Blueprints\CurrencyBlueprint.cs" />
     <Compile Include="Assets\Scripts\Blueprints\EnemyBlueprint.cs" />
     <Compile Include="Assets\Scripts\Blueprints\EquipmentBlueprint.cs" />
     <Compile Include="Assets\Scripts\Blueprints\ItemBlueprint.cs" />
+    <Compile Include="Assets\Scripts\Blueprints\MovingShopBlueprint.cs" />
     <Compile Include="Assets\Scripts\Blueprints\NPCBlueprint.cs" />
+    <Compile Include="Assets\Scripts\Blueprints\ShopBlueprint.cs" />
     <Compile Include="Assets\Scripts\Currency\LootCurrency.cs" />
     <Compile Include="Assets\Scripts\Enviroment\CollidableFoliage.cs" />
     <Compile Include="Assets\Scripts\Enviroment\GizmosManager.cs" />

@@ -24,7 +24,7 @@ public class MovementController : MonoBehaviour
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
         
-        Vector3 movement = new Vector3(-moveVertical, 0.0f, moveHorizontal);
+        Vector3 movement = new Vector3(moveVertical, 0.0f, -moveHorizontal);
 
         if (movement != Vector3.zero)
             newRotation = Quaternion.LookRotation(movement);
