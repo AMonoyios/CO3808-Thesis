@@ -257,3 +257,13 @@ Added ui above enemies with health and name <br/>
 Added visualization for grass spawner       <br/>
 Created shop custom editor                  <br/>
 Added moving shop and static shop options   <br/>
+
+### 21w13b:
+Dropped static/moving shop type (core limitation)	<br/>
+Added shop blueprint					<br/>
+Custom editor for shop blueprint			<br/>
+Text now follows camera correctly			<br/>
+Created the template UI for the shop			<br/>
+#### bugs:
+B32) Working - Shop trigger is of type trigger	<br/>
+B33) Working - Shop UI does not open/close	<br/>
