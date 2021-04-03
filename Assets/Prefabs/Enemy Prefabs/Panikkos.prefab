@@ -454,6 +454,7 @@ GameObject:
   - component: {fileID: 5461395162327004359}
   - component: {fileID: 4514994556201931263}
   - component: {fileID: 19583245536670104}
+  - component: {fileID: 1044784209166103068}
   m_Layer: 8
   m_Name: Panikkos
   m_TagString: Untagged
@@ -557,10 +558,24 @@ MonoBehaviour:
   hasInteracted: 0
   isSelected: 1
   playerManager: {fileID: 0}
+  enemy: {fileID: 11400000, guid: c89cb207e1a28a447a6f0c1095bc9136, type: 2}
+  oldHealth: 0
+  health: 100
+--- !u!114 &1044784209166103068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613443920017282235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d4b515b719e9242abb437b9814e9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   nameUI: {fileID: 2510837837399483915}
   healthUI: {fileID: 3800308169150738965}
-  enemy: {fileID: 11400000, guid: c89cb207e1a28a447a6f0c1095bc9136, type: 2}
-  health: 100
+  canvas: {fileID: 1080967041601417214}
 --- !u!1 &6110024029929499636
 GameObject:
   m_ObjectHideFlags: 0

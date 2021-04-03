@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 1573077161525178051}
   - component: {fileID: 8824904425123348011}
   - component: {fileID: 5499421285546240826}
+  - component: {fileID: -6504907675647655775}
   m_Layer: 8
   m_Name: Giannis
   m_TagString: Untagged
@@ -459,10 +460,26 @@ MonoBehaviour:
   hasInteracted: 0
   isSelected: 1
   playerManager: {fileID: 0}
+  enemy: {fileID: 11400000, guid: 36d3d9a4e7e5b2648972c5d2996996e5, type: 2}
+  oldHealth: 0
+  health: 0
+--- !u!114 &-6504907675647655775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5437931834086532417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d4b515b719e9242abb437b9814e9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   nameUI: {fileID: 4002344042788306231}
   healthUI: {fileID: 831089170681240370}
-  enemy: {fileID: 11400000, guid: 36d3d9a4e7e5b2648972c5d2996996e5, type: 2}
-  health: 0
+  canvas: {fileID: 3902433489011176271}
+  mainCamera: {fileID: 0}
+  enemyBP: {fileID: 0}
 --- !u!1 &5614610509816525552
 GameObject:
   m_ObjectHideFlags: 0

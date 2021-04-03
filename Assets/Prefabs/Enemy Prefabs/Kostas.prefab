@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 5626283694787964464}
   - component: {fileID: 8362674541174997896}
   - component: {fileID: 8977907456193775567}
+  - component: {fileID: 1601635771087562751}
   m_Layer: 8
   m_Name: Kostas
   m_TagString: Untagged
@@ -459,10 +460,24 @@ MonoBehaviour:
   hasInteracted: 0
   isSelected: 1
   playerManager: {fileID: 0}
+  enemy: {fileID: 11400000, guid: 738ffcf8dcb6ce946bc02283cd4b9d59, type: 2}
+  oldHealth: 0
+  health: 0
+--- !u!114 &1601635771087562751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685372410938123308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d4b515b719e9242abb437b9814e9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   nameUI: {fileID: 4917454115154284160}
   healthUI: {fileID: 4640171651530051961}
-  enemy: {fileID: 11400000, guid: 738ffcf8dcb6ce946bc02283cd4b9d59, type: 2}
-  health: 0
+  canvas: {fileID: 3662513931794642569}
 --- !u!1 &7643708046929134551
 GameObject:
   m_ObjectHideFlags: 0

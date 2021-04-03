@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8378092620067018099}
   - component: {fileID: 3263863564268665096}
   - component: {fileID: 2608493605504218085}
+  - component: {fileID: 493669583711092936}
   m_Layer: 8
   m_Name: Maria
   m_TagString: Untagged
@@ -117,10 +118,24 @@ MonoBehaviour:
   hasInteracted: 0
   isSelected: 1
   playerManager: {fileID: 0}
+  enemy: {fileID: 11400000, guid: 735a9be4c3e69994ba8d8bbeddad3e2d, type: 2}
+  oldHealth: 0
+  health: 0
+--- !u!114 &493669583711092936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925470391697511492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d4b515b719e9242abb437b9814e9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   nameUI: {fileID: 5891426511839291341}
   healthUI: {fileID: 4584480259814691967}
-  enemy: {fileID: 11400000, guid: 735a9be4c3e69994ba8d8bbeddad3e2d, type: 2}
-  health: 0
+  canvas: {fileID: 2007905540168999521}
 --- !u!1 &2226520486971160688
 GameObject:
   m_ObjectHideFlags: 0

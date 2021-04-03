@@ -466,6 +466,7 @@ GameObject:
   - component: {fileID: 4354558098373497061}
   - component: {fileID: 6035550336575946765}
   - component: {fileID: 7343981593751590172}
+  - component: {fileID: 2444501511449879865}
   m_Layer: 8
   m_Name: NewEnemyPrefab
   m_TagString: Untagged
@@ -569,10 +570,24 @@ MonoBehaviour:
   hasInteracted: 0
   isSelected: 1
   playerManager: {fileID: 0}
+  enemy: {fileID: 11400000, guid: 36d3d9a4e7e5b2648972c5d2996996e5, type: 2}
+  oldHealth: 0
+  health: 100
+--- !u!114 &2444501511449879865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119527927047428967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d4b515b719e9242abb437b9814e9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   nameUI: {fileID: 8770389525574826980}
   healthUI: {fileID: 1150693414040642974}
-  enemy: {fileID: 11400000, guid: 36d3d9a4e7e5b2648972c5d2996996e5, type: 2}
-  health: 100
+  canvas: {fileID: 2158067400010594388}
 --- !u!1 &7281212459296734978
 GameObject:
   m_ObjectHideFlags: 0

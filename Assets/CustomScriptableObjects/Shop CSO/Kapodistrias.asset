@@ -12,3 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a917115e53df6044ace488ac746c647, type: 3}
   m_Name: Kapodistrias
   m_EditorClassIdentifier: 
+  shopName: Kapodistrias
+  canSell: 2
+  itemBlueprints:
+  - item: {fileID: 11400000, guid: 44588738ae551c048875e40f32e276a4, type: 2}
+    cost: 5
+    stock: 0
+  - item: {fileID: 11400000, guid: ef07c2b758d0f1f40b88b6441dbb23bd, type: 2}
+    cost: 0
+    stock: 0
+  equipmentBlueprints:
+  - equipment: {fileID: 11400000, guid: 41cf5154b3eb27649bbb733c84d1fd32, type: 2}
+    cost: 0
+    stock: 0

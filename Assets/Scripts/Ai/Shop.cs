@@ -1,16 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
+[RequireComponent(typeof(ShopUIHandler))]
 public class Shop : InteractPoint
 {
     AllCharacterStats characterStats;
     FocusController focusController;
     
-    public TextMeshProUGUI nameUI;
-    public MovingShopBlueprint movingShopBP;
-    public ShopBlueprint staticShopBP;
+    public ShopBlueprint shopBP;
     public Vector3 itemsSpawnPosition = Vector3.zero;
 
     public void Start()

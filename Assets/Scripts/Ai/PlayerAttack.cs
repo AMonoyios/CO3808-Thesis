@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
+[RequireComponent(typeof(EnemyUIHandler))]
 public class PlayerAttack : InteractPoint
 {
     AllCharacterStats characterStats;
     private FocusController focusController;
 
     [Header("Specific Enemy Variables")]
-    public TextMeshProUGUI nameUI;
-    public Slider healthUI;
     public EnemyBlueprint enemy;
+    
     public float health;
 
     public void Start()
@@ -29,10 +28,6 @@ public class PlayerAttack : InteractPoint
 
         // set the health on spawn of enemy
         health = enemy.maxHealth;
-        healthUI.value = health;
-
-        // display the enemy name above health UI
-        nameUI.text = enemy.prefabName;
     }
 
     public override void Interact()
@@ -45,8 +40,6 @@ public class PlayerAttack : InteractPoint
 
     void AttackEnemy()
     {
-        float oldHealth = health;
-
 		if (health <= 0)
 		{
             // kill enemy
@@ -62,9 +55,6 @@ public class PlayerAttack : InteractPoint
                 health -= characterStats.Damage;
             }
 		}
-
-        // update the enemy health UI
-        healthUI.value = Mathf.Lerp(oldHealth, health, 2.0f);
 
         // defocusing enemy
         focusController.DeFocus();
