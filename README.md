@@ -259,11 +259,16 @@ Created shop custom editor                  <br/>
 Added moving shop and static shop options   <br/>
 
 ### 21w13b:
-Dropped static/moving shop type (core limitation)	<br/>
-Added shop blueprint					<br/>
-Custom editor for shop blueprint			<br/>
-Text now follows camera correctly			<br/>
-Created the template UI for the shop			<br/>
+Dropped static/moving shop type (core limitation)	  <br/>
+Added shop blueprint					                      <br/>
+Custom editor for shop blueprint			              <br/>
+Text now follows camera correctly			              <br/>
+Created the template UI for the shop			          <br/>
 #### bugs:
-B32) Working - Shop trigger is of type trigger	<br/>
-B33) Working - Shop UI does not open/close	<br/>
+B32) Working - Shop trigger is of type trigger  <br/>
+B33) Fixed - Shop UI does not open/close	      <br/>
+
+### 21w14a:
+Worked on shop handler	                                                                <br/>
+Dynamically setting up the shop depending on shops stock                                <br/>
+Player can interact with shop and when walking away shop closes and player loses focus  <br/>
