@@ -20,3 +20,6 @@ MonoBehaviour:
   itemPrefab: {fileID: 9170158173944971110, guid: 06be3ce808f8d384da78180810191fe7,
     type: 3}
   ItemDescription: Heals the player.
+  ItemPrice: 26
+  Bundle: Bundle
+  AssetName: Asset_Name

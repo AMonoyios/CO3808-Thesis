@@ -6,10 +6,13 @@ using UnityEngine;
 public class Shop : InteractPoint
 {
     AllCharacterStats characterStats;
-    FocusController focusController;
+    [HideInInspector]
+    public FocusController focusController;
     
     public ShopBlueprint shopBP;
     public Vector3 itemsSpawnPosition = Vector3.zero;
+
+    public bool isBrowsing = false;
 
     public void Start()
     {
@@ -28,13 +31,10 @@ public class Shop : InteractPoint
     {
         base.Interact();
 
-        // remember to add the transform.position to the itemSpawn point when instantiating items
-
-        // player views the shop catalog
         Debug.Log("OpenShop");
 
-        // defocusing shop
-        focusController.DeFocus();
+        // look at ShopUIHandler
+        isBrowsing = true;
     }
 
 	private void OnDrawGizmos()

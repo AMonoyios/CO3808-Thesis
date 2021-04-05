@@ -20,3 +20,6 @@ MonoBehaviour:
   itemPrefab: {fileID: 7166262257008258675, guid: 8d822f958bf20b041a9f8069d9621b67,
     type: 3}
   ItemDescription: Restores mana.
+  ItemPrice: 40
+  Bundle: Bundle
+  AssetName: Asset_Name

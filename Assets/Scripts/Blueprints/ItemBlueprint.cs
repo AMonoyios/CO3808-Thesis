@@ -14,6 +14,7 @@ public class ItemBlueprint : ScriptableObject
     public int StackUntil = 1;
     public GameObject itemPrefab = null;
     public string ItemDescription;
+    public int ItemPrice = 0;
     
     [HideInInspector]
     public string Bundle = "Bundle";
