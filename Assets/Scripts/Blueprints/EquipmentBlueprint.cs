@@ -18,7 +18,7 @@ public enum EquipmentSlots
 public struct Positives
 {
 	public PositiveTraits traits;
-	[Range(1,3)]
+	[Range(1,5)]
 	public int traitLevel;
 }
 
@@ -34,7 +34,7 @@ public enum PositiveTraits
 public struct Negatives
 {
 	public NegativeTraits traits;
-	[Range(1,3)]
+	[Range(1,5)]
 	public int traitLevel;
 }
 

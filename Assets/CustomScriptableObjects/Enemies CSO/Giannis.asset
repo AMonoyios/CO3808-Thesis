@@ -16,6 +16,7 @@ MonoBehaviour:
   prefabName: Giannis
   movingSpeed: 2.32
   rotationSpeed: 200
+  maxHealth: 1000
   enemyState: 0
   enemyAttackRadius: 1.68
   enemySpotRadius: 3.2

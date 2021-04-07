@@ -42,6 +42,15 @@ public class PlayerAttack : InteractPoint
     {
 		if (health <= 0)
 		{
+            // drop loot
+			for (int i = 0; i < enemy.loot.Count; i++)
+			{
+                Debug.Log("DEBUG - Ai: Dropping loot " + enemy.loot[i].ItemName);
+
+                GameObject loot = Instantiate(enemy.loot[i].itemPrefab, focusController.focus.interactionPoint.position, focusController.focus.interactionPoint.rotation);
+                loot.name = enemy.loot[i].ItemName;
+			}
+
             // kill enemy
             Destroy(gameObject);
 		}

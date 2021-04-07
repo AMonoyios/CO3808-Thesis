@@ -16,6 +16,7 @@ MonoBehaviour:
   prefabName: Maria
   movingSpeed: 1.5
   rotationSpeed: 200
+  maxHealth: 1000
   enemyState: 0
   enemyAttackRadius: 1.5
   enemySpotRadius: 2.6

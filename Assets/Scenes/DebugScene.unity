@@ -4313,7 +4313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f388f377ac3e3844faf4a1316d5b82ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 1.5
+  MovementSpeed: 0.055
   RotationSpeed: 7
   characterStats: {fileID: 0}
 --- !u!114 &1516229815
@@ -4329,10 +4329,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Balance: 0
-  Health: 100
-  Protection: 2
-  Speed: 3
-  Damage: 10
+  Health: 1000
+  Protection: 40
+  Speed: 40
+  Damage: 40
 --- !u!114 &1516229816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7423,6 +7423,7 @@ MonoBehaviour:
   hasInteracted: 0
   isSelected: 1
   playerManager: {fileID: 1516229821}
+  characterStats: {fileID: 0}
   focusController: {fileID: 0}
   shopBP: {fileID: 11400000, guid: 319607445f941cd41b71d4fdcaebb536, type: 2}
   itemsSpawnPosition: {x: -2, y: 0.5, z: 0}

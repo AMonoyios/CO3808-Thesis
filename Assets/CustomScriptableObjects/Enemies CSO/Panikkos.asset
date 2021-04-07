@@ -16,6 +16,7 @@ MonoBehaviour:
   prefabName: Panikkos
   movingSpeed: 1.5
   rotationSpeed: 200
+  maxHealth: 1000
   enemyState: 0
   enemyAttackRadius: 1.89
   enemySpotRadius: 4.4

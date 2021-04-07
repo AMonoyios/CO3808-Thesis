@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "New Enemy", menuName = "Custom Scriptable Objects/NPC/Enemy")]
@@ -31,4 +32,7 @@ public class EnemyBlueprint : CharacterBlueprint
     public float criticalAttack = 40.0f;
     [Range(2.5f,7.5f)]
     public float critiaclChance = 5.0f;
+
+    [Header("Loot drops")]
+    public List<ItemBlueprint> loot; 
 }
