@@ -279,4 +279,11 @@ Shop has buyable items/equipments                           <br/>
 Bought items spawn in-front of their shop                   <br/>
 #### bugs:
 B34) Pending - Player focus reference gets lost after several item purchases, not able to replicate constantly  <br/>
-B35) Working - Equipment stats do not scale well  <br/>
+B35) Fixed - Equipment stats do not scale well  <br/>
+
+### 21w14c:
+Added enemy loot drops          <br/>
+Fixed equipment stat modifiers  <br/>
+#### bugs:
+B36) Working - Player needs to focus the enemy multiple times until the attack is triggered <br/>
+ 
