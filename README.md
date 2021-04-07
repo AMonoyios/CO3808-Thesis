@@ -265,10 +265,18 @@ Custom editor for shop blueprint			              <br/>
 Text now follows camera correctly			              <br/>
 Created the template UI for the shop			          <br/>
 #### bugs:
-B32) Working - Shop trigger is of type trigger  <br/>
+B32) Fixed - Shop trigger is of type trigger  <br/>
 B33) Fixed - Shop UI does not open/close	      <br/>
 
 ### 21w14a:
 Worked on shop handler	                                                                <br/>
 Dynamically setting up the shop depending on shops stock                                <br/>
 Player can interact with shop and when walking away shop closes and player loses focus  <br/>
+
+### 21w14b:
+Shop UI now have dynamically scaling slots with scroll bar  <br/>
+Shop has buyable items/equipments                           <br/>
+Bought items spawn in-front of their shop                   <br/>
+#### bugs:
+B34) Pending - Player focus reference gets lost after several item purchases, not able to replicate constantly  <br/>
+B35) Working - Equipment stats do not scale well  <br/>
