@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(ShopUIHandler))]
 public class Shop : InteractPoint
 {
-    AllCharacterStats characterStats;
+    public AllCharacterStats characterStats;
     [HideInInspector]
     public FocusController focusController;
     

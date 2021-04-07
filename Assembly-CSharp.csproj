@@ -67,7 +67,6 @@
     <Compile Include="Assets\Scripts\Ai\AiNavigationController.cs" />
     <Compile Include="Assets\Scripts\Ai\AiSpawner.cs" />
     <Compile Include="Assets\Scripts\Ai\PlayerAttack.cs" />
-    <Compile Include="Assets\Scripts\Ai\Shop.cs" />
     <Compile Include="Assets\Scripts\Blueprints\CharacterBlueprint.cs" />
     <Compile Include="Assets\Scripts\Blueprints\CurrencyBlueprint.cs" />
     <Compile Include="Assets\Scripts\Blueprints\EnemyBlueprint.cs" />
@@ -98,6 +97,8 @@
     <Compile Include="Assets\Scripts\SaveGame\SaveLoadTriggers.cs" />
     <Compile Include="Assets\Scripts\SaveGame\SaveManager.cs" />
     <Compile Include="Assets\Scripts\SaveGame\SavedData.cs" />
+    <Compile Include="Assets\Scripts\Shop\Shop.cs" />
+    <Compile Include="Assets\Scripts\Shop\ShopBlueprintHolder.cs" />
     <Compile Include="Assets\Scripts\Stats\AllCharacterStats.cs" />
     <Compile Include="Assets\Scripts\Stats\EnemyUIHandler.cs" />
     <Compile Include="Assets\Scripts\Stats\ShopUIHandler.cs" />
