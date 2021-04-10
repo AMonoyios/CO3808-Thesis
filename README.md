@@ -278,7 +278,7 @@ Shop UI now have dynamically scaling slots with scroll bar  <br/>
 Shop has buyable items/equipments                           <br/>
 Bought items spawn in-front of their shop                   <br/>
 #### bugs:
-B34) Pending - Player focus reference gets lost after several item purchases, not able to replicate constantly  <br/>
+B34) Fixed - Player focus reference gets lost after several item purchases, not able to replicate constantly  <br/>
 B35) Fixed - Equipment stats do not scale well  <br/>
 
 ### 21w14c:
@@ -286,4 +286,10 @@ Added enemy loot drops          <br/>
 Fixed equipment stat modifiers  <br/>
 #### bugs:
 B36) Working - Player needs to focus the enemy multiple times until the attack is triggered <br/>
- 
+
+### 21w14d:
+Added loot drop chances                     <br/>
+Fixed enemy attack inaccurate attack values <br/>
+Added terrain bounds                        <br/>
+Added trees rocks greenery                  <br/>
+Started adding real enemies and paths       <br/>
