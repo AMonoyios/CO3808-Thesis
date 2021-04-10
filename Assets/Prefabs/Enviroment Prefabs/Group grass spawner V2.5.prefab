@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c26071a3189f1418f5b5963dcc2d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmos: {fileID: 0}
   grassPrefab: {fileID: 7665954453446363082}
   grassVolumeBox: {fileID: 6686249996751270679}
-  extraGrass: 0
-  grassRange: 0.1
-  VolumeBoxColliderOffset: 0.1
+  extraGrass: 100
+  grassRange: 2.25
+  VolumeBoxColliderOffset: 0.65
 --- !u!1 &6686249996751270679
 GameObject:
   m_ObjectHideFlags: 0

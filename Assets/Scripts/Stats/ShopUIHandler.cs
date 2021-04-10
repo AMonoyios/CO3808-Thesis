@@ -26,10 +26,17 @@ public class ShopUIHandler : MonoBehaviour
     [Header("Character shop blueprint")]
     public ShopBlueprint shopBP;
 
+    [Header("Player properties")]
+    public GameObject player;
+    public FocusController focusController;
+    public InteractPoint interactPoint;
+
     // Start is called before the first frame update
     void Start()
     {
         shop = transform.GetComponent<Shop>();
+        player = GameObject.FindGameObjectWithTag("Player").gameObject;
+        focusController = player.GetComponent<FocusController>();
 
         characterNameUI.text = shopBP.shopName;
 
@@ -50,10 +57,13 @@ public class ShopUIHandler : MonoBehaviour
         canvasRot.y = Mathf.Clamp(canvasRot.y, 25.0f, 60.0f);
 
         characterHoverCanvas.transform.rotation = Quaternion.Euler(canvasRot);
-		#endregion
+        #endregion
+
+        interactPoint = focusController.focus;
 
 		if (shop.isBrowsing)
 		{
+            // Handle shop UI when player is close or not
 			if (Vector3.Distance(transform.position, shop.playerManager.transform.position) < shop.radius)
 			{
                 shopCanvas.gameObject.SetActive(true);
@@ -67,18 +77,19 @@ public class ShopUIHandler : MonoBehaviour
             }
 			else
 			{
-                shop.focusController.DeFocus();
-
-                shopCanvas.gameObject.SetActive(false);
-				
-                if (isSetup)
+                if (isSetup == true)
 				{
-                    ResetUI();
+                    Debug.Log("DEBUG - Stats: Closing shop...");
+
+                    CloseShop();
 				}
-                
-                shop.isBrowsing = false;
-                isSetup = false;
             }
+
+			// Handle shop UI when player defocuses while browsing shop
+			if (interactPoint == null)
+			{
+                CloseShop();
+			}
 		}
     }
 
@@ -193,14 +204,17 @@ public class ShopUIHandler : MonoBehaviour
         }
     }
 
-    void ResetUI()
+    void CloseShop()
 	{
-        shopName.text = "Shop Name";
+        // deactivate the shop
+        shopCanvas.gameObject.SetActive(false);
+        shop.isBrowsing = false;
+        isSetup = false;
 
+        // reset the shop UI
 		foreach (Transform item in shopContent.transform)
 		{
 			Destroy(item.gameObject);
 		}
-	}
-
+    }
 }

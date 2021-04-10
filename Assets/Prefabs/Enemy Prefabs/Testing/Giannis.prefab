@@ -164,7 +164,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -461,7 +461,6 @@ MonoBehaviour:
   isSelected: 1
   playerManager: {fileID: 0}
   enemy: {fileID: 11400000, guid: 36d3d9a4e7e5b2648972c5d2996996e5, type: 2}
-  oldHealth: 0
   health: 0
 --- !u!114 &-6504907675647655775
 MonoBehaviour:
@@ -478,8 +477,6 @@ MonoBehaviour:
   nameUI: {fileID: 4002344042788306231}
   healthUI: {fileID: 831089170681240370}
   canvas: {fileID: 3902433489011176271}
-  mainCamera: {fileID: 0}
-  enemyBP: {fileID: 0}
 --- !u!1 &5614610509816525552
 GameObject:
   m_ObjectHideFlags: 0

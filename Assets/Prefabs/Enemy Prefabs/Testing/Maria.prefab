@@ -119,7 +119,6 @@ MonoBehaviour:
   isSelected: 1
   playerManager: {fileID: 0}
   enemy: {fileID: 11400000, guid: 735a9be4c3e69994ba8d8bbeddad3e2d, type: 2}
-  oldHealth: 0
   health: 0
 --- !u!114 &493669583711092936
 MonoBehaviour:
@@ -504,7 +503,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

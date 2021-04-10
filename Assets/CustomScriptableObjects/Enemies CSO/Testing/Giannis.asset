@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdc85d435a2f6b24798b08ed30c7b1bc, type: 3}
-  m_Name: Panikkos
+  m_Name: Giannis
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5613443920017282235, guid: ac0eef7cffaff074980646cb184f15cd, type: 3}
-  prefabName: Panikkos
-  movingSpeed: 1.5
+  prefab: {fileID: 5437931834086532417, guid: 2ac8f23e688c99a43a1d6d810a1b46f9, type: 3}
+  prefabName: Giannis
+  movingSpeed: 2.32
   rotationSpeed: 200
   maxHealth: 1000
   enemyState: 0
-  enemyAttackRadius: 1.89
-  enemySpotRadius: 4.4
-  enemyForgetRadius: 7
+  enemyAttackRadius: 1.68
+  enemySpotRadius: 3.2
+  enemyForgetRadius: 5
   smallAttack: 5
-  smallAttackChance: 50
+  smallAttackChance: 48.8
   bigAttack: 15
-  bigAttackChance: 35
+  bigAttackChance: 26.1
   criticalAttack: 40
-  critiaclChance: 7.5
+  critiaclChance: 3.77
+  loot: []

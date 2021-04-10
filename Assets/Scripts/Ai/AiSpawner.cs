@@ -8,6 +8,12 @@ public enum CharacterType
     Enemy
 }
 
+public enum CharacterParent
+{
+    NoParent,
+    Parent
+}
+
 public class AiSpawner : MonoBehaviour
 {
     public CharacterType characterType = CharacterType.NPC;
@@ -18,6 +24,9 @@ public class AiSpawner : MonoBehaviour
     public List<EnemyBlueprint> EnemyBlueprints;
 
     public int charactersToSpawn = 1;
+
+    public CharacterParent characterParent = CharacterParent.NoParent;
+    public Transform parent;
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +45,28 @@ public class AiSpawner : MonoBehaviour
             {
                 if (characterType == CharacterType.Enemy)
                 {
-                    obj = Instantiate(EnemyBlueprints[count].prefab);
+					if (characterParent == CharacterParent.NoParent)
+					{
+                        obj = Instantiate(EnemyBlueprints[count].prefab);
+					}
+					else
+					{
+                        obj = Instantiate(EnemyBlueprints[count].prefab, parent);
+                    }
+
                     obj.name = EnemyBlueprints[count].prefabName;
                 }
                 else
                 {
-                    obj = Instantiate(passiveNPCBlueprints[count].prefab);
+					if (characterParent == CharacterParent.NoParent)
+					{
+                        obj = Instantiate(passiveNPCBlueprints[count].prefab);
+					}
+					else
+					{
+                        obj = Instantiate(passiveNPCBlueprints[count].prefab, parent);
+                    }
+
                     obj.name = passiveNPCBlueprints[count].prefabName;
                 }
 
@@ -55,15 +80,31 @@ public class AiSpawner : MonoBehaviour
                 if (characterType == CharacterType.Enemy)
                 {
                     int randomEnemyToSpawn = Random.Range(0, EnemyBlueprints.Count);
+
+                    if (characterParent == CharacterParent.NoParent)
+                    {
+                        obj = Instantiate(EnemyBlueprints[randomEnemyToSpawn].prefab);
+                    }
+                    else
+                    {
+                        obj = Instantiate(EnemyBlueprints[randomEnemyToSpawn].prefab, parent);
+                    }
                     
-                    obj = Instantiate(EnemyBlueprints[randomEnemyToSpawn].prefab);
                     obj.name = EnemyBlueprints[randomEnemyToSpawn].prefabName;
                 }
                 else
                 {
                     int randomNPCToSpawn = Random.Range(0, EnemyBlueprints.Count);
 
-                    obj = Instantiate(passiveNPCBlueprints[randomNPCToSpawn].prefab);
+                    if (characterParent == CharacterParent.NoParent)
+                    {
+                        obj = Instantiate(passiveNPCBlueprints[randomNPCToSpawn].prefab);
+                    }
+                    else
+                    {
+                        obj = Instantiate(passiveNPCBlueprints[randomNPCToSpawn].prefab, parent);
+                    }
+
                     obj.name = passiveNPCBlueprints[randomNPCToSpawn].prefabName;
                 }
 

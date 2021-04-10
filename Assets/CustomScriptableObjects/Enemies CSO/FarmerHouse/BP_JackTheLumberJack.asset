@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc85d435a2f6b24798b08ed30c7b1bc, type: 3}
+  m_Name: BP_JackTheLumberJack
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4819251533382930617, guid: 14265f4f35d17484984ee883b65ab298, type: 3}
+  prefabName: Jack
+  movingSpeed: 1.14
+  rotationSpeed: 214.1
+  maxHealth: 500
+  enemyState: 0
+  enemyAttackRadius: 1.396
+  enemySpotRadius: 2
+  enemyForgetRadius: 15
+  smallAttack: 4.02
+  smallAttackChance: 48.39
+  bigAttack: 14.72
+  bigAttackChance: 27.71
+  criticalAttack: 30.3
+  critiaclChance: 3.82
+  loot:
+  - item: {fileID: 0}
+    dropChance: 100

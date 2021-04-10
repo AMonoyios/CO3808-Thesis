@@ -21,6 +21,7 @@ public class EnemyUIHandler : MonoBehaviour
         playerAttack = transform.GetComponent<PlayerAttack>();
         
         nameUI.text = playerAttack.enemy.prefabName;
+        healthUI.maxValue = playerAttack.enemy.maxHealth;
     }
 
     // Update is called once per frame

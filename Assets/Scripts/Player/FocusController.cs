@@ -43,6 +43,7 @@ public class FocusController : MonoBehaviour
                     {
                         Focus(interaction);
                     }
+
                     // if the item that we are trying to focus is not already focused
                     else if (focus.name != interaction.name)
                     {

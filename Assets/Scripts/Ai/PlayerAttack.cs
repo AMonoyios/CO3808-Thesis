@@ -11,7 +11,7 @@ public class PlayerAttack : InteractPoint
 
     [Header("Specific Enemy Variables")]
     public EnemyBlueprint enemy;
-    
+
     public float health;
 
     public void Start()
@@ -45,15 +45,30 @@ public class PlayerAttack : InteractPoint
             // drop loot
 			for (int i = 0; i < enemy.loot.Count; i++)
 			{
-                Debug.Log("DEBUG - Ai: Dropping loot " + enemy.loot[i].ItemName);
+				if (enemy.loot[i].item != null)
+				{
+                    float chance = Random.Range(0.1f, 99.9f);
+                    if (chance < enemy.loot[i].dropChance)
+				    {
+                        Debug.Log("DEBUG - Ai: Dropping loot " + enemy.loot[i].item.ItemName);
 
-                GameObject loot = Instantiate(enemy.loot[i].itemPrefab, focusController.focus.interactionPoint.position, focusController.focus.interactionPoint.rotation);
-                loot.name = enemy.loot[i].ItemName;
+                        GameObject loot = Instantiate(enemy.loot[i].item.itemPrefab, focusController.focus.interactionPoint.position, focusController.focus.interactionPoint.rotation);
+                        loot.name = enemy.loot[i].item.ItemName;
+				    }
+				    else
+				    {
+                        Debug.Log("DEBUG - Ai: Lost chance of dropping " + enemy.loot[i].item.ItemName + " - " + chance.ToString());
+				    }
+				}
+				else
+				{
+                    Debug.LogWarning("WARNING - Ai: Drop item with index " + i + " is not assigned!");
+				}
 			}
 
             // kill enemy
             Destroy(gameObject);
-		}
+        }
         else
         {
             float playerEnemyDistance = Vector3.Distance(playerManager.player.transform.position, this.transform.position);
@@ -64,7 +79,7 @@ public class PlayerAttack : InteractPoint
                 health -= characterStats.Damage;
             }
 		}
-
+        
         // defocusing enemy
         focusController.DeFocus();
     }

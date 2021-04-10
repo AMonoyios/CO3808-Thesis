@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc85d435a2f6b24798b08ed30c7b1bc, type: 3}
+  m_Name: Panikkos
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5613443920017282235, guid: ac0eef7cffaff074980646cb184f15cd, type: 3}
+  prefabName: Panikkos
+  movingSpeed: 1.5
+  rotationSpeed: 200
+  maxHealth: 1000
+  enemyState: 0
+  enemyAttackRadius: 1.89
+  enemySpotRadius: 4.4
+  enemyForgetRadius: 7
+  smallAttack: 5
+  smallAttackChance: 50
+  bigAttack: 15
+  bigAttackChance: 35
+  criticalAttack: 40
+  critiaclChance: 7.5
+  loot:
+  - item: {fileID: 11400000, guid: 392333325b28f6b49addb9743fe36c24, type: 2}
+    dropChance: 74
+  - item: {fileID: 11400000, guid: d60223acb60121645a0f58e1767ea3e6, type: 2}
+    dropChance: 19.9
+  - item: {fileID: 11400000, guid: 50897ea89d3d1db43bd18220d2b0ac19, type: 2}
+    dropChance: 100

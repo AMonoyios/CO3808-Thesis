@@ -20,12 +20,13 @@ MonoBehaviour:
   itemPrefab: {fileID: 2669747134856640759, guid: b8c0836c1f7d3264a93f32c3462ae34a,
     type: 3}
   ItemDescription: Jeggings that were created in order to test various game features.
+  ItemPrice: 0
   Bundle: dev
   AssetName: Dev_Legs
   EquipSlot: 2
   PositiveTraits:
   - traits: 0
-    traitLevel: 3
+    traitLevel: 5
   - traits: 1
     traitLevel: 3
   NegativeTraits: []

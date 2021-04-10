@@ -57,6 +57,12 @@ public class AiSpawnerEditor : Editor
         {
             spawner.charactersToSpawn = EditorGUILayout.IntSlider(spawner.charactersToSpawn, 1, 20);
 		}
+
+        spawner.characterParent = (CharacterParent)EditorGUILayout.EnumPopup("Character Parent", spawner.characterParent);
+        if (spawner.characterParent == CharacterParent.Parent)
+		{
+            spawner.parent = (Transform)EditorGUILayout.ObjectField(spawner.parent, typeof(Transform), true);
+		}
     }
 }
 
