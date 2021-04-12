@@ -285,7 +285,7 @@ B35) Fixed - Equipment stats do not scale well  <br/>
 Added enemy loot drops          <br/>
 Fixed equipment stat modifiers  <br/>
 #### bugs:
-B36) Working - Player needs to focus the enemy multiple times until the attack is triggered <br/>
+B36) Fixed - Player needs to focus the enemy multiple times until the attack is triggered <br/>
 
 ### 21w14d:
 Added loot drop chances                     <br/>
@@ -293,3 +293,9 @@ Fixed enemy attack inaccurate attack values <br/>
 Added terrain bounds                        <br/>
 Added trees rocks greenery                  <br/>
 Started adding real enemies and paths       <br/>
+
+### 21w15a:
+Created 3 zones that demonstrate how easy is to create enemies tools equipment and paths                    <br/>
+Project is NOT done but the Thesis ends here, no matter the grade this project will be finished one day :)  <br/>
+#### bugs:
+B37) Pending - Player looses focus reference when focusing specific order of enemies  <br/>
