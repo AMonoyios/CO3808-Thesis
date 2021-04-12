@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc85d435a2f6b24798b08ed30c7b1bc, type: 3}
+  m_Name: BP_PeterThePatrollingThief
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7124829911570834255, guid: fe76b38903a67ac4889a6da81a429b2d, type: 3}
+  prefabName: Peter The Thief
+  movingSpeed: 1.24
+  rotationSpeed: 232
+  maxHealth: 350
+  enemyState: 0
+  enemyAttackRadius: 1.801
+  enemySpotRadius: 3.61
+  enemyForgetRadius: 14.1
+  smallAttack: 7.8
+  smallAttackChance: 45
+  bigAttack: 15
+  bigAttackChance: 27.5
+  criticalAttack: 40
+  critiaclChance: 3.66
+  loot: []
+  currency:
+  - currency: {fileID: 11400000, guid: 69bb95fa95c54994db9cff67dcbefaf7, type: 2}
+    dropChance: 75
+  - currency: {fileID: 11400000, guid: a7cd9fd95b902f441a34462938fe4c9c, type: 2}
+    dropChance: 100

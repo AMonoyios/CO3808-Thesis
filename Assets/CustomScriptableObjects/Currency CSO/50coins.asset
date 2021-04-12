@@ -15,3 +15,5 @@ MonoBehaviour:
   CurrencyName: 50 coins
   CurrencyValue: 50
   isDefault: 0
+  currencyPrefab: {fileID: 4034197431649506979, guid: f5a73d12a0c76704cba0581147b83d48,
+    type: 3}

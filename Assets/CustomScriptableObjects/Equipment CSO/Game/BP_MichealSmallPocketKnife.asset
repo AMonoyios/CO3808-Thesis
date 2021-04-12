@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1901aa0496b5b23469ce3c2282d03208, type: 3}
+  m_Name: BP_MichealSmallPocketKnife
+  m_EditorClassIdentifier: 
+  equipBP: {fileID: 11400000}
+  ItemName: Pocket Knife
+  ItemIcon: {fileID: 21300000, guid: fad5f0b23440c424b8fd8a1e1a3bc080, type: 3}
+  isDefault: 0
+  StackUntil: 1
+  itemPrefab: {fileID: 5841036590083836391, guid: 191362eca55272748a670d7ddd4089c9,
+    type: 3}
+  ItemDescription: Small sharp knife used by wondering thiefs
+  ItemPrice: 5
+  Bundle: Bundle
+  AssetName: Asset_Name
+  EquipSlot: 4
+  PositiveTraits:
+  - traits: 2
+    traitLevel: 2
+  NegativeTraits: []

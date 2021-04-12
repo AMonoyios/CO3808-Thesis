@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1901aa0496b5b23469ce3c2282d03208, type: 3}
+  m_Name: BP_LumberAxe
+  m_EditorClassIdentifier: 
+  equipBP: {fileID: 11400000}
+  ItemName: Lumber Axe
+  ItemIcon: {fileID: 21300000, guid: 1f186ddb6ded85b47a18070316f770da, type: 3}
+  isDefault: 0
+  StackUntil: 1
+  itemPrefab: {fileID: 4814350197813342152, guid: c5e4789d73737164997c7b5b31c24365,
+    type: 3}
+  ItemDescription: An old rusty Axe that is not much helpful other than cutting down
+    trees.
+  ItemPrice: 2
+  Bundle: Bundle
+  AssetName: Asset_Name
+  EquipSlot: 4
+  PositiveTraits:
+  - traits: 2
+    traitLevel: 1
+  NegativeTraits: []

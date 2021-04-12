@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1901aa0496b5b23469ce3c2282d03208, type: 3}
+  m_Name: BP_OldWoodenThief'sShield
+  m_EditorClassIdentifier: 
+  equipBP: {fileID: 11400000}
+  ItemName: Wooden Shield
+  ItemIcon: {fileID: 21300000, guid: b247630ffe4a71945812c27a946e5731, type: 3}
+  isDefault: 0
+  StackUntil: 1
+  itemPrefab: {fileID: 194456519681905439, guid: ec3444e7593d230418f901eb98bf84f1,
+    type: 3}
+  ItemDescription: The master Thief's shield, its not really that helpful but don't
+    tell this to him
+  ItemPrice: 10
+  Bundle: Bundle
+  AssetName: Asset_Name
+  EquipSlot: 5
+  PositiveTraits:
+  - traits: 0
+    traitLevel: 1
+  NegativeTraits:
+  - traits: 0
+    traitLevel: 1

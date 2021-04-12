@@ -7,4 +7,5 @@ public class CurrencyBlueprint : ScriptableObject
     public string CurrencyName = "New Currency";
     public int CurrencyValue = 0;
     public bool isDefault = false;
+    public GameObject currencyPrefab;
 }

@@ -535,6 +535,7 @@ MonoBehaviour:
   reachedDesination: 0
   isAttacking: 0
   attackTimer: 5
+  navigationName: AiWaypoints
   gizmos: {fileID: 0}
 --- !u!114 &6035550336575946765
 MonoBehaviour:
@@ -571,7 +572,6 @@ MonoBehaviour:
   isSelected: 1
   playerManager: {fileID: 0}
   enemy: {fileID: 11400000, guid: 36d3d9a4e7e5b2648972c5d2996996e5, type: 2}
-  oldHealth: 0
   health: 100
 --- !u!114 &2444501511449879865
 MonoBehaviour:

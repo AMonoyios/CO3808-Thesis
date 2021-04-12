@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(MiscItemProperties))]
 public class LootItem : InteractPoint
 {
     [Header("Item Specific Properties")]

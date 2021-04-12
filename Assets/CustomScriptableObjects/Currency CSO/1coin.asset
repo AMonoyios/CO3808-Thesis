@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1coin
   m_EditorClassIdentifier: 
   CurrencyName: 1 coin
-  CurrencyIcon: {fileID: 0}
   CurrencyValue: 1
   isDefault: 0
+  currencyPrefab: {fileID: 3454660619134904012, guid: 6b648b73c572a4445a9d789dd0617d7f,
+    type: 3}

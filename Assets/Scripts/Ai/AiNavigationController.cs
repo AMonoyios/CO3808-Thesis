@@ -31,6 +31,9 @@ public class AiNavigationController : MonoBehaviour
     private float timer;
     private float totalAttackChance;
 
+    [Header("Navigation Variables")]
+    public string navigationName;
+
     [Header("Gizmo Reference")]
     // Cache Gizmos Script
     public GizmosManager gizmos;
@@ -45,34 +48,41 @@ public class AiNavigationController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         characterStats = player.GetComponent<AllCharacterStats>();
 
-        spawner = GameObject.Find("AiWaypoints").GetComponent<AiSpawner>();
-
-        if (spawner.characterType == CharacterType.Enemy)
-        {
-            for (int i = 0; i < spawner.EnemyBlueprints.Count; i++)
-			{
-				if (this.name == spawner.EnemyBlueprints[i].prefabName)
-				{
-                    indexInList = i;
-                    
-                    totalAttackChance = spawner.EnemyBlueprints[i].smallAttackChance + 
-                                        spawner.EnemyBlueprints[i].bigAttackChance + 
-                                        spawner.EnemyBlueprints[i].critiaclChance;
-                }
-			}
-		}
-		else
+		if (navigationName == "")
 		{
-            for (int i = 0; i < spawner.passiveNPCBlueprints.Count; i++)
+            Debug.LogError("ERROR - Ai: Navigation was not assigned!");
+		}
+		else 
+		{
+            spawner = GameObject.Find(navigationName).GetComponent<AiSpawner>();
+
+            if (spawner.characterType == CharacterType.Enemy)
             {
-                if (this.name == spawner.passiveNPCBlueprints[i].prefabName)
+                for (int i = 0; i < spawner.EnemyBlueprints.Count; i++)
+			    {
+				    if (this.name == spawner.EnemyBlueprints[i].prefabName)
+				    {
+                        indexInList = i;
+                    
+                        totalAttackChance = spawner.EnemyBlueprints[i].smallAttackChance + 
+                                            spawner.EnemyBlueprints[i].bigAttackChance + 
+                                            spawner.EnemyBlueprints[i].critiaclChance;
+                    }
+			    }
+		    }
+		    else
+		    {
+                for (int i = 0; i < spawner.passiveNPCBlueprints.Count; i++)
                 {
-                    indexInList = i;
+                    if (this.name == spawner.passiveNPCBlueprints[i].prefabName)
+                    {
+                        indexInList = i;
+                    }
                 }
             }
-        }
 
-        timer = attackTimer;
+            timer = attackTimer;
+		}
     }
 
 	// Update is called once per frame

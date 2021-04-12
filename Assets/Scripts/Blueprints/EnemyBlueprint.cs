@@ -10,6 +10,14 @@ public class LootDrop
 }
 
 [System.Serializable]
+public class CurrencyDrop
+{
+    public CurrencyBlueprint currency = null;
+    [Range(0.1f, 100.0f)]
+    public float dropChance = 100.0f;
+}
+
+[System.Serializable]
 [CreateAssetMenu(fileName = "New Enemy", menuName = "Custom Scriptable Objects/NPC/Enemy")]
 public class EnemyBlueprint : CharacterBlueprint
 {
@@ -42,5 +50,6 @@ public class EnemyBlueprint : CharacterBlueprint
     public float critiaclChance = 5.0f;
 
     [Header("Loot drops")]
-    public List<LootDrop> loot; 
+    public List<LootDrop> loot;
+    public List<CurrencyDrop> currency;
 }

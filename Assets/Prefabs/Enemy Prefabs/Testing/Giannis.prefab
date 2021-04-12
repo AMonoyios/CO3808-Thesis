@@ -425,6 +425,7 @@ MonoBehaviour:
   reachedDesination: 0
   isAttacking: 0
   attackTimer: 5
+  navigationName: AiWaypoints
   gizmos: {fileID: 0}
 --- !u!114 &8824904425123348011
 MonoBehaviour:

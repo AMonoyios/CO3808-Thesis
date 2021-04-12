@@ -8,6 +8,7 @@ public class WaypointNavigator : MonoBehaviour
     public Waypoint currentWaypoint;
     [Range(0.0f, 1.0f)]
     public float directionSwapChance = 0.0f;
+    GameObject parentWaypoint;
 
     bool navigateToNextWaypoint;
 
@@ -16,13 +17,13 @@ public class WaypointNavigator : MonoBehaviour
         navigateToNextWaypoint = (Random.Range(0, 2) == 1);
 
         controller = GetComponent<AiNavigationController>();
+
+        parentWaypoint = GameObject.Find(controller.navigationName);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject parentWaypoint = GameObject.FindGameObjectWithTag("Waypoint");
-
         Transform[] waypointsTransforms = parentWaypoint.GetComponentsInChildren<Transform>();
         this.transform.position = waypointsTransforms[Random.Range(0, waypointsTransforms.Length)].position;
 

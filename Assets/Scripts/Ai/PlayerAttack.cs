@@ -40,7 +40,7 @@ public class PlayerAttack : InteractPoint
 
     void AttackEnemy()
     {
-		if (health <= 0)
+		if (health <= playerManager.player.GetComponent<AllCharacterStats>().Damage)
 		{
             // drop loot
 			for (int i = 0; i < enemy.loot.Count; i++)
@@ -66,6 +66,32 @@ public class PlayerAttack : InteractPoint
 				}
 			}
 
+            // drop currency
+            for (int i = 0; i < enemy.currency.Count; i++)
+            {
+                if (enemy.currency[i].currency != null)
+                {
+                    float chance = Random.Range(0.1f, 99.9f);
+                    if (chance < enemy.currency[i].dropChance)
+                    {
+                        Debug.Log("DEBUG - Ai: Dropping currency " + enemy.currency[i].currency.CurrencyName);
+
+                        GameObject currency = Instantiate(enemy.currency[i].currency.currencyPrefab, focusController.focus.interactionPoint.position, focusController.focus.interactionPoint.rotation);
+                        currency.name = enemy.currency[i].currency.CurrencyName;
+                    }
+                    else
+                    {
+                        Debug.Log("DEBUG - Ai: Lost chance of dropping " + enemy.currency[i].currency.CurrencyName + " - " + chance.ToString());
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("WARNING - Ai: Drop currency with index " + i + " is not assigned!");
+                }
+            }
+
+            focusController.DeFocus();
+
             // kill enemy
             Destroy(gameObject);
         }
@@ -78,9 +104,10 @@ public class PlayerAttack : InteractPoint
                 Debug.Log("DEBUG - Ai: Player dealed " + characterStats.Damage + " to " + enemy.prefabName);
                 health -= characterStats.Damage;
             }
-		}
+
+            // defocusing enemy
+            focusController.DeFocus();
+        }
         
-        // defocusing enemy
-        focusController.DeFocus();
     }
 }
