@@ -298,4 +298,7 @@ Started adding real enemies and paths       <br/>
 Created 3 zones that demonstrate how easy is to create enemies tools equipment and paths                    <br/>
 Project is NOT done but the Thesis ends here, no matter the grade this project will be finished one day :)  <br/>
 #### bugs:
-B37) Pending - Player looses focus reference when focusing specific order of enemies  <br/>
+B37) Fixed - Player looses focus reference when focusing specific order of enemies  <br/>
+
+### 21w17a:
+Fixed bug B37 <br/>
