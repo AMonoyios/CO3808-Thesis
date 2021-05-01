@@ -38,6 +38,22 @@ public class GizmosManager : MonoBehaviour
 		InitializeFocusObjArray();
 	}
 
+	public void UpdateGizmosList()
+	{
+		for (int i = 0; i < FocusObjects.Count - 1; i++)
+		{
+			if (FocusObjects[i] == null)
+			{
+				FocusObjects.RemoveAt(i);
+			}
+
+			if (GameObject.Find(FocusObjects[i].ToString()) == null)
+			{
+				FocusObjects.RemoveAt(i);
+			}
+		}
+	}
+
 	public void InitializeFocusObjArray()
 	{
 		// Find all gameobjects in Scene
@@ -76,5 +92,4 @@ public class GizmosManager : MonoBehaviour
 			}
 		}
 	}
-
 }

@@ -93,7 +93,7 @@ public class PlayerAttack : InteractPoint
             focusController.DeFocus();
 
             // kill enemy
-            Destroy(gameObject);
+            KillEnemy();
         }
         else
         {
@@ -109,5 +109,11 @@ public class PlayerAttack : InteractPoint
             focusController.DeFocus();
         }
         
+    }
+
+	void KillEnemy()
+	{
+        gizmos.UpdateGizmosList();
+        Destroy(gameObject);
     }
 }
